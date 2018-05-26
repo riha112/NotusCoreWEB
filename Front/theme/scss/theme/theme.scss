@@ -1,0 +1,152 @@
+/*
+    MAIN THEME FAIL
+*/
+
+// Import config
+@import "../config/config";
+@import "animations";
+@import "header";
+@import "home";
+
+body{
+    background: $colorBlueMain;
+    color: white;
+    font-size: 14px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#body-content{
+    display: flex;
+    flex-direction: column;  
+    min-height: 100vh;
+}
+
+main{
+    flex: 1;
+    padding: 20px 70px;
+}
+
+.menu{
+    padding: 0;
+    list-style: none;
+    .menu-link{
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.center-xy{
+    display: inline-block;
+    position: relative;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+
+.popup{
+    @extend .center-xy;
+    background: $colorBlueMain;
+    border: 6px double $colorWhite;
+    .popup-title{
+        text-align: center;
+        padding: 15px 50px;
+        border-bottom: 1px solid $colorWhite;
+        font-weight: bold;
+    }
+    .popup-info{
+        padding: 10px;
+        margin-top: 3px;
+        border-top: 1px solid $colorWhite;
+    }
+    .popup-actions{
+        display: flex;
+        border-top: 1px solid $colorWhite;
+        padding: 10px;
+        .action{
+            flex: 1;
+        }
+    }
+}
+
+.hover-info{
+    position: relative;
+    &.hover-info-x2:hover {
+        .hover-info-content {
+            transform: translate(-50%, 100%);
+            max-width: 200%;
+            left: 50%;
+        }
+    }
+    &:hover {
+        .hover-info-content {
+            transform: translateY(100%);
+            display: block;
+            position: absolute;
+            //max-width: 100%;
+            padding: 5px;
+            font-size: 0.9em;
+            background: $colorBlack;
+            color: $colorWhite;
+            left: 0;
+            bottom: -5px;
+            z-index: 99;
+        }
+    }
+    .hover-info-content {
+        display: none;
+    }
+}
+
+.code-top, .code-bottom{
+    background: $colorGreen;
+    display: inline-block;
+    font-weight: bold;
+    padding: 5px;
+    color: white;
+}
+
+.code-body{
+    position: relative;
+    padding: 20px;
+    &:before{
+        content: '';
+        width: 3px; height: 100%;
+        left: 0px; bottom: 0;
+        background: $colorGreen;
+        position: absolute;
+    }
+}
+
+.code-element{
+    display: flex;
+    margin: 0 0 10px 0;
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.code-title{
+    display: inline-block;
+    background: $colorWhite;
+    color: $colorBlueMain;
+    padding: 2px 0;
+    margin-right: 10px;
+}
+
+.code-value{
+    &:not(.input), &.input input, &.input textarea{
+        padding: 2px 5px;
+        background: transparent;       
+        color: #5369E4;
+    }
+}
+
+.todo{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-style: normal;
+    background: $colorOrange;
+    color: $colorWhite;
+}

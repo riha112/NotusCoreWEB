@@ -1,0 +1,24 @@
+table{
+    max-width: 650px;
+    margin: 30px auto;
+    text-align: left;
+    border-collapse: collapse;
+    thead {
+        background: $colorWhite;
+        color: $colorBlack;
+        th {
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+    th,
+    td {
+        padding: 10px 5px;
+        vertical-align: text-top;
+        a {
+            background: $colorBlack;
+            color: $colorBlueLight;
+            padding: 2px 4px;
+        }
+    }
+}

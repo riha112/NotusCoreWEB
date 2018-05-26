@@ -1,0 +1,486 @@
+/*
+    CONFIGURATION FILE
+*/
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* line 13, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing.download-screen-active .download-list {
+  height: 100%;
+}
+/* line 17, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .download-list {
+  transition: height ease 0.4s;
+  position: absolute;
+  height: 0;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  background: black;
+  overflow: hidden;
+}
+/* line 27, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .download-list .close {
+  top: 50px;
+  right: 50px;
+}
+/* line 30, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .download-list .close span {
+  background: white;
+}
+/* line 35, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .download-list-hld {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+/* line 41, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .download-list-hld .empty-box {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  border: 3px solid white;
+  padding: 10px 15px;
+  display: inline-block;
+  font-size: 2em;
+  letter-spacing: 0.4em;
+}
+/* line 51, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .close {
+  position: absolute;
+  top: -40px;
+  right: -4px;
+  min-height: 30px;
+  cursor: pointer;
+}
+/* line 57, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .close span {
+  transition: all ease 0.2s;
+  width: 30px;
+  display: block;
+  height: 4px;
+  background: black;
+}
+/* line 63, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .close span:first-child {
+  transform: rotate(45deg);
+  margin-top: 13px;
+}
+/* line 67, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .close span:last-child {
+  transform: rotate(-45deg);
+  margin-top: -4px;
+}
+/* line 73, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .close:hover span:first-child, #notus-page-landing .close:hover span:last-child {
+  transform: rotate(0);
+}
+/* line 79, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 {
+  display: block !important;
+  min-height: calc(100vh - 30px) !important;
+  max-height: calc(100vh - 30px) !important;
+  overflow: auto;
+  font-family: "Open Sans", sans-serif;
+}
+/* line 85, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 button {
+  cursor: pointer;
+  background: white;
+  color: black;
+  border: 3px solid black;
+  padding: 17px 40px;
+  border-radius: 0;
+  transition: all ease 0.2s;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 0.15em;
+}
+/* line 97, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 button:hover {
+  background: black;
+  color: white;
+  outline: none;
+}
+/* line 103, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .section {
+  max-width: 920px;
+  margin: 100px auto;
+}
+/* line 107, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .section-title {
+  position: relative;
+  display: inline-block;
+}
+/* line 110, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  height: 50%;
+  width: calc(100% + 20px);
+  background: #4e00ff;
+}
+/* line 120, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .section-title.right {
+  text-align: right;
+}
+/* line 122, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .section-title.right::before {
+  left: auto;
+  right: 0;
+}
+/* line 128, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .contact {
+  text-align: center;
+  margin: 150px 0 100px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2em;
+}
+/* line 134, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .contact h2 {
+  margin-bottom: 9px;
+}
+/* line 137, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .contact div {
+  font-size: 0.8em;
+  font-weight: normal;
+}
+/* line 143, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .tech-behind .tech {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 60px;
+  grid-row-gap: 20px;
+  padding: 30px 50px 0;
+}
+/* line 150, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .tech-behind .tech .item {
+  display: inline-block;
+}
+/* line 154, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .tech-behind .tech img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* line 164, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop {
+  text-align: right;
+}
+/* line 166, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop .shop {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding: 30px 30px 0;
+}
+/* line 175, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop .item {
+  background: #1a1a1a;
+  color: white;
+  position: relative;
+}
+/* line 179, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop .item:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  top: 10px;
+  left: 10px;
+  border: 4px solid #4e00ff;
+  background: #4e00ff;
+}
+/* line 190, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop .item .image {
+  height: 150px;
+}
+/* line 192, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop .item .image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* line 199, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop .item .content {
+  padding: 20px;
+}
+/* line 201, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop .item .content .title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* line 205, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop .item .content .author {
+  font-weight: 400;
+  text-transform: none;
+  font-size: 0.8em;
+}
+/* line 210, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop .item .content .price {
+  margin-top: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* line 215, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop .item .content .category {
+  font-size: 0.8em;
+  margin-bottom: 10px;
+  background: white;
+  color: black;
+  padding: 2px 4px;
+  display: inline-block;
+}
+/* line 223, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-in-shop .item .content .about {
+  font-size: 0.8em;
+}
+/* line 229, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-posts {
+  text-align: right;
+}
+/* line 231, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-posts button {
+  padding: 10px 15px;
+}
+/* line 234, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-posts .more {
+  text-align: center;
+  margin: 40px 0 0;
+}
+/* line 238, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-posts .posts {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding: 30px 30px 0;
+}
+/* line 246, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-posts .posts .post {
+  display: inline-block;
+  padding: 20px;
+  position: relative;
+  color: white;
+  background: black;
+}
+/* line 252, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-posts .posts .post:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  top: 10px;
+  left: 10px;
+  border: 4px solid black;
+}
+/* line 262, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-posts .posts .post .title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* line 266, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .new-posts .posts .post .category {
+  font-size: 0.8em;
+}
+/* line 272, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .text {
+  line-height: 2em;
+  margin: 20px auto;
+}
+/* line 275, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .text .right {
+  text-align: right;
+}
+/* line 281, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame {
+  display: flex;
+  padding: 0 20px;
+}
+/* line 284, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame .left {
+  position: relative;
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 250px;
+  background: black;
+}
+/* line 290, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame .left:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 10px;
+  left: 10px;
+  background: black;
+}
+/* line 300, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame .left img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* line 307, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame .center {
+  width: 145px;
+  line-height: 0;
+  font-size: 0;
+  margin-left: -37px;
+  margin-bottom: 12px;
+  margin-top: auto;
+}
+/* line 314, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame .center > div {
+  display: inline-block;
+  height: 35px;
+  width: 35px;
+  background: #4e00ff;
+  margin: 2px;
+  position: relative;
+}
+/* line 321, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame .center > div:before {
+  content: "";
+  border-left: 4px solid white;
+  border-bottom: 4px solid white;
+  height: 12px;
+  width: 12px;
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  transform: rotate(45deg);
+}
+/* line 334, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame .center .next:before {
+  left: 8px;
+  transform: rotate(225deg);
+}
+/* line 340, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame .right {
+  padding: 20px 20px;
+  margin: auto;
+}
+/* line 344, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame .title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+/* line 350, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame .category {
+  color: #4e00ff;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+/* line 357, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .latest-features .frames .frame .about {
+  line-height: 1.8em;
+}
+/* line 363, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .title-hld {
+  margin: 50px auto;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+/* line 369, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 h1 {
+  font-family: "Josefin Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 8.4em;
+  margin: 0;
+  margin-bottom: -0.3em;
+}
+/* line 375, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 h1 .blink {
+  animation: blink 1s infinite;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+/* line 380, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 p {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+/* line 388, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .authentication {
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 0.15em;
+  color: #C1C1C1;
+}
+/* line 395, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .authentication span {
+  cursor: pointer;
+  transition: color ease 0.2s;
+}
+/* line 398, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block-2 .authentication span:hover {
+  color: black;
+}
+/* line 404, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block {
+  display: flex;
+  min-height: 100vh;
+}
+/* line 407, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block:first-child {
+  transition: margin-top ease 0.5s;
+}
+/* line 409, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block:first-child[data-target='1'] {
+  margin-top: -100vh;
+}
+/* line 412, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .block:first-child[data-target='2'] {
+  margin-top: -200vh;
+}
+/* line 417, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .form-hld {
+  min-width: 600px;
+  max-width: 600px;
+  padding: 0 10px;
+  margin: auto;
+  position: relative;
+}
+/* line 424, ../../../scss/theme/views/landing-page.scss */
+#notus-page-landing .container {
+  max-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}

@@ -1,0 +1,36 @@
+// Import config
+@import "../config/config";
+
+@keyframes blink {
+    0% {
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+.blink{
+    animation: blink 1s infinite;
+    animation-timing-function: $animation;
+}
+
+.side-brackets{
+    &:hover{
+        position: relative;
+        &::before, &::after{
+            display: inline-block;
+        }
+        &::before{
+            content: "[";
+            margin-right: 0.4em;
+        }
+        &::after{
+            content: "]";
+            margin-left: 0.4em;
+        }
+    }
+}

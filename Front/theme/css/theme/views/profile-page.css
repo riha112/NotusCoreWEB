@@ -1,0 +1,183 @@
+/*
+    CONFIGURATION FILE
+*/
+/* line 4, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .con {
+  width: 900px;
+  margin: 80px auto;
+}
+/* line 7, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .con ol {
+  list-style: none;
+}
+/* line 10, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .con li {
+  counter-increment: item;
+  transition: all ease 0.35s;
+  display: block;
+  box-sizing: border-box;
+  background: black;
+  color: white;
+  padding: 30px;
+  margin: 10px 0;
+  font-family: "Open Sans";
+  letter-spacing: 0.1em;
+  position: relative;
+  padding-left: 65px;
+  border: 5px solid black;
+  cursor: pointer;
+}
+/* line 25, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .con li:hover {
+  color: black;
+  background: white;
+}
+/* line 29, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .con li:before {
+  content: counter(item) ".";
+  position: absolute;
+  font-weight: bold;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+}
+/* line 40, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .pager {
+  margin: 20px 20px 40px;
+  text-align: center;
+}
+/* line 42, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .pager ul {
+  padding: 0;
+}
+/* line 45, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .pager li {
+  transition: all ease 0.2s;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border: 3px solid black;
+  text-align: center;
+  margin: 10px;
+  box-sizing: border-box;
+  font-family: "Roboto";
+  font-weight: 900;
+  padding: 7px;
+  cursor: pointer;
+}
+/* line 58, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .pager li.active, #notus-page-profile .pager li:hover {
+  color: white;
+  background: black;
+}
+/* line 67, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel {
+  margin-top: 125px;
+  position: relative;
+}
+/* line 70, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel .prev, #notus-page-profile .carousel .next {
+  width: 15px;
+  height: 15px;
+  border-left: 5px solid white;
+  border-bottom: 5px solid white;
+  position: absolute;
+  top: calc(50% - 7.5px);
+  transition: all ease 0.2s;
+  cursor: pointer;
+  z-index: 2;
+}
+/* line 81, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel .prev {
+  transform: rotate(45deg);
+  left: 60px;
+}
+/* line 84, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel .prev:hover {
+  left: 55px;
+}
+/* line 88, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel .next {
+  transform: rotate(225deg);
+  right: 60px;
+}
+/* line 91, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel .next:hover {
+  right: 55px;
+}
+/* line 95, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel button {
+  outline: none;
+  border: none;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  float: right;
+  display: block;
+  clear: both;
+  margin-top: 50px;
+  cursor: pointer;
+  transition: all ease 0.2s;
+  background: white;
+  color: black;
+}
+/* line 111, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel button:hover {
+  background: #4e00ff;
+  color: white;
+}
+/* line 116, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel .frame {
+  position: relative;
+  height: 450px;
+  display: flex;
+}
+/* line 120, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel .frame .bg {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  background-size: cover;
+  filter: brightness(15%);
+}
+/* line 130, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel .frame .max-width {
+  color: white;
+  width: 1200px;
+  margin: auto;
+  text-align: right;
+}
+/* line 136, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel .frame h2 {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 2em;
+  font-family: "Roboto", sans-serif;
+}
+/* line 142, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel .frame .description {
+  max-width: 400px;
+  float: right;
+  letter-spacing: 0.15em;
+  font-family: "Open Sans", sans-serif;
+}
+/* line 150, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .carousel + .max-width {
+  text-align: center;
+}
+/* line 154, ../../../scss/theme/views/profile-page.scss */
+#notus-page-profile .empty-box {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  border: 3px solid black;
+  padding: 10px 15px;
+  display: inline-block;
+  font-size: 2em;
+  letter-spacing: 0.4em;
+  margin: 150px auto;
+}

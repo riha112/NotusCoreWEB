@@ -1,0 +1,323 @@
+[
+    {
+        "name": "catfan/medoo",
+        "version": "v1.5.4",
+        "version_normalized": "1.5.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/catfan/Medoo.git",
+            "reference": "a6b7b05b18fa7c8f955e259d491344b1db9a51bf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/catfan/Medoo/zipball/a6b7b05b18fa7c8f955e259d491344b1db9a51bf",
+            "reference": "a6b7b05b18fa7c8f955e259d491344b1db9a51bf",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pdo": "*",
+            "php": ">=5.4"
+        },
+        "suggest": {
+            "ext-pdo_dblib": "For MSSQL or Sybase database on Linux/UNIX platform",
+            "ext-pdo_mysql": "For MySQL or MariaDB database",
+            "ext-pdo_oci": "For Oracle database",
+            "ext-pdo_oci8": "For Oracle version 8 database",
+            "ext-pdo_pqsql": "For PostgreSQL database",
+            "ext-pdo_sqlite": "For SQLite database",
+            "ext-pdo_sqlsrv": "For MSSQL database"
+        },
+        "time": "2018-01-08T20:01:12+00:00",
+        "type": "framework",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Medoo\\": "/src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Angel Lai",
+                "email": "angel@catfan.me"
+            }
+        ],
+        "description": "The lightest PHP database framework to accelerate development",
+        "homepage": "https://medoo.in",
+        "keywords": [
+            "database",
+            "lightweight",
+            "mariadb",
+            "mssql",
+            "mysql",
+            "oracle",
+            "php framework",
+            "postgresql",
+            "sql",
+            "sqlite"
+        ]
+    },
+    {
+        "name": "leocavalcante/siler",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/leocavalcante/siler.git",
+            "reference": "c13960a6399c417aa2f23053c11bfbd615788de8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/leocavalcante/siler/zipball/c13960a6399c417aa2f23053c11bfbd615788de8",
+            "reference": "c13960a6399c417aa2f23053c11bfbd615788de8",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.1"
+        },
+        "require-dev": {
+            "cboden/ratchet": "^0.4",
+            "gabordemooij/redbean": "^5.0",
+            "lcobucci/jwt": "^3.2",
+            "phpstan/phpstan": "^0.9",
+            "phpunit/phpunit": "^6.5",
+            "ratchet/pawl": "^0.3",
+            "react/http": "^0.8.1",
+            "squizlabs/php_codesniffer": "^3.2",
+            "twig/twig": "^2.4",
+            "vimeo/psalm": "dev-master",
+            "vlucas/phpdotenv": "^2.4",
+            "webonyx/graphql-php": "^0.11",
+            "zendframework/zend-diactoros": "^1.6"
+        },
+        "suggest": {
+            "vlucas/phpdotenv": "Storing configuration in the environment is one of the tenets of a twelve-factor app."
+        },
+        "time": "2018-03-02T13:33:50+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Siler\\": "src/"
+            },
+            "files": [
+                "src/Container/Container.php",
+                "src/Diactoros/Diactoros.php",
+                "src/Dotenv/Dotenv.php",
+                "src/Functional/Functional.php",
+                "src/Functional/Monad/Monad.php",
+                "src/Graphql/Graphql.php",
+                "src/Http/Http.php",
+                "src/Http/Request.php",
+                "src/Http/Response.php",
+                "src/Jwt/Jwt.php",
+                "src/Ratchet/Ratchet.php",
+                "src/Route/Route.php",
+                "src/Siler.php",
+                "src/Twig/Twig.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "leocavalcante",
+                "email": "lc@leocavalcante.com"
+            }
+        ],
+        "description": "Siler is a set of general purpose high-level abstractions aiming an API for declarative programming in PHP.",
+        "keywords": [
+            "api",
+            "framework",
+            "functional",
+            "micro",
+            "router"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-mbstring",
+        "version": "v1.7.0",
+        "version_normalized": "1.7.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-mbstring.git",
+            "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/78be803ce01e55d3491c1397cf1c64beb9c1b63b",
+            "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "suggest": {
+            "ext-mbstring": "For best performance"
+        },
+        "time": "2018-01-30T19:27:44+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.7-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Mbstring\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill for the Mbstring extension",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "mbstring",
+            "polyfill",
+            "portable",
+            "shim"
+        ]
+    },
+    {
+        "name": "twig/twig",
+        "version": "v2.4.6",
+        "version_normalized": "2.4.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twigphp/Twig.git",
+            "reference": "d2117ec118c1ff3d28ccddca8212d82787a4809f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/d2117ec118c1ff3d28ccddca8212d82787a4809f",
+            "reference": "d2117ec118c1ff3d28ccddca8212d82787a4809f",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0",
+            "symfony/polyfill-mbstring": "~1.0"
+        },
+        "require-dev": {
+            "psr/container": "^1.0",
+            "symfony/debug": "~2.7",
+            "symfony/phpunit-bridge": "~3.3@dev"
+        },
+        "time": "2018-03-03T16:23:01+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Twig_": "lib/"
+            },
+            "psr-4": {
+                "Twig\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com",
+                "homepage": "http://fabien.potencier.org",
+                "role": "Lead Developer"
+            },
+            {
+                "name": "Armin Ronacher",
+                "email": "armin.ronacher@active-4.com",
+                "role": "Project Founder"
+            },
+            {
+                "name": "Twig Team",
+                "homepage": "http://twig.sensiolabs.org/contributors",
+                "role": "Contributors"
+            }
+        ],
+        "description": "Twig, the flexible, fast, and secure template language for PHP",
+        "homepage": "http://twig.sensiolabs.org",
+        "keywords": [
+            "templating"
+        ]
+    },
+    {
+        "name": "vlucas/phpdotenv",
+        "version": "v2.4.0",
+        "version_normalized": "2.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/vlucas/phpdotenv.git",
+            "reference": "3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c",
+            "reference": "3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.9"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8 || ^5.0"
+        },
+        "time": "2016-09-01T10:05:43+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Dotenv\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause-Attribution"
+        ],
+        "authors": [
+            {
+                "name": "Vance Lucas",
+                "email": "vance@vancelucas.com",
+                "homepage": "http://www.vancelucas.com"
+            }
+        ],
+        "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
+        "keywords": [
+            "dotenv",
+            "env",
+            "environment"
+        ]
+    }
+]

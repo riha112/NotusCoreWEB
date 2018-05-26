@@ -1,0 +1,54 @@
+<div class='form-field code-element {{field.type|e}}'>
+
+    {% if field.title is not null %}
+        <div class='input-title'><span class='code-title'> {{field.title}} <span></div>
+    {% endif %}
+
+    <div 
+    class='code-value input{% if field.description is not null %} hover-info{% endif %}'
+    >
+        {% if field.type|e == 'textarea' %}
+
+        <textarea 
+            name='{{ field.name|e }}' 
+            {% if field.placeholder is not null %}
+                placeholder='{{ field.placeholder|e }}' 
+            {% endif %} 
+            {% if (field.required is not null) and (field.required == true) %}
+                required
+            {% endif %} 
+        ></textarea>
+
+        {% else %}
+
+        <input 
+            name='{{ field.name|e }}' 
+            type='{{ field.type|e }}' 
+            {% if field.value is not null %}
+                value='{{ field.value|e }}' 
+            {% endif %}    
+            {% if field.placeholder is not null %}
+                placeholder='{{ field.placeholder|e }}' 
+            {% endif %} 
+            {% if (field.required is not null) and (field.required == true) %}
+                required
+            {% endif %} 
+        />
+
+        {% endif %}
+
+        {% if field.type|e == 'checkbox' %}
+            <div class='checkbox-style'></div>
+        {% endif %}
+
+        {% if field.limit is not null %}
+            <div class='limit'> {{field.limit}} </div>
+        {% endif %}
+
+        {% if field.description is not null %}
+            <div class='description hover-info-content'> {{field.description}} </div>
+        {% endif %}
+
+    </div>
+
+</div>

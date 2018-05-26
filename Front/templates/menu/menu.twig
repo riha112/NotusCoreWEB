@@ -1,0 +1,8 @@
+<ul class='menu {{menu.machine_name}}'>
+
+    {% set depth_0 = menu.items['-1'] %}
+    {% for data in depth_0 %}
+        {{ data.rendered|raw }}
+    {% endfor %}
+
+</ul>

@@ -1,0 +1,30 @@
+{
+  "landing_page": {
+    "route": "/",
+    "call_back": "Notus\\App\\Pages\\LandingPage"
+  },
+  "profile_page": {
+    "route": "/me"
+  },
+  "user_page": {
+    "route": "/user/{username}"
+  },
+  "shop": {
+    "route": "/shop"
+  },
+  "shop_item": {
+    "route": "/shop/item/{item}"
+  },
+  "mail": {
+    "route": "/mail"
+  },
+  "api": {
+    "route": "/api",
+    "request": {
+      "0": "GET"
+    }
+  },
+  "api_doc": {
+    "route": "/api/about"
+  }
+}

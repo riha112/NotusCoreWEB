@@ -1,0 +1,37 @@
+{% if form is not null %}
+    <div id='{{form.id}}-hld' class='form-hld'>
+        {% if form.title is not null %}
+            <div class='form-title'>
+                <span class='blink'>&gt;</span> 
+                {{form.title|raw}}
+            </div>
+        {% endif %}   
+
+        {% if form.todo is not null %}
+            <div class='form-todo'>
+                ## <span class='todo'>TODO:</span> 
+                {{form.todo|raw}}
+            </div>
+        {% endif %}   
+
+        {% if form.top_description is not null %}
+            <div class='form-top-description code-top'>{{form.top_description|raw}}</div>
+        {% endif %}
+
+        <form id='{{form.id}}' method='{{form.method}}' class='form code-body' action='#'>
+            {% for field in fields %}
+                {{ field|raw }}
+            {% endfor %}
+            <input type='hidden' value='{{form.id}}' name='form'>
+        </form>
+
+
+        {% if form.bottom_description is not null %}
+            <div class='form-bottom-description code-bottom'>{{form.bottom_description|raw}}</div>
+        {% endif %}
+    </div>
+{% endif %}
+
+
+
+

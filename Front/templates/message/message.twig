@@ -1,0 +1,9 @@
+{% for messages in bundle %}
+<div class='message message-{{ messages.type }}'>
+    <div class='message-content'>
+        {% for message in messages.content  %}
+        <div>{{message.text}}</div>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}

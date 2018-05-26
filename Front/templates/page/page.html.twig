@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+    {% if html.page.title is not null %}
+        <title>{{ html.page.title }}</title>
+    {% endif %}  
+
+    <!--[if !IE]><!-->
+    {% if html.styles is not null %}
+        {% for style in html.styles %}
+            <link rel='stylesheet' href='{{ style.href|e }}.css' type='text/css'>   
+        {% endfor %}
+    {% endif %}    
+
+    {% if html.start_scripts is not null %}
+        {% for script in html.start_scripts %}
+            <script src='{{ script.src|e }}.js' type='text/javascript'></script>   
+        {% endfor %}
+    {% endif %}    
+    <!--<![endif]-->    
+
+    </head>
+
+    <body id='{{html.page.id}}'>
+        <!--[if !IE]><!-->
+        {% if (html.cookie is not null) and (html.cookie == true) %}
+            <div class='cookie'>
+                <span>
+                    Jerky picanha hamburger tenderloin, shank short loin kevin tongue ball tip meatloaf capicola. 
+                    <a href='https://google.lv'>More</a>
+                </span>
+                <button>Accept cookies</button>
+            </div>
+        {% endif %}
+        <div id='body-content'>
+            {{ html.page.content|raw }}
+        </div>
+    </body>
+
+    {% if html.end_scripts is not null %}
+        {% for script in html.end_scripts %}
+            <script src='{{ script.src|e }}.js' type='text/javascript'></script>      
+        {% endfor %}
+    {% endif %}
+    <!--<![endif]-->    
+</html>

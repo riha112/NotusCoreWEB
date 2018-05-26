@@ -1,0 +1,30 @@
+{
+    "name": "siler/project",
+    "description": "Project's description",
+    "type": "project",
+    "require": {
+        "leocavalcante/siler": "dev-master",
+        "catfan/medoo": "^1.5",
+        "twig/twig": "^2.4",
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "require-dev": {
+    },
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "dev",
+            "email": "dev@email.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "scripts": {
+        "serve": "php -S 0.0.0.0:8000 -t ."
+    },
+    "autoload": {
+        "psr-4": {
+            "Notus\\": "Notus",
+            "Notus/modules/_custom/" : "Notus/Custom"
+        }
+    }
+}

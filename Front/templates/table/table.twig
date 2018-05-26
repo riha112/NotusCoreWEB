@@ -1,0 +1,29 @@
+{% if table is not null %}
+    <table id='{{table.id|e}}' class='{% if table.dark %} dark {% endif %}'>
+        {% if table.head is not null %}
+            <thead>            
+            {% for head in table.head %}
+                <th>{{head|raw}}</th>
+            {% endfor %}
+            </thead>
+        {% endif %}  
+
+        {% if table.body is not null %}
+            <tbody>
+            {% for row in table.body %}
+                <tr>   
+                {% for value in row %}
+                    <td>{{value|raw}}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        {% else %}
+            {% if table.empty_msg is not null %}
+                <div class='empty-box'>
+                    <div class='message'>{{table.empty_msg|raw}}/div>
+                </div>
+            {% endif %}
+            <tbody>  
+        {% endif %}  
+    </table>
+{% endif %}

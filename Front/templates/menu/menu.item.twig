@@ -1,0 +1,14 @@
+<li class='menu-item {% if item.is_active %} is-active {% endif %} {% if item.description is not null %} hover-info {% endif %}'>
+    {% if item.url %}
+        <a class='menu-link' href="{{ item.url }}">
+            {{item.title}}
+        </a>
+    {% else %}
+        <div class='menu-link'>
+            {{item.title}}
+        </div>
+    {% endif %}
+    {% if item.description is not null %}
+    <span class='hover-info-content'>{{item.description}}</span>
+    {% endif %}
+</li>

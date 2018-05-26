@@ -1,0 +1,26 @@
+<div class='center-xy'>
+<div class='content-main-page'>
+<div class='title-hld'>
+    <div class='title'>
+        {% if content.page_title is not null %}
+            {{ content.page_title|raw }}
+        {% endif %}
+    </div>
+    <div class='sub-title'>
+        {% if content.page_sub_title is not null %}
+            {{ content.page_sub_title|raw }}
+        {% endif %}
+    </div>
+</div>
+
+<div class='sub-menu'>
+    {{content.sub_menu|raw}}
+</div>
+
+<div class='download-table'>
+    {% if content.download_table is not null %}
+        {{ content.download_table|raw }}
+    {% endif %}
+</div>
+</div>
+</div>

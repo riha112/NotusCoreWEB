@@ -1,0 +1,41 @@
+TABLE user:
+    id, username, password
+
+TABLE user_data:
+    id, uid, firstname, lastname, email, description, money
+
+TABLE item:
+    id, name, icon_url, description, type
+
+TABLE item_type:
+    id, name
+
+TABLE inventory:
+    id, uid, iid, amount
+
+TABLE shop_item:
+    id, uid, iid, amount, price, description, tradable?
+
+TABLE content:
+    id, nid, content, type, weight
+
+TABLE content_type:
+    id, name
+
+TABLE friend:
+    id, uid_who, uid_whom, status
+
+TABLE mail:
+    id, uid_from, uid_to, status
+
+TABLE node:
+    id, uid, title, date, status
+
+TABLE comment:
+    nid, post
+
+TABLE world:
+    id, uid, title, seed, date
+
+TABLE page:
+    id, url, callback

@@ -1,0 +1,38 @@
+/*
+    CONFIGURATION FILE
+*/
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* line 16, ../../scss/theme/animations.scss */
+.blink {
+  animation: blink 1s infinite;
+  animation-timing-function: cubic-bezier(0.07, 0.95, 0, 1);
+}
+
+/* line 22, ../../scss/theme/animations.scss */
+.side-brackets:hover {
+  position: relative;
+}
+/* line 24, ../../scss/theme/animations.scss */
+.side-brackets:hover::before, .side-brackets:hover::after {
+  display: inline-block;
+}
+/* line 27, ../../scss/theme/animations.scss */
+.side-brackets:hover::before {
+  content: "[";
+  margin-right: 0.4em;
+}
+/* line 31, ../../scss/theme/animations.scss */
+.side-brackets:hover::after {
+  content: "]";
+  margin-left: 0.4em;
+}

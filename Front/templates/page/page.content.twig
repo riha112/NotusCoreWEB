@@ -1,0 +1,27 @@
+{% if content.before is not null %}
+    {% for element in content.before %}
+        {{element.content|raw}}
+    {% endfor %}
+{% endif %}  
+{% if content.blocks is not null %}
+    {% for rect in content.blocks %}
+        <div class='block-{{loop.index}} {{rect.class}} block' {{rect.attributes|raw}}>
+            {% for element in rect.body %}
+                {% if element.prefix is not null %}
+                    {{element.prefix|raw}}
+                {% endif %}
+
+                {{element.content|raw}}
+                
+                {% if element.sufix is not null %}
+                    {{element.sufix|raw}}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endif %}   
+{% if content.after is not null %}
+    {% for element in content.after %}
+        {{element.content|raw}}
+    {% endfor %}
+{% endif %}  

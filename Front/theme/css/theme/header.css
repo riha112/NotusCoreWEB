@@ -1,0 +1,26 @@
+/*
+    CONFIGURATION FILE
+*/
+/* line 4, ../../scss/theme/header.scss */
+header {
+  background: #182B99;
+}
+/* line 6, ../../scss/theme/header.scss */
+header .main-menu {
+  margin: 0;
+  display: flex;
+  list-style: none;
+}
+/* line 10, ../../scss/theme/header.scss */
+header .main-menu .menu-link:hover, header .main-menu li.is-active .menu-link {
+  background: #5369E4;
+}
+/* line 14, ../../scss/theme/header.scss */
+header .menu-link {
+  transition: all cubic-bezier(0.07, 0.95, 0, 1) 0.1s;
+  padding: 1em 2.5em;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: #1F38C5;
+}

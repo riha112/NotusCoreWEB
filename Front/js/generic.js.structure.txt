@@ -1,0 +1,7 @@
+(function _initName($) {
+  function initName() {
+      // Code goes here
+  }
+
+  $(document).ready(initName);
+}(jQuery));

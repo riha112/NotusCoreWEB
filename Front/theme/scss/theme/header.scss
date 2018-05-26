@@ -1,0 +1,23 @@
+// Import config
+@import "../config/config";
+
+header{
+    background: $colorBlueDark;
+    .main-menu{
+        margin: 0;
+        display: flex;
+        list-style: none;
+        .menu-link:hover, li.is-active .menu-link{
+            background: $colorBlueLight;
+        }
+    }
+    .menu-link{
+        transition: all $animation 0.1s;
+        padding: 1em 2.5em;
+        display: inline-block;
+        text-decoration: none;
+
+        color: $colorWhite;
+        background: $colorBlueMain;
+    }
+}

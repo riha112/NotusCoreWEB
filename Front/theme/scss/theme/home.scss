@@ -1,0 +1,36 @@
+// Import config
+@import "../config/config";
+
+.title-hld{
+    text-align: center;
+    .title{
+        font-size: 2em;
+        font-weight: bold;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        .blink{
+            background: $colorWhite;
+            color: $colorBlack;
+        }
+    }
+    .sub-title{
+        margin-top: 0.8em;
+    }
+}
+
+.sub-menu{
+    text-align: center;
+    .menu-item{
+        margin: 10px;
+        display: inline-block;
+    }
+    .menu-link{
+        @extend .side-brackets;
+        text-transform: uppercase;
+        padding: 2px 4px;
+        display: inline-block;
+
+        color: $colorBlueDark;
+        background: $colorBlueLight;
+    }
+}

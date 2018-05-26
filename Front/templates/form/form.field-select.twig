@@ -1,0 +1,15 @@
+<div class='form-field {{field.type|e}}'>
+    <select name='{{ field.name|e }}' >
+        {% for value, option in field.options %}
+            <option value='{{value|e}}'
+            {% if (field.selected is not null) and (value == field.selected) %}
+                selected="selected"
+            {% endif %}
+            >{{option|raw}}</option>
+        {% endfor %}
+    </select>
+
+    {% if field.description is not null %}
+        <div class='description'> {{field.description}} </div>
+    {% endif %}
+</div>

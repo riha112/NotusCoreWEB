@@ -1,0 +1,40 @@
+<?php
+namespace Notus\App\Pages;
+
+use Notus\Modules\Page;
+use Siler\{Dotenv};
+
+class LandingPage extends Page\PageController
+{
+    public function getID() : string {
+        return parent::getID() . '-landing';
+    }
+
+    public function getTitle() : string {
+        return 'Hello';
+    }
+
+    protected function getFullPageData(string $content) : array {
+        return parent::getFullPageData($content);
+    }
+
+    protected function getPagesContentData(array $data = []) : array {
+        return $data;
+    }
+
+    protected function setHTMLComponents(array &$data) {
+        parent::setHTMLComponents($data);
+        $css_dir_url = Dotenv\env('THEME_CSS');
+
+        //HEAD SCRIPTS
+        $data['start_scripts'] = [
+
+        ];
+
+        //HTML BOTTOM SCRIPTS
+        $data['end_scripts'] = [
+
+        ];
+    }
+
+}
