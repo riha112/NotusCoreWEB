@@ -158,42 +158,104 @@ main {
 .popup {
   background: #1F38C5;
   border: 6px double white;
+  position: fixed;
+  max-width: 650px;
+  z-index: 15;
 }
-/* line 52, ../../scss/theme/theme.scss */
+/* line 55, ../../scss/theme/theme.scss */
 .popup .popup-title {
   text-align: center;
   padding: 15px 50px;
   border-bottom: 1px solid white;
   font-weight: bold;
 }
-/* line 58, ../../scss/theme/theme.scss */
+/* line 61, ../../scss/theme/theme.scss */
 .popup .popup-info {
   padding: 10px;
   margin-top: 3px;
   border-top: 1px solid white;
 }
-/* line 63, ../../scss/theme/theme.scss */
+/* line 66, ../../scss/theme/theme.scss */
 .popup .popup-actions {
   display: flex;
   border-top: 1px solid white;
   padding: 10px;
 }
-/* line 67, ../../scss/theme/theme.scss */
+/* line 70, ../../scss/theme/theme.scss */
 .popup .popup-actions .action {
   flex: 1;
+  text-align: center;
 }
 
-/* line 73, ../../scss/theme/theme.scss */
+/* line 77, ../../scss/theme/theme.scss */
+#cookie {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  font-size: 15px;
+}
+/* line 87, ../../scss/theme/theme.scss */
+#cookie .action span {
+  display: inline-block;
+  cursor: pointer;
+  padding: 3px 5px;
+}
+/* line 94, ../../scss/theme/theme.scss */
+#cookie .action.accept-cookie span {
+  background: #04bca6;
+}
+/* line 97, ../../scss/theme/theme.scss */
+#cookie .action.decline-cookie span {
+  background: #FF0000;
+}
+
+/* line 103, ../../scss/theme/theme.scss */
+.cookie-type {
+  padding: 20px 20px 5px;
+}
+
+/* line 107, ../../scss/theme/theme.scss */
+.hover-list {
+  color: #FCFB66;
+  display: flex;
+  cursor: pointer;
+  padding: 5px 20px;
+  margin: 5px 0;
+}
+/* line 109, ../../scss/theme/theme.scss */
+.hover-list .hover-list-name {
+  font-weight: bold;
+}
+/* line 116, ../../scss/theme/theme.scss */
+.hover-list > * {
+  flex: 1;
+  text-align: left;
+}
+/* line 119, ../../scss/theme/theme.scss */
+.hover-list > *:last-child {
+  text-align: right;
+}
+/* line 123, ../../scss/theme/theme.scss */
+.hover-list:hover {
+  color: #1F38C5;
+  background: #BABABA;
+}
+
+/* line 129, ../../scss/theme/theme.scss */
 .hover-info {
   position: relative;
 }
-/* line 76, ../../scss/theme/theme.scss */
+/* line 132, ../../scss/theme/theme.scss */
 .hover-info.hover-info-x2:hover .hover-info-content {
   transform: translate(-50%, 100%);
   max-width: 200%;
   left: 50%;
 }
-/* line 83, ../../scss/theme/theme.scss */
+/* line 139, ../../scss/theme/theme.scss */
 .hover-info:hover .hover-info-content {
   transform: translateY(100%);
   display: block;
@@ -206,12 +268,12 @@ main {
   bottom: -5px;
   z-index: 99;
 }
-/* line 97, ../../scss/theme/theme.scss */
+/* line 153, ../../scss/theme/theme.scss */
 .hover-info .hover-info-content {
   display: none;
 }
 
-/* line 102, ../../scss/theme/theme.scss */
+/* line 158, ../../scss/theme/theme.scss */
 .code-top, .code-bottom {
   background: #04bca6;
   display: inline-block;
@@ -220,12 +282,12 @@ main {
   color: white;
 }
 
-/* line 110, ../../scss/theme/theme.scss */
+/* line 166, ../../scss/theme/theme.scss */
 .code-body {
   position: relative;
   padding: 20px;
 }
-/* line 113, ../../scss/theme/theme.scss */
+/* line 169, ../../scss/theme/theme.scss */
 .code-body:before {
   content: '';
   width: 3px;
@@ -236,17 +298,17 @@ main {
   position: absolute;
 }
 
-/* line 122, ../../scss/theme/theme.scss */
+/* line 178, ../../scss/theme/theme.scss */
 .code-element {
   display: flex;
   margin: 0 0 10px 0;
 }
-/* line 125, ../../scss/theme/theme.scss */
+/* line 181, ../../scss/theme/theme.scss */
 .code-element:last-child {
   margin-bottom: 0;
 }
 
-/* line 130, ../../scss/theme/theme.scss */
+/* line 186, ../../scss/theme/theme.scss */
 .code-title {
   display: inline-block;
   background: white;
@@ -255,14 +317,14 @@ main {
   margin-right: 10px;
 }
 
-/* line 139, ../../scss/theme/theme.scss */
+/* line 195, ../../scss/theme/theme.scss */
 .code-value:not(.input), .code-value.input input, .code-value.input textarea {
   padding: 2px 5px;
   background: transparent;
   color: #5369E4;
 }
 
-/* line 146, ../../scss/theme/theme.scss */
+/* line 202, ../../scss/theme/theme.scss */
 .todo {
   text-transform: uppercase;
   font-weight: bold;

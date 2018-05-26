@@ -4,6 +4,7 @@ namespace Notus\Modules\Page;
 use Siler\{Dotenv, Twig};
 use Notus\Modules\Message\MessageController as MSG;
 use Notus\Modules\Twig\TwigUtil;
+use Notus\App\Blocks\Cookie\CookieBlock;
 
 class PageController implements PageInterface
 {
@@ -68,12 +69,15 @@ class PageController implements PageInterface
     }
 
     private static function getHTMLData(string $content) : array {
+        $cookieBlock = new CookieBlock();
+        $cookieBlockRendered =  $cookieBlock->getOutput();
         $htmlData = [
             'page' => [
                 'title' => static::getTitle(),
                 'content' => $content,
                 'id' => static::getID(),
                 'messages' => MSG::getBundlesOutput(),
+                'cookie_block' => $cookieBlockRendered,
             ],
         ];
         $htmlData['cookie'] = !isset($_COOKIE['accept_cookies']);
@@ -116,6 +120,9 @@ class PageController implements PageInterface
 
         //HEAD SCRIPTS
         $data['start_scripts'] = [
+            'cookieController', [
+                'src' => $js_dir_url . 'cookie/cookie_overwrite.js'
+            ],
             'jQuery' =>  [ 
                 'src' => $js_dir_url . 'jquery'
             ],

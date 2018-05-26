@@ -49,6 +49,9 @@ main{
     @extend .center-xy;
     background: $colorBlueMain;
     border: 6px double $colorWhite;
+    position: fixed;
+    max-width: 650px;
+    z-index: 15;
     .popup-title{
         text-align: center;
         padding: 15px 50px;
@@ -66,7 +69,60 @@ main{
         padding: 10px;
         .action{
             flex: 1;
+            text-align: center;
         }
+    }
+}
+
+#cookie{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    font-size: 15px;
+    .action{
+        span{
+            display: inline-block;
+            cursor: pointer;
+            padding: 3px 5px;
+            
+        }
+
+        &.accept-cookie span{
+            background: $colorGreen;
+        }
+        &.decline-cookie span{
+            background: $colorRed;
+        }
+
+    }
+}
+.cookie-type{
+    padding: 20px 20px 5px;
+}
+
+.hover-list{
+    color: $colorYellow;
+    .hover-list-name{
+        font-weight: bold;
+    }
+    display: flex;
+    cursor: pointer;
+    padding: 5px 20px;
+    margin: 5px 0;
+    &>*{
+        flex: 1;
+        text-align: left;
+        &:last-child{
+            text-align: right;
+        }
+    }
+    &:hover{
+        color: $colorBlueMain;
+        background: $colorGray;
     }
 }
 

@@ -18,7 +18,7 @@ class Post implements Renderable
         STATUS
         */
     ];
-    public function _inti(int $postID) : void {
+    public function _init(int $postID) : void {
         $this->postID = $postID;
         $this->_initPostData();
     }

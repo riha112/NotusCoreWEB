@@ -1,0 +1,44 @@
+<div id="cookie">
+
+    <div class='cookie-content popup'>
+        <div class='title popup-title'>
+            {{ block.title }}
+        </div>
+        <div class='body popup-info'>
+            {{ block.content }}    
+        </div>
+        <div class='list'>
+
+    {% for type, item in block.cookie_list %}
+        <div class='cookie-type'>{{type}}</div>
+        <div class='cookies {{type}}'>
+        {% for name, cookie in item %}
+            <div class='cookie hover-list'>
+
+                <div class='cookie-name hover-list-name hover-info'>
+                    {{name}}
+                                <div class='hover-info-content'>
+                {{cookie.description}}
+            </div>
+                </div>
+                <div class='cookie-state'>
+                    {% if cookie.approved is not null and cookie.approved == true %}
+                        &lt;enabled&gt;
+                    {% else %}
+                    &lt;disabled&gt;
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+
+
+        </div>
+        <div class='actions popup-actions'>
+            <div class='action accept-cookie'><span>accept</span></div>
+            <div class='action decline-cookie'><span>decline</span></div>        
+        </div>  
+    </div>
+
+</div>

@@ -24,16 +24,10 @@
     </head>
 
     <body id='{{html.page.id}}'>
+
+        {{html.page.cookie_block|raw}}
+
         <!--[if !IE]><!-->
-        {% if (html.cookie is not null) and (html.cookie == true) %}
-            <div class='cookie'>
-                <span>
-                    Jerky picanha hamburger tenderloin, shank short loin kevin tongue ball tip meatloaf capicola. 
-                    <a href='https://google.lv'>More</a>
-                </span>
-                <button>Accept cookies</button>
-            </div>
-        {% endif %}
         <div id='body-content'>
             {{ html.page.content|raw }}
         </div>
