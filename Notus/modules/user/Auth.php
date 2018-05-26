@@ -1,6 +1,7 @@
 <?php
 namespace Notus\Modules\User;
 use Notus\Modules\Message\MessageController as MSG;
+
 //TODO: Login, Register, Send confirm email, Change password, Generate token. 
 class Auth
 {
@@ -40,6 +41,21 @@ class Auth
 
     public static function register($data) : bool {
         // TODO: Pass data to db
+
+        $username = $data['username'];
+        $password = $data['password'];
+        $email = $data['email'];
+        $is_developer = $data['is_developer'];        
+        
+        UserController::createUser([
+            'username' => $username,
+            'password' => $password,
+            'email' => $email,
+            'is_developer' => $is_developer,
+        ]);
+
+        return true;
+
     }
 
     public static function logout() : void {

@@ -64,6 +64,7 @@ main{
         border-top: 1px solid $colorWhite;
     }
     .popup-actions{
+        margin-top: 20px;
         display: flex;
         border-top: 1px solid $colorWhite;
         padding: 10px;
@@ -83,6 +84,13 @@ main{
     background: rgba(0, 0, 0, 0.6);
     z-index: 999;
     font-size: 15px;
+    .Necessary .hover-list{
+        cursor: not-allowed;
+        &:hover{
+            background: $colorBlueMain;
+            color: $colorYellow;
+        }
+    }
     .action{
         span{
             display: inline-block;

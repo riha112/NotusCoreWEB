@@ -69,8 +69,12 @@ class PageController implements PageInterface
     }
 
     private static function getHTMLData(string $content) : array {
-        $cookieBlock = new CookieBlock();
-        $cookieBlockRendered =  $cookieBlock->getOutput();
+        $cookieBlockRendered = "";
+        if(!isset($_COOKIE['allowCookies'])){
+            $cookieBlock = new CookieBlock();
+            $cookieBlockRendered =  $cookieBlock->getOutput();
+        }
+
         $htmlData = [
             'page' => [
                 'title' => static::getTitle(),
@@ -120,8 +124,8 @@ class PageController implements PageInterface
 
         //HEAD SCRIPTS
         $data['start_scripts'] = [
-            'cookieController', [
-                'src' => $js_dir_url . 'cookie/cookie_overwrite.js'
+            'cookie_overwrite', [
+                'src' => $js_dir_url . 'cookie/cookie_overwrite'
             ],
             'jQuery' =>  [ 
                 'src' => $js_dir_url . 'jquery'
@@ -136,6 +140,12 @@ class PageController implements PageInterface
                 'src' => $js_dir_url . 'app'
             ],                  
         ];
+
+        if(!isset($_COOKIE['allowCookies'])){
+            $data['start_scripts']['cookie_controller'] = [
+                'src' => $js_dir_url . 'cookie/cookie_controller'
+            ];
+        }
 
         //HTML BOTTOM SCRIPTS
         $data['end_scripts'] = [

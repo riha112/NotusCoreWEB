@@ -12,7 +12,17 @@ class UserController
     }
 
     public static function createUser(array $data) : ?User {
+        try{
+            $table = 'user';
+            $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+            $columns = $data;
 
+            global $database;
+            $database->insert($table, $columns);
+        }catch(Exception $e){
+            MSG::addErrorMessage(['message' => $e->getMessage()]);
+            return [];
+        }
     }
 
     public static function changeUserData(User $user, array $data) : void {

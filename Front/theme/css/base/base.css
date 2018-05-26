@@ -55,12 +55,16 @@ table td a {
   font-style: italic;
 }
 
-/* line 17, ../../scss/base/_form.scss */
+/* line 16, ../../scss/base/_form.scss */
+form.form {
+  margin: 0;
+}
+/* line 18, ../../scss/base/_form.scss */
 form.form input, form.form textarea {
   border: none;
   outline: none;
 }
-/* line 20, ../../scss/base/_form.scss */
+/* line 21, ../../scss/base/_form.scss */
 form.form input[type='submit'], form.form input[type='button'], form.form textarea[type='submit'], form.form textarea[type='button'] {
   background: #F962B9;
   color: white;
@@ -69,7 +73,7 @@ form.form input[type='submit'], form.form input[type='button'], form.form textar
   padding: 0 5px;
   margin-bottom: 0;
 }
-/* line 29, ../../scss/base/_form.scss */
+/* line 30, ../../scss/base/_form.scss */
 form.form input[type='checkbox'], form.form textarea[type='checkbox'] {
   opacity: 0;
   position: absolute;
@@ -80,18 +84,18 @@ form.form input[type='checkbox'], form.form textarea[type='checkbox'] {
   z-index: 2;
   cursor: pointer;
 }
-/* line 38, ../../scss/base/_form.scss */
+/* line 39, ../../scss/base/_form.scss */
 form.form input[type='checkbox']:checked + .checkbox-style:before, form.form textarea[type='checkbox']:checked + .checkbox-style:before {
   content: "TRUE";
   background: #04bca6;
   color: white;
 }
-/* line 44, ../../scss/base/_form.scss */
+/* line 45, ../../scss/base/_form.scss */
 form.form input[type='checkbox'] + .checkbox-style, form.form textarea[type='checkbox'] + .checkbox-style {
   position: relative;
   z-index: 1;
 }
-/* line 47, ../../scss/base/_form.scss */
+/* line 48, ../../scss/base/_form.scss */
 form.form input[type='checkbox'] + .checkbox-style::before, form.form textarea[type='checkbox'] + .checkbox-style::before {
   content: "FALSE";
   cursor: pointer;
@@ -103,15 +107,15 @@ form.form input[type='checkbox'] + .checkbox-style::before, form.form textarea[t
   padding: 2px 5px;
   display: block;
 }
-/* line 61, ../../scss/base/_form.scss */
+/* line 62, ../../scss/base/_form.scss */
 form.form .input {
   position: relative;
 }
-/* line 64, ../../scss/base/_form.scss */
+/* line 65, ../../scss/base/_form.scss */
 form.form .form-field.submit {
   margin: 25px 0 -42px 5px;
 }
-/* line 67, ../../scss/base/_form.scss */
+/* line 68, ../../scss/base/_form.scss */
 form.form .limit {
   display: none;
 }

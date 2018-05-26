@@ -2,6 +2,7 @@
 namespace Notus\App\Forms\Authentication;
 
 use Notus\Modules\Form\FormController;
+use Notus\Modules\{User, Message\MessageController as MSG};
 
 class RegisterForm extends FormController
 {
@@ -86,10 +87,6 @@ class RegisterForm extends FormController
 
     public function validate(array &$data) : bool {
         //TODO: Implement validation
-        if ($data['gender'] == '-'){
-            unset($data['gender']);
-        }
-
         $validationArray = [
             'password' => [
                 'required' => TRUE,
@@ -105,17 +102,8 @@ class RegisterForm extends FormController
                 'required' => TRUE,
                 'charset' => ['email'],
             ],
-            'first_name' => [
-                'charset' => ['alphabet'],    
-            ],
-            'last_name' => [
-                'charset' => ['alphabet'],    
-            ],
-            'gender' => [
-                'one_of' => ['male','female']
-            ],
-            'accept_rules' => [
-                'equal' => 1,
+            'is_developer' => [
+                'one_of' => [0, 1],
                 'required' => TRUE,                
             ],
         ];
@@ -129,6 +117,7 @@ class RegisterForm extends FormController
     
     public function submit(array $data) : bool {
         //TODO: Register user.
+        User\Auth::register($data);
 
         //TODO: Send error message
     

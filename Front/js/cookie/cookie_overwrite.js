@@ -33,9 +33,6 @@ var notusCookies = {
     return savable;
   },
   cookieIsAccepted: function (cookieName) {
-
-    if(cookieName == 'AUTH') return true;
-
     var keys = Object.keys(this.cookieList);
     for (var i = 0; i < keys.length; i++) {
       var cookies = this.cookieList[keys[i]];
@@ -87,15 +84,15 @@ populateCookieList();
 function populateCookieList() {
   // Checks if cookie already set
   var rawJSON = '{\"Necessary\":{\"has_js\":{\"approved\":true,\"description\":\"Registers whether or not the user has activated JavaScript in the browser.\",\"type\":\"HTTP\",\"expiry\":\"Session\"},\"allowCookies\":{\"approved\":true,\"description\":\"Registers what cookies user has approved.\",\"type\":\"HTTP\",\"expiry\":\"1 year\"},\"__cfduid\":{\"approved\":true,\"description\":\"Used by the content network, Cloudflare, to identify trusted web traffic\",\"type\":\"HTTP\",\"expiry\":\"1 year\"},\"textsize\":{\"approved\":true,\"description\":\"Saves font size.\",\"type\":\"HTTP\",\"expiry\":\"1 year\"}},\"Statistics\":{\"_ga\":{\"approved\":false,\"description\":\"Registers a unique ID that is used to generate statistical data on how the visitor uses the website.\",\"type\":\"HTTP\",\"expiry\":\"2 years\"},\"_gat\":{\"approved\":false,\"description\":\"Used by Google Analytics to throttle request rate.\",\"type\":\"HTTP\",\"expiry\":\"Session\"},\"_gid\":{\"approved\":false,\"description\":\"Registers a unique ID that is used to generate statistical data on how the visitor uses the website.\",\"type\":\"HTTP\",\"expiry\":\"Session\"},\"counter_incremented\":{\"approved\":false,\"description\":\"New user visit.\",\"type\":\"HTTP\",\"expiry\":\"Session\"}},\"Marketing\":{\"collect\":{\"approved\":false,\"description\":\"Used to send data to Google Analytics about the visitor\'s device and behaviour. Tracks the visitor across d evices and marketing channels.\",\"type\":\"Pixel\",\"expiry\":\"Session\"},\"uvc\":{\"approved\":false,\"description\":\"Updates the counter for the web site\'s social sharing features.\",\"type\":\"HTTP\",\"expiry\":\"Session\"}}}';
-  softikomCookies.cookieList = JSON.parse(rawJSON);
+  notusCookies.cookieList = JSON.parse(rawJSON);
   
-  if (softikomCookies.cookieIsSet) {
+  if (notusCookies.cookieIsSet) {
     // Loads JSON from cookie
-    var settings = JSON.parse(softikomCookies.cookieIsSet[1]);
+    var settings = JSON.parse(notusCookies.cookieIsSet[1]);
     var cookieNames = Object.keys(settings);
     cookieNames.forEach(function(cookieName){
       var state = settings[cookieName];
-      softikomCookies.setCookiesState(cookieName, state);
+      notusCookies.setCookiesState(cookieName, state);
     });
   }
 }
@@ -120,13 +117,13 @@ if (!document.__defineGetter__) {
 }
 
 function getCookie(cookieName) {
-  return softikomCookies.cookieRoot.get.call(document);
+  return notusCookies.cookieRoot.get.call(document);
 }
 /*
 function getCookie(cookieName) {
   console.log(cookieName);
   if (cookieIsAccepted(cookieName) === true) {
-    return softikomCookies.cookieRoot.get.call(document);
+    return notusCookies.cookieRoot.get.call(document);
   }
   return '';
 }
@@ -135,8 +132,8 @@ function getCookie(cookieName) {
 function setCookie(cookieString) {
   //console.log(cookieString);
   var cookieName = getCookiesName(cookieString);
-  if (softikomCookies.cookieIsAccepted(cookieName) === true) {
-    softikomCookies.cookieRoot.set.call(document, cookieString);
+  if (notusCookies.cookieIsAccepted(cookieName) === true) {
+    notusCookies.cookieRoot.set.call(document, cookieString);
   }
 }
 

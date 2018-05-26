@@ -58,7 +58,10 @@ class __TwigTemplate_f0e7a2dce4b8d26569760b40f00264a44102aa4eb2aa8102f1f95f369fd
                 // line 16
                 echo "            <div class='cookie hover-list'>
 
-                <div class='cookie-name hover-list-name hover-info'>
+                <div class='cookie-name hover-list-name hover-info' data-name='";
+                // line 18
+                echo twig_escape_filter($this->env, $context["name"], "html", null, true);
+                echo "'>
                     ";
                 // line 19
                 echo twig_escape_filter($this->env, $context["name"], "html", null, true);
@@ -122,7 +125,7 @@ class __TwigTemplate_f0e7a2dce4b8d26569760b40f00264a44102aa4eb2aa8102f1f95f369fd
 
     public function getDebugInfo()
     {
-        return array (  101 => 35,  94 => 33,  86 => 30,  82 => 28,  78 => 26,  76 => 25,  69 => 21,  64 => 19,  59 => 16,  55 => 15,  51 => 14,  46 => 13,  42 => 12,  35 => 8,  29 => 5,  23 => 1,);
+        return array (  104 => 35,  97 => 33,  89 => 30,  85 => 28,  81 => 26,  79 => 25,  72 => 21,  67 => 19,  63 => 18,  59 => 16,  55 => 15,  51 => 14,  46 => 13,  42 => 12,  35 => 8,  29 => 5,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -144,7 +147,7 @@ class __TwigTemplate_f0e7a2dce4b8d26569760b40f00264a44102aa4eb2aa8102f1f95f369fd
         {% for name, cookie in item %}
             <div class='cookie hover-list'>
 
-                <div class='cookie-name hover-list-name hover-info'>
+                <div class='cookie-name hover-list-name hover-info' data-name='{{name}}'>
                     {{name}}
                                 <div class='hover-info-content'>
                 {{cookie.description}}

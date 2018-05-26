@@ -15,7 +15,7 @@
         {% for name, cookie in item %}
             <div class='cookie hover-list'>
 
-                <div class='cookie-name hover-list-name hover-info'>
+                <div class='cookie-name hover-list-name hover-info' data-name='{{name}}'>
                     {{name}}
                                 <div class='hover-info-content'>
                 {{cookie.description}}

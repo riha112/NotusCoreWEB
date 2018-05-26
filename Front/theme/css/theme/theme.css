@@ -177,17 +177,18 @@ main {
 }
 /* line 66, ../../scss/theme/theme.scss */
 .popup .popup-actions {
+  margin-top: 20px;
   display: flex;
   border-top: 1px solid white;
   padding: 10px;
 }
-/* line 70, ../../scss/theme/theme.scss */
+/* line 71, ../../scss/theme/theme.scss */
 .popup .popup-actions .action {
   flex: 1;
   text-align: center;
 }
 
-/* line 77, ../../scss/theme/theme.scss */
+/* line 78, ../../scss/theme/theme.scss */
 #cookie {
   position: fixed;
   left: 0;
@@ -199,26 +200,35 @@ main {
   font-size: 15px;
 }
 /* line 87, ../../scss/theme/theme.scss */
+#cookie .Necessary .hover-list {
+  cursor: not-allowed;
+}
+/* line 89, ../../scss/theme/theme.scss */
+#cookie .Necessary .hover-list:hover {
+  background: #1F38C5;
+  color: #FCFB66;
+}
+/* line 95, ../../scss/theme/theme.scss */
 #cookie .action span {
   display: inline-block;
   cursor: pointer;
   padding: 3px 5px;
 }
-/* line 94, ../../scss/theme/theme.scss */
+/* line 102, ../../scss/theme/theme.scss */
 #cookie .action.accept-cookie span {
   background: #04bca6;
 }
-/* line 97, ../../scss/theme/theme.scss */
+/* line 105, ../../scss/theme/theme.scss */
 #cookie .action.decline-cookie span {
   background: #FF0000;
 }
 
-/* line 103, ../../scss/theme/theme.scss */
+/* line 111, ../../scss/theme/theme.scss */
 .cookie-type {
   padding: 20px 20px 5px;
 }
 
-/* line 107, ../../scss/theme/theme.scss */
+/* line 115, ../../scss/theme/theme.scss */
 .hover-list {
   color: #FCFB66;
   display: flex;
@@ -226,36 +236,36 @@ main {
   padding: 5px 20px;
   margin: 5px 0;
 }
-/* line 109, ../../scss/theme/theme.scss */
+/* line 117, ../../scss/theme/theme.scss */
 .hover-list .hover-list-name {
   font-weight: bold;
 }
-/* line 116, ../../scss/theme/theme.scss */
+/* line 124, ../../scss/theme/theme.scss */
 .hover-list > * {
   flex: 1;
   text-align: left;
 }
-/* line 119, ../../scss/theme/theme.scss */
+/* line 127, ../../scss/theme/theme.scss */
 .hover-list > *:last-child {
   text-align: right;
 }
-/* line 123, ../../scss/theme/theme.scss */
+/* line 131, ../../scss/theme/theme.scss */
 .hover-list:hover {
   color: #1F38C5;
   background: #BABABA;
 }
 
-/* line 129, ../../scss/theme/theme.scss */
+/* line 137, ../../scss/theme/theme.scss */
 .hover-info {
   position: relative;
 }
-/* line 132, ../../scss/theme/theme.scss */
+/* line 140, ../../scss/theme/theme.scss */
 .hover-info.hover-info-x2:hover .hover-info-content {
   transform: translate(-50%, 100%);
   max-width: 200%;
   left: 50%;
 }
-/* line 139, ../../scss/theme/theme.scss */
+/* line 147, ../../scss/theme/theme.scss */
 .hover-info:hover .hover-info-content {
   transform: translateY(100%);
   display: block;
@@ -268,12 +278,12 @@ main {
   bottom: -5px;
   z-index: 99;
 }
-/* line 153, ../../scss/theme/theme.scss */
+/* line 161, ../../scss/theme/theme.scss */
 .hover-info .hover-info-content {
   display: none;
 }
 
-/* line 158, ../../scss/theme/theme.scss */
+/* line 166, ../../scss/theme/theme.scss */
 .code-top, .code-bottom {
   background: #04bca6;
   display: inline-block;
@@ -282,12 +292,12 @@ main {
   color: white;
 }
 
-/* line 166, ../../scss/theme/theme.scss */
+/* line 174, ../../scss/theme/theme.scss */
 .code-body {
   position: relative;
   padding: 20px;
 }
-/* line 169, ../../scss/theme/theme.scss */
+/* line 177, ../../scss/theme/theme.scss */
 .code-body:before {
   content: '';
   width: 3px;
@@ -298,17 +308,17 @@ main {
   position: absolute;
 }
 
-/* line 178, ../../scss/theme/theme.scss */
+/* line 186, ../../scss/theme/theme.scss */
 .code-element {
   display: flex;
   margin: 0 0 10px 0;
 }
-/* line 181, ../../scss/theme/theme.scss */
+/* line 189, ../../scss/theme/theme.scss */
 .code-element:last-child {
   margin-bottom: 0;
 }
 
-/* line 186, ../../scss/theme/theme.scss */
+/* line 194, ../../scss/theme/theme.scss */
 .code-title {
   display: inline-block;
   background: white;
@@ -317,14 +327,14 @@ main {
   margin-right: 10px;
 }
 
-/* line 195, ../../scss/theme/theme.scss */
+/* line 203, ../../scss/theme/theme.scss */
 .code-value:not(.input), .code-value.input input, .code-value.input textarea {
   padding: 2px 5px;
   background: transparent;
   color: #5369E4;
 }
 
-/* line 202, ../../scss/theme/theme.scss */
+/* line 210, ../../scss/theme/theme.scss */
 .todo {
   text-transform: uppercase;
   font-weight: bold;
