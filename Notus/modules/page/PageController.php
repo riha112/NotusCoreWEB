@@ -22,6 +22,7 @@ class PageController implements PageInterface
 
         $htmlData = static::getHTMLData($fullPageRendered);
         echo static::getRenderedHTML($htmlData);
+        echo self::getSideRow();
     }
 
     public static function getID() : string {
@@ -87,6 +88,17 @@ class PageController implements PageInterface
         $htmlData['cookie'] = !isset($_COOKIE['accept_cookies']);
         static::setHTMLComponents($htmlData);
         return ['html' => $htmlData];
+    }
+
+    private static function getSideRow() : string{
+        $output = "";
+        for($i = 0; $i < 999; $i++){
+            $o = ($i < 10) ?  '0' . $i : $i;
+            $output .= \sprintf(
+                "<div class='line'>%s</div>", $o
+            );
+        }
+        return sprintf("<div class='side-lines'>%s</div>", $output);
     }
 
     //Rewritable

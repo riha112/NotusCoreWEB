@@ -12,8 +12,7 @@ body{
     background: $colorBlueMain;
     color: white;
     font-size: 14px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 #body-content{
@@ -25,6 +24,38 @@ body{
 main{
     flex: 1;
     padding: 20px 70px;
+    overflow: auto;
+}
+
+.side-lines{
+    font-size: 0.9em;
+    color: #5f82ff;
+    letter-spacing: 0.1em;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    &:after{
+        content: '';
+        width: 1px;
+        height: calc(100% - 21px);
+        right: -10px;
+        bottom: 0;
+        background: #5f82ff;
+        position: absolute;
+    }
+    .line{
+        margin-bottom: 5px;
+        &:first-child{
+        right: -1.4em;
+position: relative;
+        &::after{
+            content: '</';
+            display: inline-block;
+        }
+    }}
 }
 
 .menu{

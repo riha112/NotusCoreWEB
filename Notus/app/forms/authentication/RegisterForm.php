@@ -73,7 +73,6 @@ class RegisterForm extends FormController
                 'name' => 'is_developer',
                 'type' => 'checkbox',
                 'description' => 'Are you a developer?',
-                'required' => TRUE,   
                 'title' => 'is_developer',                             
             ],
             'submit' => [

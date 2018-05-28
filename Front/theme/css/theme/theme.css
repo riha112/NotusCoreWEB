@@ -117,35 +117,72 @@ body {
   background: #1F38C5;
   color: white;
   font-size: 14px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
-/* line 19, ../../scss/theme/theme.scss */
+/* line 18, ../../scss/theme/theme.scss */
 #body-content {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* line 25, ../../scss/theme/theme.scss */
+/* line 24, ../../scss/theme/theme.scss */
 main {
   flex: 1;
   padding: 20px 70px;
+  overflow: auto;
 }
 
 /* line 30, ../../scss/theme/theme.scss */
+.side-lines {
+  font-size: 0.9em;
+  color: #5f82ff;
+  letter-spacing: 0.1em;
+  position: absolute;
+  top: 68px;
+  left: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+/* line 40, ../../scss/theme/theme.scss */
+.side-lines:after {
+  content: '';
+  width: 1px;
+  height: calc(100% - 21px);
+  right: -10px;
+  bottom: 0;
+  background: #5f82ff;
+  position: absolute;
+}
+/* line 49, ../../scss/theme/theme.scss */
+.side-lines .line {
+  margin-bottom: 5px;
+}
+/* line 51, ../../scss/theme/theme.scss */
+.side-lines .line:first-child {
+  right: -1.4em;
+  position: relative;
+}
+/* line 54, ../../scss/theme/theme.scss */
+.side-lines .line:first-child::after {
+  content: '</';
+  display: inline-block;
+}
+
+/* line 61, ../../scss/theme/theme.scss */
 .menu {
   padding: 0;
   list-style: none;
 }
-/* line 33, ../../scss/theme/theme.scss */
+/* line 64, ../../scss/theme/theme.scss */
 .menu .menu-link {
   text-decoration: none;
   cursor: pointer;
 }
 
-/* line 39, ../../scss/theme/theme.scss */
+/* line 70, ../../scss/theme/theme.scss */
 .center-xy, .popup {
   display: inline-block;
   position: relative;
@@ -154,7 +191,7 @@ main {
   top: 50%;
 }
 
-/* line 48, ../../scss/theme/theme.scss */
+/* line 79, ../../scss/theme/theme.scss */
 .popup {
   background: #1F38C5;
   border: 6px double white;
@@ -162,33 +199,33 @@ main {
   max-width: 650px;
   z-index: 15;
 }
-/* line 55, ../../scss/theme/theme.scss */
+/* line 86, ../../scss/theme/theme.scss */
 .popup .popup-title {
   text-align: center;
   padding: 15px 50px;
   border-bottom: 1px solid white;
   font-weight: bold;
 }
-/* line 61, ../../scss/theme/theme.scss */
+/* line 92, ../../scss/theme/theme.scss */
 .popup .popup-info {
   padding: 10px;
   margin-top: 3px;
   border-top: 1px solid white;
 }
-/* line 66, ../../scss/theme/theme.scss */
+/* line 97, ../../scss/theme/theme.scss */
 .popup .popup-actions {
   margin-top: 20px;
   display: flex;
   border-top: 1px solid white;
   padding: 10px;
 }
-/* line 71, ../../scss/theme/theme.scss */
+/* line 102, ../../scss/theme/theme.scss */
 .popup .popup-actions .action {
   flex: 1;
   text-align: center;
 }
 
-/* line 78, ../../scss/theme/theme.scss */
+/* line 109, ../../scss/theme/theme.scss */
 #cookie {
   position: fixed;
   left: 0;
@@ -199,36 +236,36 @@ main {
   z-index: 999;
   font-size: 15px;
 }
-/* line 87, ../../scss/theme/theme.scss */
+/* line 118, ../../scss/theme/theme.scss */
 #cookie .Necessary .hover-list {
   cursor: not-allowed;
 }
-/* line 89, ../../scss/theme/theme.scss */
+/* line 120, ../../scss/theme/theme.scss */
 #cookie .Necessary .hover-list:hover {
   background: #1F38C5;
   color: #FCFB66;
 }
-/* line 95, ../../scss/theme/theme.scss */
+/* line 126, ../../scss/theme/theme.scss */
 #cookie .action span {
   display: inline-block;
   cursor: pointer;
   padding: 3px 5px;
 }
-/* line 102, ../../scss/theme/theme.scss */
+/* line 133, ../../scss/theme/theme.scss */
 #cookie .action.accept-cookie span {
   background: #04bca6;
 }
-/* line 105, ../../scss/theme/theme.scss */
+/* line 136, ../../scss/theme/theme.scss */
 #cookie .action.decline-cookie span {
   background: #FF0000;
 }
 
-/* line 111, ../../scss/theme/theme.scss */
+/* line 142, ../../scss/theme/theme.scss */
 .cookie-type {
   padding: 20px 20px 5px;
 }
 
-/* line 115, ../../scss/theme/theme.scss */
+/* line 146, ../../scss/theme/theme.scss */
 .hover-list {
   color: #FCFB66;
   display: flex;
@@ -236,36 +273,36 @@ main {
   padding: 5px 20px;
   margin: 5px 0;
 }
-/* line 117, ../../scss/theme/theme.scss */
+/* line 148, ../../scss/theme/theme.scss */
 .hover-list .hover-list-name {
   font-weight: bold;
 }
-/* line 124, ../../scss/theme/theme.scss */
+/* line 155, ../../scss/theme/theme.scss */
 .hover-list > * {
   flex: 1;
   text-align: left;
 }
-/* line 127, ../../scss/theme/theme.scss */
+/* line 158, ../../scss/theme/theme.scss */
 .hover-list > *:last-child {
   text-align: right;
 }
-/* line 131, ../../scss/theme/theme.scss */
+/* line 162, ../../scss/theme/theme.scss */
 .hover-list:hover {
   color: #1F38C5;
   background: #BABABA;
 }
 
-/* line 137, ../../scss/theme/theme.scss */
+/* line 168, ../../scss/theme/theme.scss */
 .hover-info {
   position: relative;
 }
-/* line 140, ../../scss/theme/theme.scss */
+/* line 171, ../../scss/theme/theme.scss */
 .hover-info.hover-info-x2:hover .hover-info-content {
   transform: translate(-50%, 100%);
   max-width: 200%;
   left: 50%;
 }
-/* line 147, ../../scss/theme/theme.scss */
+/* line 178, ../../scss/theme/theme.scss */
 .hover-info:hover .hover-info-content {
   transform: translateY(100%);
   display: block;
@@ -278,12 +315,12 @@ main {
   bottom: -5px;
   z-index: 99;
 }
-/* line 161, ../../scss/theme/theme.scss */
+/* line 192, ../../scss/theme/theme.scss */
 .hover-info .hover-info-content {
   display: none;
 }
 
-/* line 166, ../../scss/theme/theme.scss */
+/* line 197, ../../scss/theme/theme.scss */
 .code-top, .code-bottom {
   background: #04bca6;
   display: inline-block;
@@ -292,12 +329,12 @@ main {
   color: white;
 }
 
-/* line 174, ../../scss/theme/theme.scss */
+/* line 205, ../../scss/theme/theme.scss */
 .code-body {
   position: relative;
   padding: 20px;
 }
-/* line 177, ../../scss/theme/theme.scss */
+/* line 208, ../../scss/theme/theme.scss */
 .code-body:before {
   content: '';
   width: 3px;
@@ -308,17 +345,17 @@ main {
   position: absolute;
 }
 
-/* line 186, ../../scss/theme/theme.scss */
+/* line 217, ../../scss/theme/theme.scss */
 .code-element {
   display: flex;
   margin: 0 0 10px 0;
 }
-/* line 189, ../../scss/theme/theme.scss */
+/* line 220, ../../scss/theme/theme.scss */
 .code-element:last-child {
   margin-bottom: 0;
 }
 
-/* line 194, ../../scss/theme/theme.scss */
+/* line 225, ../../scss/theme/theme.scss */
 .code-title {
   display: inline-block;
   background: white;
@@ -327,14 +364,14 @@ main {
   margin-right: 10px;
 }
 
-/* line 203, ../../scss/theme/theme.scss */
+/* line 234, ../../scss/theme/theme.scss */
 .code-value:not(.input), .code-value.input input, .code-value.input textarea {
   padding: 2px 5px;
   background: transparent;
   color: #5369E4;
 }
 
-/* line 210, ../../scss/theme/theme.scss */
+/* line 241, ../../scss/theme/theme.scss */
 .todo {
   text-transform: uppercase;
   font-weight: bold;
