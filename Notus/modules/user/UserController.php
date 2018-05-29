@@ -16,7 +16,6 @@ class UserController
             $table = 'user';
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
             $columns = $data;
-
             global $database;
             $database->insert($table, $columns);
         }catch(Exception $e){

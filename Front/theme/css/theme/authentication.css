@@ -1,0 +1,8 @@
+/* line 1, ../../scss/theme/authentication.scss */
+#notus-page-authentication-content {
+  position: relative;
+}
+/* line 3, ../../scss/theme/authentication.scss */
+#notus-page-authentication-content .code-bottom + button {
+  margin-left: 65px;
+}

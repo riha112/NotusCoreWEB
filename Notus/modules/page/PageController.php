@@ -12,6 +12,13 @@ class PageController implements PageInterface
     protected static $params;
 
     public static function _init(array $params = []) {
+        if(!static::canView()) return;
+
+        if(isset($_POST['AJAX'])){
+            static::AJAX();
+            return;
+        }
+
         static::$params = $params;
         
         $contentData = static::getPagesContentData();
@@ -23,6 +30,14 @@ class PageController implements PageInterface
         $htmlData = static::getHTMLData($fullPageRendered);
         echo static::getRenderedHTML($htmlData);
         echo self::getSideRow();
+    }
+
+    protected static function AJAX() {
+
+    }
+
+    protected static function canView() : bool{
+        return TRUE;
     }
 
     public static function getID() : string {
@@ -163,7 +178,16 @@ class PageController implements PageInterface
         $data['end_scripts'] = [
             'input' => [
                 'src' => $js_dir_url . 'input'
-            ]               
+            ],
+            'authentication' => [
+                'src' => $js_dir_url . 'authentication'
+            ],
+            'home' => [
+                'src' => $js_dir_url . 'home'
+            ],
+            'post' => [
+                'src' => $js_dir_url . 'post'
+            ]         
         ];
     }
 

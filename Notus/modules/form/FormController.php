@@ -8,15 +8,19 @@ class FormController implements FormInterface
     private $renderedOutput = NULL;
 
     public function __construct(array $data = []){
+        if(!$this->canView())
+            return;
+
         $isSubmitted = $this->isSubmitted();
-        \var_dump($isSubmitted);
         if($isSubmitted){
             $data = $_POST;
             $isValid = $this->validate($data);            
             if($isValid){
                 $this->submit($data);
                 unset($_POST);
-                Http\redirect(Http\url());
+                $this->done();
+            }else{
+                $this->inValid();
             }
         }else if($this->renderedOutput === NULL){
             $renderArray = $this->getRenderer($data);
@@ -24,8 +28,23 @@ class FormController implements FormInterface
         }
     }
 
+    protected function done() : void {
+        Http\redirect(Http\url());
+    }
+
+    protected function inValid() : void{
+        Http\redirect(Http\url());                
+    }
+
+    protected function canView() : bool{
+        return TRUE;
+    }
+
     public function getOutput() : string{
-        return $this->renderedOutput | ' ';
+        $output = "";
+        if(!empty($this->renderedOutput))
+            $output = $this->renderedOutput;
+        return $output;
     }
 
     private function isSubmitted() : bool {

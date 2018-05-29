@@ -1,7 +1,7 @@
 <?php
 namespace Notus\App\Pages;
 
-use Notus\App\{Forms\Forum, Blocks\Landing};
+use Notus\App\{Forms\Forum};
 use Notus\Modules\Page;
 use Siler\{Dotenv};
 

@@ -41,22 +41,27 @@ class MessageController
 
     private static function addMessage(array $messageData, string $type) {
         self::$bundle[$type] = $messageData;
+        self::saveBundle();
     }
 
     public static function getBundlesOutput() : void {
-        if (isset($_GLOBALS['MESSAGES'])) {
-            //foreach ($_GLOBALS['MESSAGES'] as $messageData) {
-              //  \var_dump($messageData);
+        if (isset($_SESSION['MESSAGES'])) {
+            foreach ($_SESSION['MESSAGES'] as $messageData) {
+                if(empty($messageData))
+                    continue;
+                    
+                \var_dump($messageData);
                 //TODO: Add div output as
-            //}
-            echo self::renderMessages($_GLOBALS['MESSAGES']);
+            }
+            echo self::renderMessages($_SESSION['MESSAGES']);
             self::clearBundle();
         }
     }
 
     private static function renderMessages($messages) : string {
-        $templatePath = self::getPathToTemplate();
-        $output = Twig\render($templatePath, $messages);
+       // $templatePath = self::getPathToTemplate();
+      //  $output = Twig\render($templatePath, $messages);
+      $output = "";
         return $output;
     }
 
@@ -66,12 +71,12 @@ class MessageController
     }
 
     public static function saveBundle() {
-        $_GLOBALS['MESSAGES'] = self::$bundle;
+        $_SESSION['MESSAGES'] = self::$bundle;
     }
 
     public static function clearBundle() {
-        if (isset($_GLOBALS['MESSAGES'])) {
-            unset($_GLOBALS['MESSAGES']);
+        if (isset($_SESSION['MESSAGES'])) {
+            unset($_SESSION['MESSAGES']);
         }
     }
 

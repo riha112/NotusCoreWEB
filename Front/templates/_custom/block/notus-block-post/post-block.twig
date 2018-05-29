@@ -1,0 +1,83 @@
+<div class='post'>
+
+<div class='like'>
+    <div class='add btn hover-info'>
+        ++
+        <div class='hover-info-content'>
+            Like post :)
+        </div>
+    </div>
+    <div class='point-count'>{{block.post.points}}</div>
+    <div class='remove btn hover-info'>
+         --
+         <div class='hover-info-content'>
+            Dislike post :(
+        </div>
+    </div>    
+</div>
+
+<div class='about'>
+    <img src='Front/images/txt-file.ico'>
+    <div class='about-content'>
+        <div class='name'>
+        {{block.post.title}}.txt
+        </div>
+        <div class='date'>
+        created on <span>{{block.created}}</span> by <span>{{block.author.username}}</span>
+        </div>
+
+    </div>
+</div>
+
+<div class='title js-toggable'>
+    {{ block.post.title }}
+    <span class='category'>
+        {{ block.post.type }}
+    </span>
+</div>
+
+<div class='content'>
+    {{ block.post.content }}
+</div>
+
+
+<div class='attachments'>
+    <div class='title js-toggable'>
+        Attachments
+    </div>
+    <div class='content'>
+        <div class='header'>
+            <div class='file-name hover-list-name'>file_name:</div>
+            <div class='file-type'>file_type:</div>
+            <div class='file-size'>file_size:</div>   
+        </div>
+        {% for attachment in block.attachments %}
+            <div class="hover-list {{attachment.type}}">
+                <div class='file-name hover-list-name'>{{attachment.name}}</div>
+                <div class='file-type'>{{attachment.type}}</div>
+                <div class='file-size'>{{attachment.size}}b</div>   
+                <div class='file-open'>Open</div>                
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class='comments'>
+    <div class='comment-title'>Commentars [{{block.comment_count}}]</div>
+    <div class='comments-content'>
+            {% for comment in block.comments %}
+            <div class="comment">
+                <div class='comment-author'>{{comment.username}}</div>
+                <div class='comment-date'>Posted on {{comment.created}}</div>
+                <div class='comment-content'>{{comment.content}}b</div>   
+            </div>
+        {% endfor %}
+    
+    </div>
+
+    {{block.new_comment_form | raw}}
+
+</div>
+
+
+</div>

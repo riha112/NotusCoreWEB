@@ -41,12 +41,14 @@
             <div class='checkbox-style'></div>
         {% endif %}
 
-        {% if field.limit is not null %}
-            <div class='limit'> {{field.limit}} </div>
-        {% endif %}
 
         {% if field.description is not null %}
-            <div class='description hover-info-content'> {{field.description}} </div>
+            <div class='description hover-info-content'> 
+            {{field.description}} 
+                {% if field.limit is not null %}
+                <div>[MAX: {{field.limit}}]</div>
+            {% endif %}
+            </div>
         {% endif %}
 
     </div>

@@ -1,0 +1,154 @@
+.post{
+    max-width: 650px;
+    .like{
+        position: fixed;
+        left: 750px;
+        top: 160px;
+        .btn{
+            text-align: center;
+            background: $colorWhite;
+            color: $colorBlack;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 3px;
+            &:hover{
+                background: $colorBlack;
+                color: $colorWhite;
+            }
+        }
+        .point-count{
+            text-align: center;
+            margin: 7px 0;
+        }
+    }
+    .about{
+        display: flex;
+        margin: 30px 0 20px;
+        img{
+            margin-right: 15px;
+        }
+        .about-content{
+            .name{
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            .date{
+                font-size: 0.8em;
+                span{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    .title{
+        font-size: 1.25em;
+        font-weight: bold;
+        color: $colorBlack;
+        background: $colorWhite;
+        padding: 5px;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        &:after{
+            content: "";
+            background: url("../../../images/minimize.png") no-repeat center center;
+            position: absolute;
+            top: 7px;
+            right: 10px;
+            width: 16px;
+            height: 16px;
+        }
+        &.hidden{
+            &:after{
+                background-image: url("../../../images/maximize.png");
+            }
+            & + .content{
+                max-height: 0px;
+                padding: 0 20px;
+            }
+        }
+        .category{
+            font-size: 0.65em;
+            font-weight: normal;
+            background: $colorGreen;
+        }
+    }
+    .content{
+        transition: all ease 0.2s;
+        max-height: 100%;
+        padding: 20px;
+        border: 4px double $colorWhite;
+        letter-spacing: 0.1em;
+        overflow: hidden;
+    }
+    .attachments{
+        flex: auto;
+        margin-top: 30px;
+        .content{
+            padding: 20px 0;
+            .header{
+                display: flex;
+                padding: 0 20px;
+                border-bottom: 1px solid white;
+                padding-bottom: 7px;
+                text-transform: uppercase;
+            }
+            .file-type{
+                max-width: 20%;
+                min-width: 20%;
+            }
+            .file-size{
+                min-width: 25%;                
+                max-width: 25%;
+            }
+            .file-name{
+                min-width: 45%;                
+                max-width: 45%
+            }
+            .file-open{
+                min-width: 10%;
+                max-width: 10%;
+            }
+        }
+    }
+
+    .comments{
+        margin-top: 90px;
+        .comment-title{
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .comment{
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .comment-content{
+            margin-top: 5px;
+        }
+        .comment-author{
+            font-weight: bold;
+            color: $colorPink;
+            display: inline-block;
+        }
+        .comment-date{
+            font-size: 0.8em;
+            display: inline-block;
+            color: #9ea8de;
+        }
+    }
+}
+
+#notus-form-new-comment-hld{
+    margin-top: 40px;
+    position: static;
+    transform: none;
+    .form-title, .form-todo{
+        display: none;
+    }
+    .submit{
+        position: relative;
+        margin-top: 0;
+        top: 41px;
+    }
+}

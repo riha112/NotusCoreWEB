@@ -45,7 +45,13 @@ class Auth
         $username = $data['username'];
         $password = $data['password'];
         $email = $data['email'];
-        $is_developer = $data['is_developer'];        
+        $is_developer = $data['is_developer'];     
+        
+        if($is_developer == 'on'){
+            $is_developer = 1;
+        }else if($is_developer == 'off'){
+            $is_developer = 0;
+        }
         
         UserController::createUser([
             'username' => $username,
@@ -85,7 +91,7 @@ class Auth
         // TODO: Change password
     }
 
-    private static function isAuthorized() : bool {
+    public static function isAuthorized() {
         return $_SESSION['auth'] ?? FALSE;
         // TODO: Check token expiration date
     }

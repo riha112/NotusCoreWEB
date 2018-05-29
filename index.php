@@ -11,7 +11,8 @@ if(!isset($_SESSION)) {
 }
 
 // Clear MSG log
-MSG::clearBundle();
+MSG::getBundlesOutput();
+//MSG::clearBundle();
 
 // Config variable init
 Dotenv\init('./Notus/config');
@@ -35,8 +36,6 @@ $database = new Medoo([
     'password' => Dotenv\env('DB_PASSWORD'),
 ]);
 
-var_dump($_SESSION);
-
 // TODO: MOVE TO ROUTES.PHP
 Route\get('/', 'Notus\App\Pages\LandingPage::_init');
 Route\get('/login', 'Notus\App\Pages\AuthenticationPage::_init');
@@ -44,6 +43,9 @@ Route\post('/login', 'Notus\App\Pages\AuthenticationPage::_init');
 
 Route\get('/forum/new', 'Notus\App\Pages\NewPostPage::_init');
 Route\post('/forum/new', 'Notus\App\Pages\NewPostPage::_init');
+
+Route\get('/forum', 'Notus\App\Pages\ForumPage::_init');
+Route\post('/forum', 'Notus\App\Pages\ForumPage::_init');
 
 // Saves msgs
 MSG::saveBundle();

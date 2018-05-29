@@ -2,11 +2,16 @@
 namespace Notus\App\Pages;
 
 use Notus\App\{Forms\Authentication, Blocks\Landing};
-use Notus\Modules\Page;
+use Notus\Modules\{Page, User\Auth};
 use Siler\{Dotenv};
 
 class AuthenticationPage extends Page\PageController
 {
+
+    protected static function canView() : bool {
+        return Auth::isAuthorized() === FALSE;
+    }
+
     public static function getID() : string {
         return parent::getID() . '-authentication';
     }

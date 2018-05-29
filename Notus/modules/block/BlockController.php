@@ -25,11 +25,16 @@ class BlockController implements BlockInterface
         return TwigUtil::getPathToTemplate('_custom/block/', $this->getID(), $name);
     }
 
+    protected function canView() : bool{
+        return TRUE;
+    }
+
     protected function getBlocksData() : array {
         return [];
     }
 
     private function renderBlock() : void {
+        if(!$this->canView()) return;
         $data = $this->getBlocksData();
         $path = $this->getPathToTemplate($this->getTemplatesName());
         $render = Twig\render($path, $data);

@@ -7,6 +7,8 @@
 @import "animations";
 @import "header";
 @import "home";
+@import "authentication";
+@import "post";
 
 body{
     background: $colorBlueMain;
@@ -25,6 +27,7 @@ main{
     flex: 1;
     padding: 20px 70px;
     overflow: auto;
+    max-height: calc(100vh - 83px)
 }
 
 .side-lines{
@@ -104,6 +107,12 @@ position: relative;
             text-align: center;
         }
     }
+}
+
+.form-hld{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #cookie{

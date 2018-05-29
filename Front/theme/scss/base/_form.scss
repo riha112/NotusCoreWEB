@@ -13,6 +13,16 @@
     }
 }
 
+.tmp-btn{
+    background: $colorPink;
+    color: $colorWhite;
+    cursor: pointer;
+    transition: all $animation 0.1s;
+    padding: 0 5px;
+    border: none;
+    margin-bottom: 0;
+}
+
 form.form{
     margin: 0;
     input, textarea{
@@ -20,12 +30,7 @@ form.form{
         outline: none;
         &[type='submit'],
         &[type='button'] {
-            background: $colorPink;
-            color: $colorWhite;
-            cursor: pointer;
-            transition: all $animation 0.1s;
-            padding: 0 5px;
-            margin-bottom: 0;
+            @extend .tmp-btn;
         }   
         &[type='checkbox']{
             opacity: 0;
@@ -63,10 +68,18 @@ form.form{
         position: relative;
     }
     .form-field.submit{
-        margin: 25px 0 -42px 5px;
+        margin: -20px 0 0 5px;
+        position: relative;
+        top: 41px;
+        display: inline-block;
     }
     .limit{
         display: none;
     }
 
-    }
+}
+
+.code-bottom + button{
+    @extend .tmp-btn;
+}
+
