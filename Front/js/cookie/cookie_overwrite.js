@@ -1,5 +1,7 @@
 var notusCookies = {
   cookieList: [],
+  cookieEnabled: ("cookie" in document && (document.cookie.length > 0 ||
+    (document.cookie = "test").indexOf.call(document.cookie, "test") > -1)),
   cookieRoot: Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') || // Chrome Safari Opera IE
     Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie'), // firefox
   cookieIsSet: document.cookie.match(new RegExp("allowCookies" + '=([^;]+)')),
