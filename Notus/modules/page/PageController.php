@@ -14,7 +14,8 @@ class PageController implements PageInterface
 
     public static function _init(array $params = []) {
         if(!static::canView()) {
-            $_SESSION["ACCESS_DENIED"] = TRUE;
+            //$_SESSION["ACCESS_DENIED"] = TRUE;
+            $_SESSION["404"] = TRUE;            
             return;
         }
 

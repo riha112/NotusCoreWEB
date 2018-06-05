@@ -23,7 +23,14 @@ class __TwigTemplate_50fdd733736f639c1a37d748dcb37c42f791f5b9bd8491f1112b9643772
         echo "<div class=\"profile-content\">
 
     <div class=\"profile-picture\">
-        <img src=\"https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F1xawnFRPNf9g4%2Fgiphy.gif&f=1\">
+        <img src=\"";
+        // line 4
+        if ( !(null === twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["block"] ?? null), "user_data", array()), "base_info", array()), "profile_picture", array()))) {
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["block"] ?? null), "user_data", array()), "base_info", array()), "profile_picture", array()), "html", null, true);
+        } else {
+            echo "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F1xawnFRPNf9g4%2Fgiphy.gif&f=1";
+        }
+        echo "\">
         <div class=\"username\">@";
         // line 5
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["block"] ?? null), "user_data", array()), "base_info", array()), "username", array()), "html", null, true);
@@ -88,7 +95,7 @@ class __TwigTemplate_50fdd733736f639c1a37d748dcb37c42f791f5b9bd8491f1112b9643772
 
     public function getDebugInfo()
     {
-        return array (  75 => 21,  67 => 18,  61 => 16,  55 => 13,  49 => 12,  45 => 11,  40 => 10,  36 => 9,  29 => 5,  23 => 1,);
+        return array (  82 => 21,  74 => 18,  68 => 16,  62 => 13,  56 => 12,  52 => 11,  47 => 10,  43 => 9,  36 => 5,  28 => 4,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -96,7 +103,7 @@ class __TwigTemplate_50fdd733736f639c1a37d748dcb37c42f791f5b9bd8491f1112b9643772
         return new Twig_Source("<div class=\"profile-content\">
 
     <div class=\"profile-picture\">
-        <img src=\"https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F1xawnFRPNf9g4%2Fgiphy.gif&f=1\">
+        <img src=\"{% if block.user_data.base_info.profile_picture is not null %}{{block.user_data.base_info.profile_picture}}{% else %}https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F1xawnFRPNf9g4%2Fgiphy.gif&f=1{% endif %}\">
         <div class=\"username\">@{{block.user_data.base_info.username}}</div>
         <div class=\"points\">points:{4342}</div>
     </div>

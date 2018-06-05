@@ -9,11 +9,18 @@ class ChangeProfileForm extends Form\FormController
         return parent::getID() . '-new-post';
     }
 
+    protected function canView() : bool {
+        return User\Auth::isAuthorized();
+    }
+
+    protected function done() : void {
+        header("Refresh:0");
+    }
+
     protected function getFormData() : array {
         $data = parent::getFormData();
-        $data['form']['title'] = 'NEW_POST_FORM';
-        $data['form']['top_description'] = 'set new_post as Post:';
-        $data['form']['bottom_description'] = ';';
+        $data['form']['title'] = 'Change profile data';
+        $data['form']['top_description'] = 'Enter missing data';
         return $data;
     }
 
@@ -56,11 +63,14 @@ class ChangeProfileForm extends Form\FormController
                 "description" => "Profile picture",
                 "title" => "profile_picture",
             ],
-            'submit' => [
-                'name' => 'submit',
+            'accept' => [
                 'type' => 'submit',
-                'value' => '>> run'
-            ]
+                'value' => '>> ok'
+            ],
+            'close' => [
+                'type' => 'div',
+                'value' => '>> cancel'
+            ],
         ];
         return $data;
     }

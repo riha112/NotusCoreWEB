@@ -2,6 +2,7 @@
 namespace Notus\App\Tables;
 
 use Notus\Modules\Table\DatabaseTableController;
+use Notus\Modules\File;
 
 class DownloadTable extends DatabaseTableController
 {
@@ -23,8 +24,7 @@ class DownloadTable extends DatabaseTableController
                 'description',
                 'type',
                 'file',
-                'created',
-                'size'                
+                'created'
             ]
         ];
     }
@@ -53,9 +53,10 @@ class DownloadTable extends DatabaseTableController
         }
 
 
-        if(isset($data['path'])){
-            $data['#'] = $data['path'];
-            unset($data['path']);
+        if(isset($data['file'])){
+            $file = File\FileController::getFile($data['file']);
+            $data['#'] =  "<a href='" . $file->getLocation() . "'>Download</a>";
+            unset($data['file']);
         }
     }
 

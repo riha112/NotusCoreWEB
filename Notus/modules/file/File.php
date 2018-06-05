@@ -46,7 +46,7 @@ class File
     }
 
     public function getLocation() : ?string {
-        return Dotenv\env('FILE_PATH') . $this->location;
+        return Dotenv\env('FILE_PATH_LOCAL') . $this->location;
     }
 
     public function getCreationTime() : ?string {

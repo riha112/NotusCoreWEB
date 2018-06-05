@@ -11,10 +11,10 @@
         <li>
             <span class="title">Actions</span>
             <ul>
-                <li>change_data</li>
-                <li>change_password</li>
+                <li data-fade-toggle="#change-data">change_data</li>
+                <li data-fade-toggle="#change-password">change_password</li>
                 <li data-fade-toggle="#logout">logout</li>
-                <li>delete_profile</li>
+                <li data-fade-toggle="#delete-profile">delete_profile</li>
             </ul>
         </li>
     </ul>
@@ -31,12 +31,19 @@
     <div class="popup-bg" id="logout">
         {{ content.logout_form.content|raw }}
     </div>
+    <div class="popup-bg" id="delete-profile">
+        {{ content.delete_profile.content|raw }}
+    </div>
+        <div class="popup-bg" id="change-data">
+        {{ content.change_profile.content|raw }}
+    </div>
+    <div class="popup-bg" id="change-password">
+        {{ content.change_password.content|raw }}
+    </div>
 </div>
 
 <div class="side-forms">
-<div class="side-form" id="change-data">
-    {{ content.change_profile.content|raw }}
-    </div>
+
 </div>
 
 </div>

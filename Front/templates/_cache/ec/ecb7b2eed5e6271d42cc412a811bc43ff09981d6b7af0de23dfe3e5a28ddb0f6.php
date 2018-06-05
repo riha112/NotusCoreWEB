@@ -33,7 +33,7 @@ class __TwigTemplate_a1d514ee45692dc4f1d7aea8755a1a94a52270ee74a0565a927e76d6c50
         $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["block"] ?? null), "posts", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
             // line 6
-            echo "        <a class='forum-post' href=\"./forum?post=";
+            echo "        <a class='forum-post' href=\"./post/edit?post=";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["post"], "id", array()), "html", null, true);
             echo "\">
             <div class='icon'>
@@ -99,7 +99,7 @@ class __TwigTemplate_a1d514ee45692dc4f1d7aea8755a1a94a52270ee74a0565a927e76d6c50
         My Posts [{{block.posts|length}}]
     </div>
     {% for post in block.posts %}
-        <a class='forum-post' href=\"./forum?post={{post.id}}\">
+        <a class='forum-post' href=\"./post/edit?post={{post.id}}\">
             <div class='icon'>
                 <div class='{{post.type}}-img'></div>
                 <div class='type'>{{post.type}}</div>

@@ -73,7 +73,12 @@ class __TwigTemplate_63c08fa99436d7a589255d11cc8b126447a1d463a0b78d5dfed3eda1c44
             }
             // line 19
             echo " 
-        ></textarea>
+        >";
+            // line 20
+            if ( !(null === twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "value", array()))) {
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "value", array()));
+            }
+            echo "</textarea>
 
         ";
         } else {
@@ -90,96 +95,108 @@ class __TwigTemplate_63c08fa99436d7a589255d11cc8b126447a1d463a0b78d5dfed3eda1c44
             echo "' 
             ";
             // line 27
-            if ( !(null === twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "value", array()))) {
+            if ((twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "type", array())) == "checkbox")) {
                 // line 28
+                echo "                ";
+                if ((twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "value", array()) == "1")) {
+                    // line 29
+                    echo "                    checked=\"checked\"
+                ";
+                }
+                // line 30
+                echo "  
+            ";
+            } elseif ( !(null === twig_get_attribute($this->env, $this->source,             // line 31
+($context["field"] ?? null), "value", array()))) {
+                // line 32
                 echo "                value='";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "value", array()));
                 echo "' 
             ";
             }
-            // line 29
-            echo "    
+            // line 33
+            echo "  
             ";
-            // line 30
+            // line 34
             if ( !(null === twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "placeholder", array()))) {
-                // line 31
+                // line 35
                 echo "                placeholder='";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "placeholder", array()));
                 echo "' 
             ";
             }
-            // line 32
+            // line 36
             echo " 
             ";
-            // line 33
+            // line 37
             if (( !(null === twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "required", array())) && (twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "required", array()) == true))) {
-                // line 34
+                // line 38
                 echo "                required
             ";
             }
-            // line 35
+            // line 39
             echo " 
         />
 
         ";
         }
-        // line 39
+        // line 43
         echo "
         ";
-        // line 40
+        // line 44
         if ((twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "type", array())) == "checkbox")) {
-            // line 41
+            // line 45
             echo "            <div class='checkbox-style'></div>
         ";
         }
-        // line 43
+        // line 47
         echo "
 
         ";
-        // line 45
+        // line 49
         if ( !(null === twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "description", array()))) {
-            // line 46
+            // line 50
             echo "            <div class='description hover-info-content'> 
                 ";
-            // line 47
+            // line 51
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "description", array()), "html", null, true);
             echo " 
                 ";
-            // line 48
+            // line 52
             if ( !(null === twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "validator", array()))) {
-                // line 49
+                // line 53
                 echo "                    ";
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "validator", array()));
                 foreach ($context['_seq'] as $context["key"] => $context["value"]) {
-                    // line 50
+                    // line 54
                     echo "                        ";
                     if (twig_in_filter($context["key"], array(0 => "one_of", 1 => "charset"))) {
-                        // line 51
+                        // line 55
                         echo "                        ";
                     } else {
-                        // line 52
+                        // line 56
                         echo "                            ";
                         if (($context["key"] == "required")) {
-                            // line 53
+                            // line 57
                             echo "                                ";
                             if (($context["value"] == 1)) {
-                                // line 54
+                                // line 58
                                 echo "                                    ";
                                 $context["value"] = "TRUE";
-                                // line 55
+                                // line 59
                                 echo "                                ";
                             } else {
-                                // line 56
+                                // line 60
                                 echo "                                    ";
                                 $context["value"] = "false";
-                                // line 57
+                                // line 61
                                 echo "                                ";
                             }
                             echo "                                
                             ";
                         }
-                        // line 59
+                        // line 63
                         echo "                        <div class='validates'><span>";
                         echo twig_escape_filter($this->env, $context["key"], "html", null, true);
                         echo "</span>: ";
@@ -187,21 +204,21 @@ class __TwigTemplate_63c08fa99436d7a589255d11cc8b126447a1d463a0b78d5dfed3eda1c44
                         echo "</div>                
                         ";
                     }
-                    // line 60
+                    // line 64
                     echo "                    
                     ";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['key'], $context['value'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 62
+                // line 66
                 echo "                ";
             }
-            // line 63
+            // line 67
             echo "            </div>
         ";
         }
-        // line 65
+        // line 69
         echo "
     </div>
 
@@ -221,7 +238,7 @@ class __TwigTemplate_63c08fa99436d7a589255d11cc8b126447a1d463a0b78d5dfed3eda1c44
 
     public function getDebugInfo()
     {
-        return array (  205 => 65,  201 => 63,  198 => 62,  191 => 60,  183 => 59,  177 => 57,  174 => 56,  171 => 55,  168 => 54,  165 => 53,  162 => 52,  159 => 51,  156 => 50,  151 => 49,  149 => 48,  145 => 47,  142 => 46,  140 => 45,  136 => 43,  132 => 41,  130 => 40,  127 => 39,  121 => 35,  117 => 34,  115 => 33,  112 => 32,  106 => 31,  104 => 30,  101 => 29,  95 => 28,  93 => 27,  89 => 26,  85 => 25,  81 => 23,  75 => 19,  71 => 18,  69 => 17,  66 => 16,  60 => 15,  58 => 14,  54 => 13,  50 => 11,  48 => 10,  41 => 8,  37 => 6,  31 => 4,  29 => 3,  23 => 1,);
+        return array (  222 => 69,  218 => 67,  215 => 66,  208 => 64,  200 => 63,  194 => 61,  191 => 60,  188 => 59,  185 => 58,  182 => 57,  179 => 56,  176 => 55,  173 => 54,  168 => 53,  166 => 52,  162 => 51,  159 => 50,  157 => 49,  153 => 47,  149 => 45,  147 => 44,  144 => 43,  138 => 39,  134 => 38,  132 => 37,  129 => 36,  123 => 35,  121 => 34,  118 => 33,  112 => 32,  110 => 31,  107 => 30,  103 => 29,  100 => 28,  98 => 27,  94 => 26,  90 => 25,  86 => 23,  78 => 20,  75 => 19,  71 => 18,  69 => 17,  66 => 16,  60 => 15,  58 => 14,  54 => 13,  50 => 11,  48 => 10,  41 => 8,  37 => 6,  31 => 4,  29 => 3,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -245,16 +262,20 @@ class __TwigTemplate_63c08fa99436d7a589255d11cc8b126447a1d463a0b78d5dfed3eda1c44
             {% if (field.required is not null) and (field.required == true) %}
                 required
             {% endif %} 
-        ></textarea>
+        >{% if field.value is not null %}{{ field.value|e }}{% endif %}</textarea>
 
         {% else %}
 
         <input 
             name='{{ field.name|e }}' 
             type='{{ field.type|e }}' 
-            {% if field.value is not null %}
+            {% if field.type|e == \"checkbox\" %}
+                {% if field.value == \"1\" %}
+                    checked=\"checked\"
+                {% endif %}  
+            {% elseif field.value is not null %}
                 value='{{ field.value|e }}' 
-            {% endif %}    
+            {% endif %}  
             {% if field.placeholder is not null %}
                 placeholder='{{ field.placeholder|e }}' 
             {% endif %} 

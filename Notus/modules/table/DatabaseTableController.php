@@ -30,7 +30,6 @@ class DatabaseTableController extends TableController
 
             global $database;
             $data = $database->select($table, $columns, $condition);
-            //var_dump([$table, $columns, $condition]);
             return $data[0];
         }catch(Exception $e){
             MSG::addErrorMessage(['message' => $e->getMessage()]);

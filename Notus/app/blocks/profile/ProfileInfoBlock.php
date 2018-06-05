@@ -27,7 +27,7 @@ class ProfileInfoBlock extends Block\BlockController
             $data = [
                 "base_info" => [
                     "username" => $profileData["username"] ?? NULL,
-                    "profile_picture" => $profileData["profile_picture"] ?? NULL,            
+                    "profile_picture" => $profileData["profile_picture_url"] ?? NULL,            
                 ],
                 "body_info" => [
                     "name" => $profileData["name"] ?? NULL,

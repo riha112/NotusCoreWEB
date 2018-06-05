@@ -43,7 +43,6 @@ class UserPostsBlock extends Block\BlockController
             "post.created"
         ], [
             "AND" => [
-                "post.status" => 1,
                 "post.author_id" => $this->userID
             ],
         ]);

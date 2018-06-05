@@ -6,7 +6,7 @@ use Notus\Modules\Message\MessageController as MSG;
 use Notus\Modules\Database\Database as DB;
 use Notus\Modules\File\FileController;
 
-class Post
+class Post  implements Renderable
 {
     public $postID; 
     private $data = [];
@@ -14,6 +14,19 @@ class Post
     public function _init(int $postID) : void {
         $this->postID = $postID;
         $this->_initPostData();
+    }
+
+    public function getTitle() : string {
+        return $this->data["post"]["title"] ?? "";
+    }
+    public function getContent() : string {
+        return $this->data["post"]["content"] ?? "";
+    }
+    public function getTypeID() : int {
+        return $this->data["post"]["type_id"] ?? "";
+    }
+    public function isPublished() : int {
+        return $this->data["status"] ?? 0;
     }
 
     private function _initPostData() : void {
@@ -25,6 +38,7 @@ class Post
             post.title, 
             content, 
             post_type.title AS `type`, 
+            post.type AS `type_id`,
             created, 
             post.status  
             FROM `post` 
@@ -50,6 +64,7 @@ class Post
                     'title' => $result['title'],
                     'content' => $result['content'],
                     'type' => $result['type'],
+                    'type_id' => $result["type_id"],
                     'points' => $points,
                 ],
                 'created' => $result['created'],
@@ -125,6 +140,8 @@ class Post
                 $insertData[$filter] = $data[$filter];
             }
         }
+        $status = $insertData["status"] ?? 0;
+        $insertData["status"] = $status == "on" ? 1:0; 
         $database = DB::getDatabase();
         $database->update("post", $insertData, ["id" => $postID]);        
     }
@@ -206,5 +223,26 @@ class Post
         ]);   
     }
 
+    public static function isPostAuthor(int $postID, int $userID){
+        $database = DB::getDatabase();
+        $count = $database->count("post", [
+            "id" => $postID,
+            "author_id" => $userID
+        ]);
+        return $count > 0;
+    }
+
+        // -- From Renderable --
+    public function getID() : string {
+            return "notus-post-" . $this->postID;
+        }
+    
+        public function getRenderArray() : array {
+            return $this->data;
+        }
+    
+    public function getRenderTemplate() : string {
+           return Notus\Modules\Twig\TwigUtil::getRenderTemplate('post', $this->getID(), 'post.html');
+        }
 
 }

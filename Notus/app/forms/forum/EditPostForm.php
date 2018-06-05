@@ -3,19 +3,19 @@ namespace Notus\App\Forms\Forum;
 
 use Notus\Modules\{Form, User, File, Forum, Message\MessageController as MSG};
 
-class NewPostForm extends Form\FormController
+class EditPostForm extends Form\FormController
 {
     private $postID;
     
     public function __construct(array $data = [], array $vars=[]){
         if(isset($_GET["post"])){
-            $postID = $_GET["post"];
+            $this->postID = $_GET["post"];
         }
-        parent($data, $vars);
+        parent::__construct($data, $vars);
     }
 
     public function getID() : string {
-        return parent::getID() . '-loaded-post';
+        return parent::getID() . '-edit-post';
     }
 
     protected function getFormData() : array {
@@ -35,7 +35,7 @@ class NewPostForm extends Form\FormController
                 'type' => 'text',
                 'placeholder' => 'How to make post?',                
                 'description' => 'Title of post.',
-                'value' => $post
+                'value' => $post->getTitle(),
                 'validator' => [
                     'required' => TRUE,
                     'max' => '128',
@@ -46,24 +46,24 @@ class NewPostForm extends Form\FormController
                 'type' => 'textarea',
                 'placeholder' => 'Lorem ipsum dolar sit amet...',
                 'description' => 'Content of post.',
+                'value' => $post->getContent(),
                 'validator' => [
                     'required' => TRUE,
                 ],
             ],
-            'category' => [
+            'type' => [
                 'title' => 'type',
                 'type' => 'select',
+                'selected' => $post->getTypeID(),
                 'options' => [
                     '1' => 'bug',
                     '2' => 'feature',                    
                 ],
-                'validator' => [
-                    'required' => TRUE,
-                ]
             ],
-            'is_published' => [
+            'status' => [
                 'title' => 'is_published',
                 'type' => 'checkbox',
+                'value' => $post->isPublished(),
                 'description' => 'Publish?'
             ],
             'submit' => [
@@ -77,7 +77,7 @@ class NewPostForm extends Form\FormController
     
     public function submit(array $data) : bool {
         Forum\Post::changeContent($this->postID, $data);
-
+        MSG::addSuccessMessage(["message" => "Form updated"]);
         return TRUE;
     }
 }

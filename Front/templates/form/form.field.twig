@@ -17,16 +17,20 @@
             {% if (field.required is not null) and (field.required == true) %}
                 required
             {% endif %} 
-        ></textarea>
+        >{% if field.value is not null %}{{ field.value|e }}{% endif %}</textarea>
 
         {% else %}
 
         <input 
             name='{{ field.name|e }}' 
             type='{{ field.type|e }}' 
-            {% if field.value is not null %}
+            {% if field.type|e == "checkbox" %}
+                {% if field.value == "1" %}
+                    checked="checked"
+                {% endif %}  
+            {% elseif field.value is not null %}
                 value='{{ field.value|e }}' 
-            {% endif %}    
+            {% endif %}  
             {% if field.placeholder is not null %}
                 placeholder='{{ field.placeholder|e }}' 
             {% endif %} 

@@ -1,7 +1,7 @@
 <div class="profile-content">
 
     <div class="profile-picture">
-        <img src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F1xawnFRPNf9g4%2Fgiphy.gif&f=1">
+        <img src="{% if block.user_data.base_info.profile_picture is not null %}{{block.user_data.base_info.profile_picture}}{% else %}https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F1xawnFRPNf9g4%2Fgiphy.gif&f=1{% endif %}">
         <div class="username">@{{block.user_data.base_info.username}}</div>
         <div class="points">points:{4342}</div>
     </div>

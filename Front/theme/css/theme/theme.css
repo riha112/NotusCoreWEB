@@ -448,48 +448,49 @@ main {
 }
 /* line 132, ../../scss/theme/theme.scss */
 .popup .popup-info, .popup .form-top-description, .popup-bg > .form-hld .popup-info, .popup-bg > .form-hld .form-top-description {
+  display: block;
   padding: 10px;
   margin-top: 3px;
   border-top: 1px solid white;
   font-size: 1em;
 }
-/* line 138, ../../scss/theme/theme.scss */
+/* line 139, ../../scss/theme/theme.scss */
 .popup .popup-actions, .popup-bg > .form-hld .popup-actions {
   margin-top: 20px;
   display: flex;
   border-top: 1px solid white;
   padding: 10px;
 }
-/* line 143, ../../scss/theme/theme.scss */
+/* line 144, ../../scss/theme/theme.scss */
 .popup .popup-actions .action, .popup-bg > .form-hld .popup-actions .action {
   flex: 1;
   text-align: center;
 }
-/* line 148, ../../scss/theme/theme.scss */
+/* line 149, ../../scss/theme/theme.scss */
 .popup .code-body, .popup-bg > .form-hld .code-body {
   padding: 10px;
 }
-/* line 151, ../../scss/theme/theme.scss */
+/* line 152, ../../scss/theme/theme.scss */
 .popup div.field, .popup .form-field.submit, .popup-bg > .form-hld div.field, .popup-bg > .form-hld .form-field.submit {
   margin: 5px;
   display: inline-block;
   top: 0;
 }
-/* line 156, ../../scss/theme/theme.scss */
+/* line 157, ../../scss/theme/theme.scss */
 .popup div.field, .popup-bg > .form-hld div.field {
   background: #F962B9;
   padding: 0 2px;
   cursor: pointer;
 }
 
-/* line 163, ../../scss/theme/theme.scss */
+/* line 164, ../../scss/theme/theme.scss */
 .form-hld {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
-/* line 169, ../../scss/theme/theme.scss */
+/* line 170, ../../scss/theme/theme.scss */
 #cookie {
   position: fixed;
   left: 0;
@@ -500,41 +501,41 @@ main {
   z-index: 999;
   font-size: 15px;
 }
-/* line 178, ../../scss/theme/theme.scss */
+/* line 179, ../../scss/theme/theme.scss */
 #cookie .Necessary .hover-list {
   cursor: not-allowed;
 }
-/* line 180, ../../scss/theme/theme.scss */
+/* line 181, ../../scss/theme/theme.scss */
 #cookie .Necessary .hover-list:hover {
   background: #1F38C5;
   color: #FCFB66;
 }
-/* line 186, ../../scss/theme/theme.scss */
+/* line 187, ../../scss/theme/theme.scss */
 #cookie .action span {
   display: inline-block;
   cursor: pointer;
   padding: 3px 5px;
 }
-/* line 191, ../../scss/theme/theme.scss */
+/* line 192, ../../scss/theme/theme.scss */
 #cookie .action.accept-cookie span {
   background: #04bca6;
 }
-/* line 194, ../../scss/theme/theme.scss */
+/* line 195, ../../scss/theme/theme.scss */
 #cookie .action.decline-cookie span {
   background: #FF0000;
 }
 
-/* line 200, ../../scss/theme/theme.scss */
+/* line 201, ../../scss/theme/theme.scss */
 .cookie-type {
   padding: 20px 20px 5px;
 }
 
-/* line 205, ../../scss/theme/theme.scss */
+/* line 206, ../../scss/theme/theme.scss */
 #notus-page-profile .profile-popups .popup-bg {
   display: none;
 }
 
-/* line 210, ../../scss/theme/theme.scss */
+/* line 211, ../../scss/theme/theme.scss */
 .hover-list {
   color: #FCFB66;
   display: flex;
@@ -542,36 +543,36 @@ main {
   padding: 5px 20px;
   margin: 5px 0;
 }
-/* line 212, ../../scss/theme/theme.scss */
+/* line 213, ../../scss/theme/theme.scss */
 .hover-list .hover-list-name {
   font-weight: bold;
 }
-/* line 219, ../../scss/theme/theme.scss */
+/* line 220, ../../scss/theme/theme.scss */
 .hover-list > * {
   flex: 1;
   text-align: left;
 }
-/* line 222, ../../scss/theme/theme.scss */
+/* line 223, ../../scss/theme/theme.scss */
 .hover-list > *:last-child {
   text-align: right;
 }
-/* line 226, ../../scss/theme/theme.scss */
+/* line 227, ../../scss/theme/theme.scss */
 .hover-list:hover {
   color: #1F38C5;
   background: #BABABA;
 }
 
-/* line 232, ../../scss/theme/theme.scss */
+/* line 233, ../../scss/theme/theme.scss */
 .hover-info {
   position: relative;
 }
-/* line 235, ../../scss/theme/theme.scss */
+/* line 236, ../../scss/theme/theme.scss */
 .hover-info.hover-info-x2:hover .hover-info-content {
   transform: translate(-50%, 100%);
   max-width: 200%;
   left: 50%;
 }
-/* line 242, ../../scss/theme/theme.scss */
+/* line 243, ../../scss/theme/theme.scss */
 .hover-info:hover .hover-info-content {
   transform: translateY(100%);
   display: block;
@@ -584,12 +585,12 @@ main {
   bottom: -5px;
   z-index: 99;
 }
-/* line 255, ../../scss/theme/theme.scss */
+/* line 256, ../../scss/theme/theme.scss */
 .hover-info .hover-info-content {
   display: none;
 }
 
-/* line 260, ../../scss/theme/theme.scss */
+/* line 261, ../../scss/theme/theme.scss */
 .code-top,
 .code-bottom {
   background: #04bca6;
@@ -599,12 +600,12 @@ main {
   color: white;
 }
 
-/* line 269, ../../scss/theme/theme.scss */
+/* line 270, ../../scss/theme/theme.scss */
 .code-body {
   position: relative;
   padding: 20px;
 }
-/* line 272, ../../scss/theme/theme.scss */
+/* line 273, ../../scss/theme/theme.scss */
 .code-body:before {
   content: '';
   width: 3px;
@@ -615,17 +616,17 @@ main {
   position: absolute;
 }
 
-/* line 283, ../../scss/theme/theme.scss */
+/* line 284, ../../scss/theme/theme.scss */
 .code-element {
   display: flex;
   margin: 0 0 10px 0;
 }
-/* line 286, ../../scss/theme/theme.scss */
+/* line 287, ../../scss/theme/theme.scss */
 .code-element:last-child {
   margin-bottom: 0;
 }
 
-/* line 291, ../../scss/theme/theme.scss */
+/* line 292, ../../scss/theme/theme.scss */
 .code-title {
   display: inline-block;
   background: white;
@@ -634,14 +635,14 @@ main {
   margin-right: 10px;
 }
 
-/* line 300, ../../scss/theme/theme.scss */
+/* line 301, ../../scss/theme/theme.scss */
 .code-value:not(.input), .code-value.input input, .code-value.input textarea {
   padding: 2px 5px;
   background: transparent;
   color: #5369E4;
 }
 
-/* line 309, ../../scss/theme/theme.scss */
+/* line 310, ../../scss/theme/theme.scss */
 .todo {
   text-transform: uppercase;
   font-weight: bold;
@@ -650,7 +651,7 @@ main {
   color: white;
 }
 
-/* line 318, ../../scss/theme/theme.scss */
+/* line 319, ../../scss/theme/theme.scss */
 .forums .forum-post {
   transition: all cubic-bezier(0.07, 0.95, 0, 1) 0.1s;
   width: 100%;
@@ -663,54 +664,54 @@ main {
   text-decoration: none;
   box-sizing: border-box;
 }
-/* line 329, ../../scss/theme/theme.scss */
+/* line 330, ../../scss/theme/theme.scss */
 .forums .forum-post:hover {
   background: white;
   color: #1F38C5;
 }
-/* line 334, ../../scss/theme/theme.scss */
+/* line 335, ../../scss/theme/theme.scss */
 .forums .icon {
   height: 50px;
   width: 50px;
 }
-/* line 337, ../../scss/theme/theme.scss */
+/* line 338, ../../scss/theme/theme.scss */
 .forums .icon .bug-img {
   background: url("../../../images/bug.ico") no-repeat left top;
   height: 50px;
   width: 50px;
 }
-/* line 342, ../../scss/theme/theme.scss */
+/* line 343, ../../scss/theme/theme.scss */
 .forums .icon .feature-img {
   background: url("../../../images/feature.ico") no-repeat left top/32px 32px;
   height: 50px;
   width: 50px;
   image-rendering: optimizespeed;
 }
-/* line 348, ../../scss/theme/theme.scss */
+/* line 349, ../../scss/theme/theme.scss */
 .forums .icon .type {
   display: none;
 }
-/* line 352, ../../scss/theme/theme.scss */
+/* line 353, ../../scss/theme/theme.scss */
 .forums .title {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.2em;
 }
-/* line 357, ../../scss/theme/theme.scss */
+/* line 358, ../../scss/theme/theme.scss */
 .forums .body {
   font-size: 0.8em;
 }
-/* line 360, ../../scss/theme/theme.scss */
+/* line 361, ../../scss/theme/theme.scss */
 .forums .about {
   font-size: 0.8em;
   margin-top: 10px;
 }
-/* line 363, ../../scss/theme/theme.scss */
+/* line 364, ../../scss/theme/theme.scss */
 .forums .about span {
   font-weight: bold;
 }
 
-/* line 369, ../../scss/theme/theme.scss */
+/* line 370, ../../scss/theme/theme.scss */
 .pager {
   margin-top: 10px;
   padding: 15px;
@@ -718,7 +719,7 @@ main {
   width: 100%;
   box-sizing: border-box;
 }
-/* line 375, ../../scss/theme/theme.scss */
+/* line 376, ../../scss/theme/theme.scss */
 .pager:before {
   content: "Pager";
   background: white;
@@ -731,41 +732,41 @@ main {
   margin-left: -15px;
   width: calc(100% + 20px);
 }
-/* line 387, ../../scss/theme/theme.scss */
+/* line 388, ../../scss/theme/theme.scss */
 .pager .pager-item {
   color: white;
   text-decoration: none;
 }
-/* line 390, ../../scss/theme/theme.scss */
+/* line 391, ../../scss/theme/theme.scss */
 .pager .pager-item:hover {
   text-decoration: underline;
 }
-/* line 395, ../../scss/theme/theme.scss */
+/* line 396, ../../scss/theme/theme.scss */
 .pager .pager-item.is-active:before, .pager .pager-item.is-active:after, .pager .pager-item:hover:before, .pager .pager-item:hover:after {
   display: inline-block;
 }
-/* line 399, ../../scss/theme/theme.scss */
+/* line 400, ../../scss/theme/theme.scss */
 .pager .pager-item.is-active:before, .pager .pager-item:hover:before {
   content: "[";
 }
-/* line 402, ../../scss/theme/theme.scss */
+/* line 403, ../../scss/theme/theme.scss */
 .pager .pager-item.is-active:after, .pager .pager-item:hover:after {
   content: "]";
 }
 
-/* line 409, ../../scss/theme/theme.scss */
+/* line 410, ../../scss/theme/theme.scss */
 #notus-form-search-hld {
   margin-bottom: 50px;
   position: static;
   transform: none;
 }
 
-/* line 416, ../../scss/theme/theme.scss */
+/* line 417, ../../scss/theme/theme.scss */
 .form-field.select > div {
   display: inline-block;
   vertical-align: top;
 }
-/* line 420, ../../scss/theme/theme.scss */
+/* line 421, ../../scss/theme/theme.scss */
 .form-field.select .nice-select {
   min-width: 200px;
   position: relative;
@@ -774,7 +775,7 @@ main {
   color: #1F38C5;
   padding: 2px;
 }
-/* line 427, ../../scss/theme/theme.scss */
+/* line 428, ../../scss/theme/theme.scss */
 .form-field.select .nice-select:after {
   content: "";
   position: absolute;
@@ -786,7 +787,7 @@ main {
   border-top: 2px solid #1F38C5;
   transform: rotate(225deg);
 }
-/* line 438, ../../scss/theme/theme.scss */
+/* line 439, ../../scss/theme/theme.scss */
 .form-field.select .nice-select ul {
   display: none;
   padding-left: 0;
@@ -795,38 +796,38 @@ main {
   border-top: 1px solid;
   padding-top: 5px;
 }
-/* line 445, ../../scss/theme/theme.scss */
+/* line 446, ../../scss/theme/theme.scss */
 .form-field.select .nice-select ul li {
   margin: 2px 0;
 }
-/* line 446, ../../scss/theme/theme.scss */
+/* line 447, ../../scss/theme/theme.scss */
 .form-field.select .nice-select ul li:hover, .form-field.select .nice-select ul li.selected {
   background: #182B99;
   color: white;
 }
-/* line 454, ../../scss/theme/theme.scss */
+/* line 455, ../../scss/theme/theme.scss */
 .form-field.select .nice-select.open:after {
   transform: rotate(45deg);
   top: 8px;
 }
-/* line 458, ../../scss/theme/theme.scss */
+/* line 459, ../../scss/theme/theme.scss */
 .form-field.select .nice-select.open ul {
   display: block;
 }
 
-/* line 467, ../../scss/theme/theme.scss */
+/* line 468, ../../scss/theme/theme.scss */
 form .form-field .description .validates {
   margin: 2px 0;
   white-space: nowrap;
 }
-/* line 470, ../../scss/theme/theme.scss */
+/* line 471, ../../scss/theme/theme.scss */
 form .form-field .description .validates span {
   font-weight: bold;
   color: #13fade;
   text-transform: uppercase;
 }
 
-/* line 480, ../../scss/theme/theme.scss */
+/* line 481, ../../scss/theme/theme.scss */
 .multi-field-content .remove {
   display: inline-block;
   background: #FF0000;
@@ -834,11 +835,11 @@ form .form-field .description .validates span {
   padding: 2px 5px;
   cursor: pointer;
 }
-/* line 487, ../../scss/theme/theme.scss */
+/* line 488, ../../scss/theme/theme.scss */
 .multi-field-content .add-field {
   margin-top: 5px;
 }
-/* line 489, ../../scss/theme/theme.scss */
+/* line 490, ../../scss/theme/theme.scss */
 .multi-field-content .add-field span {
   background: black;
   padding: 3px 5px;
@@ -846,23 +847,23 @@ form .form-field .description .validates span {
   cursor: pointer;
 }
 
-/* line 498, ../../scss/theme/theme.scss */
+/* line 499, ../../scss/theme/theme.scss */
 .profile-side-menu {
   display: inline-block;
   border-right: 4px double white;
   width: 200px;
   margin-right: 20px;
 }
-/* line 503, ../../scss/theme/theme.scss */
+/* line 504, ../../scss/theme/theme.scss */
 .profile-side-menu ul {
   list-style: none;
   padding: 0;
 }
-/* line 507, ../../scss/theme/theme.scss */
+/* line 508, ../../scss/theme/theme.scss */
 .profile-side-menu .first-level {
   position: relative;
 }
-/* line 509, ../../scss/theme/theme.scss */
+/* line 510, ../../scss/theme/theme.scss */
 .profile-side-menu .first-level:before {
   content: "";
   width: 2px;
@@ -872,25 +873,25 @@ form .form-field .description .validates span {
   left: 0;
   top: 0;
 }
-/* line 518, ../../scss/theme/theme.scss */
+/* line 519, ../../scss/theme/theme.scss */
 .profile-side-menu .first-level > li > ul {
   padding-left: 20px;
   margin-bottom: 10px;
 }
-/* line 521, ../../scss/theme/theme.scss */
+/* line 522, ../../scss/theme/theme.scss */
 .profile-side-menu .first-level > li > ul li {
   padding: 3px 0;
   position: relative;
   cursor: pointer;
 }
-/* line 527, ../../scss/theme/theme.scss */
+/* line 528, ../../scss/theme/theme.scss */
 .profile-side-menu .first-level > li > ul li.is-active::before, .profile-side-menu .first-level > li > ul li:hover::before {
   content: ">";
   display: inline-block;
   margin-right: 5px;
   font-weight: bold;
 }
-/* line 537, ../../scss/theme/theme.scss */
+/* line 538, ../../scss/theme/theme.scss */
 .profile-side-menu .title {
   position: relative;
   margin: 0 0 10px 0;
@@ -899,7 +900,7 @@ form .form-field .description .validates span {
   background: white;
   color: #1F38C5;
 }
-/* line 544, ../../scss/theme/theme.scss */
+/* line 545, ../../scss/theme/theme.scss */
 .profile-side-menu .title:before {
   content: "+";
   border: 2px solid white;
@@ -913,19 +914,19 @@ form .form-field .description .validates span {
   color: white;
 }
 
-/* line 559, ../../scss/theme/theme.scss */
+/* line 560, ../../scss/theme/theme.scss */
 #notus-page-authentication-content .block-3 {
   display: none;
 }
 
-/* line 563, ../../scss/theme/theme.scss */
+/* line 564, ../../scss/theme/theme.scss */
 .profile-content {
   margin-right: 20px;
   border-right: 2px dotted;
   padding: 20px 20px 20px 0;
   border-right: 4px double;
 }
-/* line 568, ../../scss/theme/theme.scss */
+/* line 569, ../../scss/theme/theme.scss */
 .profile-content .profile-picture {
   position: relative;
   width: 250px;
@@ -933,13 +934,13 @@ form .form-field .description .validates span {
   image-rendering: optimizespeed;
   border: 6px solid white;
 }
-/* line 574, ../../scss/theme/theme.scss */
+/* line 575, ../../scss/theme/theme.scss */
 .profile-content .profile-picture img {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
-/* line 579, ../../scss/theme/theme.scss */
+/* line 580, ../../scss/theme/theme.scss */
 .profile-content .profile-picture .points, .profile-content .profile-picture .username {
   position: absolute;
   background: #04bca6;
@@ -948,12 +949,12 @@ form .form-field .description .validates span {
   left: 0;
   padding: 2px 4px;
 }
-/* line 587, ../../scss/theme/theme.scss */
+/* line 588, ../../scss/theme/theme.scss */
 .profile-content .profile-picture .username {
   background: #182B99;
   bottom: 20px;
 }
-/* line 593, ../../scss/theme/theme.scss */
+/* line 594, ../../scss/theme/theme.scss */
 .profile-content .title {
   margin-top: 20px;
   background: white;
@@ -962,11 +963,11 @@ form .form-field .description .validates span {
   padding: 2px 5px;
   margin-bottom: 5px;
 }
-/* line 601, ../../scss/theme/theme.scss */
+/* line 602, ../../scss/theme/theme.scss */
 .profile-content .content {
   max-width: 250px;
 }
-/* line 604, ../../scss/theme/theme.scss */
+/* line 605, ../../scss/theme/theme.scss */
 .profile-content .content.null span {
   display: inline-block;
   padding: 2px 4px;
@@ -974,17 +975,17 @@ form .form-field .description .validates span {
   color: white;
 }
 
-/* line 615, ../../scss/theme/theme.scss */
+/* line 616, ../../scss/theme/theme.scss */
 #notus-page-post-content .block {
   max-width: 570px;
 }
 
-/* line 621, ../../scss/theme/theme.scss */
+/* line 622, ../../scss/theme/theme.scss */
 #notus-form-search-hld .form-todo {
   display: none;
 }
 
-/* line 626, ../../scss/theme/theme.scss */
+/* line 627, ../../scss/theme/theme.scss */
 .page-profile-content {
   display: flex;
   min-height: 100%;
@@ -992,19 +993,19 @@ form .form-field .description .validates span {
   padding: 0 20px;
   box-sizing: border-box;
 }
-/* line 632, ../../scss/theme/theme.scss */
+/* line 633, ../../scss/theme/theme.scss */
 .page-profile-content .stuff {
   flex: 1;
   padding: 20px 30px 0;
 }
 
-/* line 638, ../../scss/theme/theme.scss */
+/* line 639, ../../scss/theme/theme.scss */
 .game-hld {
   position: relative;
   display: flex;
   margin: 10px 10px 10px 0;
 }
-/* line 642, ../../scss/theme/theme.scss */
+/* line 643, ../../scss/theme/theme.scss */
 .game-hld input {
   position: absolute;
   width: 124px;
@@ -1015,33 +1016,33 @@ form .form-field .description .validates span {
   cursor: pointer;
   z-index: 10;
 }
-/* line 652, ../../scss/theme/theme.scss */
+/* line 653, ../../scss/theme/theme.scss */
 .game-hld input:checked + .game {
   background: black;
   color: white;
   border-color: black;
 }
-/* line 656, ../../scss/theme/theme.scss */
+/* line 657, ../../scss/theme/theme.scss */
 .game-hld input:checked + .game + .actions {
   max-width: 110px;
   padding: 15px;
 }
-/* line 664, ../../scss/theme/theme.scss */
+/* line 665, ../../scss/theme/theme.scss */
 .game-hld:hover .game {
   background: white;
   color: #1F38C5;
 }
-/* line 669, ../../scss/theme/theme.scss */
+/* line 670, ../../scss/theme/theme.scss */
 .game-hld .hover-info-content {
   text-align: left;
   white-space: nowrap;
   max-width: 500%;
 }
-/* line 673, ../../scss/theme/theme.scss */
+/* line 674, ../../scss/theme/theme.scss */
 .game-hld .hover-info-content span {
   font-weight: bold;
 }
-/* line 677, ../../scss/theme/theme.scss */
+/* line 678, ../../scss/theme/theme.scss */
 .game-hld .actions {
   transition: all cubic-bezier(0.07, 0.95, 0, 1) 0.2s;
   display: flex;
@@ -1054,19 +1055,19 @@ form .form-field .description .validates span {
   align-items: baseline;
   flex-direction: column;
 }
-/* line 688, ../../scss/theme/theme.scss */
+/* line 689, ../../scss/theme/theme.scss */
 .game-hld .actions .delete {
   background: #FF0000;
   padding: 3px 5px;
 }
-/* line 692, ../../scss/theme/theme.scss */
+/* line 693, ../../scss/theme/theme.scss */
 .game-hld .actions .download {
   background: #1F38C5;
   padding: 3px 5px;
   margin-bottom: 10px;
 }
 
-/* line 700, ../../scss/theme/theme.scss */
+/* line 701, ../../scss/theme/theme.scss */
 .game {
   transition: all cubic-bezier(0.07, 0.95, 0, 1) 0.2s;
   width: 100px;
@@ -1074,7 +1075,7 @@ form .form-field .description .validates span {
   padding: 15px 10px;
   border: 2px solid white;
 }
-/* line 706, ../../scss/theme/theme.scss */
+/* line 707, ../../scss/theme/theme.scss */
 .game .icon {
   display: inline-block;
   background: url("../../../images/game.ico") no-repeat center center/32px 32px;
@@ -1083,7 +1084,7 @@ form .form-field .description .validates span {
   margin-bottom: 10px;
 }
 
-/* line 714, ../../scss/theme/theme.scss */
+/* line 715, ../../scss/theme/theme.scss */
 .header-title {
   margin-top: 50px;
   font-size: 1.5em;
@@ -1092,27 +1093,27 @@ form .form-field .description .validates span {
   margin-bottom: 20px;
 }
 
-/* line 722, ../../scss/theme/theme.scss */
+/* line 723, ../../scss/theme/theme.scss */
 .my-games .header-title {
   margin-top: 0;
 }
-/* line 725, ../../scss/theme/theme.scss */
+/* line 726, ../../scss/theme/theme.scss */
 .my-games .games {
   display: flex;
   flex-wrap: wrap;
 }
 
-/* line 733, ../../scss/theme/theme.scss */
+/* line 734, ../../scss/theme/theme.scss */
 .popup .action.close span {
   background: #111f6d;
   cursor: pointer;
 }
-/* line 736, ../../scss/theme/theme.scss */
+/* line 737, ../../scss/theme/theme.scss */
 .popup .action.close span:hover {
   background: #04bca6;
 }
 
-/* line 743, ../../scss/theme/theme.scss */
+/* line 744, ../../scss/theme/theme.scss */
 .popup-bg {
   position: fixed;
   left: 0;
@@ -1124,11 +1125,11 @@ form .form-field .description .validates span {
   font-size: 15px;
 }
 
-/* line 754, ../../scss/theme/theme.scss */
+/* line 755, ../../scss/theme/theme.scss */
 .messages .message {
   margin-bottom: 5px;
 }
-/* line 756, ../../scss/theme/theme.scss */
+/* line 757, ../../scss/theme/theme.scss */
 .messages .message span {
   display: inline-block;
   margin-right: 5px;
@@ -1136,11 +1137,11 @@ form .form-field .description .validates span {
   font-weight: bold;
   padding: 2px 3px;
 }
-/* line 763, ../../scss/theme/theme.scss */
+/* line 764, ../../scss/theme/theme.scss */
 .messages .message.message-error span {
   background: #FF0000;
 }
-/* line 766, ../../scss/theme/theme.scss */
+/* line 767, ../../scss/theme/theme.scss */
 .messages .message.message-success span {
   background: #00ff8a;
   color: black;

@@ -25,16 +25,18 @@ class NewCommentForm extends Form\FormController
     public function getRenderer(array $data) : array {
         $data = [
             'content' => [
-                'name' => 'content',
+                'title' => 'content',
                 'type' => 'textarea',
                 'placeholder' => 'Lorem ipsum dolar sit amet...',
                 'description' => 'Content of comment.',
-                'required' => TRUE,
-                'title' => 'content',
-                'limit' => 512,
+                "validator" => [
+                    'required' => TRUE,
+                    'charset' => 'legal_characters_text',
+                    'min' => 1,
+                    'max' => 512,
+                ]
             ],
             'submit' => [
-                'name' => 'submit',
                 'type' => 'submit',
                 'value' => '>> run'
             ]
@@ -44,22 +46,10 @@ class NewCommentForm extends Form\FormController
 
     public function validate(array &$data) : bool {
         $post_ok = isset($_GET['post']) && is_numeric($_GET['post']);
-        
-        $validationArray = [
-            'content' => [
-                'required' => TRUE,
-                'charset' => 'legal_characters_text',
-                'min' => 1,
-                'max' => 512,
-            ],
-        ];
-        $result = Validator::validate($data, $validationArray, TRUE);
-        return $post_ok && $result["is_valid"];
-
+        return $post_ok;
     }
     
     public function submit(array $data) : bool {
-
         $database = DB::getDatabase();
         $userID = Auth::isAuthorized();
         if($userID !== FALSE){

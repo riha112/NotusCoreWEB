@@ -23,7 +23,8 @@ class FileController
 
         $exp_for_type = explode('.', $file['name']);
         $file_org_name = strtolower($exp_for_type[0]);
-        $file_ext = strtolower(end($exp_for_type));
+        $file_ext_rr = end($exp_for_type);
+        $file_ext = strtolower($file_ext_rr);
         $file_type_id = self::getTypeID($file_ext);
         if($file_type_id === FALSE){
             throw new Exception('Unknown file format');
@@ -102,7 +103,7 @@ class FileController
         ]);
 
         if(\sizeof($data) > 0){
-            $file = new \File($data[0]);
+            $file = new File($data[0]);
             return $file;
         }
         return NULL;

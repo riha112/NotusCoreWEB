@@ -4,8 +4,8 @@ namespace Notus\App\Pages;
 use Notus\App\Blocks\Profile;
 use Notus\App\Blocks\Games;
 use Notus\App\Blocks\Post\UserPostsBlock;
-use Notus\App\Forms\User\ChangeProfileForm;
 use Notus\App\Forms\Authentication\LogoutForm;
+use Notus\App\Forms\User\{DeleteUserForm, ChangeProfileForm, ChangePasswordForm};
 
 use Notus\Modules\Page;
 use Notus\Modules\Menu;
@@ -16,6 +16,10 @@ class ProfilePage extends Page\PageController
 {
     public static function getID() : string {
         return parent::getID() . '-profile';
+    }
+
+    protected static function canView() : bool {
+        return Auth::isAuthorized();
     }
 
     public static function getTitle() : string {
@@ -33,8 +37,22 @@ class ProfilePage extends Page\PageController
             "my_posts" => self::getMyPosts(),
             "logout_form" => self::getLogoutForm(),
             "change_profile" => self::getChangeForm(),
+            "change_password" => self::getChangePasswordForm(),
+            "delete_profile" => self::getDeleteUserForm(),       
         ];
         return ['content' => $data];
+    }
+    
+    private static function getChangePasswordForm() : array{
+        $passwordForm = new ChangePasswordForm();
+        $data = $passwordForm->getOutput();
+        return ["content" => $data];
+    }
+
+    private static function getDeleteUserForm() : array{
+        $passwordForm = new DeleteUserForm();
+        $data = $passwordForm->getOutput();
+        return ["content" => $data];
     }
 
     private static function getProfilePageData() : array {

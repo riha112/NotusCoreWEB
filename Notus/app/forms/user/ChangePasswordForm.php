@@ -6,14 +6,21 @@ use Notus\Modules\{Form, User, Message\MessageController as MSG, File};
 class ChangePasswordForm extends Form\FormController
 {
     public function getID() : string {
-        return parent::getID() . '-new-post';
+        return parent::getID() . '-change-password';
+    }
+
+    protected function canView() : bool {
+        return User\Auth::isAuthorized();
+    }
+
+    protected function done() : void {
+        header("Refresh:0");
     }
 
     protected function getFormData() : array {
         $data = parent::getFormData();
-        $data['form']['title'] = 'NEW_POST_FORM';
-        $data['form']['top_description'] = 'set new_post as Post:';
-        $data['form']['bottom_description'] = ';';
+        $data['form']['title'] = 'Change password';
+        $data['form']['top_description'] = 'Enter youre old and new password.';
         return $data;
     }
 
@@ -49,11 +56,14 @@ class ChangePasswordForm extends Form\FormController
                     'required' => TRUE,
                 ]
             ],
-            'submit' => [
-                'name' => 'submit',
+            'accept' => [
                 'type' => 'submit',
-                'value' => '>> run'
-            ]
+                'value' => '>> ok'
+            ],
+            'close' => [
+                'type' => 'div',
+                'value' => '>> cancel'
+            ],
         ];
         return $data;
     }
@@ -68,11 +78,12 @@ class ChangePasswordForm extends Form\FormController
     
     public function submit(array $data) : bool {
         $userID = User\Auth::isAuthorized();
+        
         if($userID === FALSE) return FALSE;
-
         $user = new User\User($userID);
         if($user->passwordCorrect($data["current_password"])){
             User\Auth::changePassword($userID, $data["new_password"]);
+            MSG::addSuccessMessage(["message" => "Password changed"]);
         }else{
             MSG::addErrorMessage(["message" => "Incorrect current password"]);
             return FALSE;

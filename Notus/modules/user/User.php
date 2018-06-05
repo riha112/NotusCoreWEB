@@ -1,7 +1,7 @@
 <?php
 namespace Notus\Modules\User;
 use Notus\Modules\Database\Database as DB;
-
+use Notus\Modules\File;
 class User
 {
     private $data = [];
@@ -45,6 +45,13 @@ class User
             "user.id" => $this->id
         ]);
         if(\sizeof($userData) > 0){
+            $profilePicture = $userData[0]["profile_picture"] ?? FALSE;
+            if($profilePicture){
+                $file = File\FileController::getFile($profilePicture);
+                if($file != NULL){
+                    $userData[0]["profile_picture_url"] = $file->getLocation();
+                }
+            }
             $this->data = $userData[0];
         }
     }

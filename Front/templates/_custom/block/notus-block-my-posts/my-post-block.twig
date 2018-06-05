@@ -3,7 +3,7 @@
         My Posts [{{block.posts|length}}]
     </div>
     {% for post in block.posts %}
-        <a class='forum-post' href="./forum?post={{post.id}}">
+        <a class='forum-post' href="./post/edit?post={{post.id}}">
             <div class='icon'>
                 <div class='{{post.type}}-img'></div>
                 <div class='type'>{{post.type}}</div>

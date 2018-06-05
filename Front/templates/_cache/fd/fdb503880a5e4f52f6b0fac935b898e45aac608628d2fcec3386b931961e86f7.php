@@ -33,10 +33,10 @@ class __TwigTemplate_442efe50a0719ea44c7575838f3ce2ee13efd03c5b7fe321990aecd0927
         <li>
             <span class=\"title\">Actions</span>
             <ul>
-                <li>change_data</li>
-                <li>change_password</li>
+                <li data-fade-toggle=\"#change-data\">change_data</li>
+                <li data-fade-toggle=\"#change-password\">change_password</li>
                 <li data-fade-toggle=\"#logout\">logout</li>
-                <li>delete_profile</li>
+                <li data-fade-toggle=\"#delete-profile\">delete_profile</li>
             </ul>
         </li>
     </ul>
@@ -65,15 +65,28 @@ class __TwigTemplate_442efe50a0719ea44c7575838f3ce2ee13efd03c5b7fe321990aecd0927
         echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "logout_form", array()), "content", array());
         echo "
     </div>
-</div>
-
-<div class=\"side-forms\">
-<div class=\"side-form\" id=\"change-data\">
-    ";
+    <div class=\"popup-bg\" id=\"delete-profile\">
+        ";
+        // line 35
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "delete_profile", array()), "content", array());
+        echo "
+    </div>
+        <div class=\"popup-bg\" id=\"change-data\">
+        ";
         // line 38
         echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "change_profile", array()), "content", array());
         echo "
     </div>
+    <div class=\"popup-bg\" id=\"change-password\">
+        ";
+        // line 41
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "change_password", array()), "content", array());
+        echo "
+    </div>
+</div>
+
+<div class=\"side-forms\">
+
 </div>
 
 </div>
@@ -93,7 +106,7 @@ class __TwigTemplate_442efe50a0719ea44c7575838f3ce2ee13efd03c5b7fe321990aecd0927
 
     public function getDebugInfo()
     {
-        return array (  74 => 38,  65 => 32,  57 => 27,  53 => 26,  48 => 24,  23 => 1,);
+        return array (  83 => 41,  77 => 38,  71 => 35,  65 => 32,  57 => 27,  53 => 26,  48 => 24,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -111,10 +124,10 @@ class __TwigTemplate_442efe50a0719ea44c7575838f3ce2ee13efd03c5b7fe321990aecd0927
         <li>
             <span class=\"title\">Actions</span>
             <ul>
-                <li>change_data</li>
-                <li>change_password</li>
+                <li data-fade-toggle=\"#change-data\">change_data</li>
+                <li data-fade-toggle=\"#change-password\">change_password</li>
                 <li data-fade-toggle=\"#logout\">logout</li>
-                <li>delete_profile</li>
+                <li data-fade-toggle=\"#delete-profile\">delete_profile</li>
             </ul>
         </li>
     </ul>
@@ -131,12 +144,19 @@ class __TwigTemplate_442efe50a0719ea44c7575838f3ce2ee13efd03c5b7fe321990aecd0927
     <div class=\"popup-bg\" id=\"logout\">
         {{ content.logout_form.content|raw }}
     </div>
+    <div class=\"popup-bg\" id=\"delete-profile\">
+        {{ content.delete_profile.content|raw }}
+    </div>
+        <div class=\"popup-bg\" id=\"change-data\">
+        {{ content.change_profile.content|raw }}
+    </div>
+    <div class=\"popup-bg\" id=\"change-password\">
+        {{ content.change_password.content|raw }}
+    </div>
 </div>
 
 <div class=\"side-forms\">
-<div class=\"side-form\" id=\"change-data\">
-    {{ content.change_profile.content|raw }}
-    </div>
+
 </div>
 
 </div>
