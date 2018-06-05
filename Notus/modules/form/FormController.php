@@ -2,25 +2,28 @@
 namespace Notus\Modules\Form;
 
 use Siler\{Twig, Http, Dotenv};
+use Notus\Modules\Validator\Validator;
 
 class FormController implements FormInterface
 {
     private $renderedOutput = NULL;
+    protected $vars = NULL;
 
-    public function __construct(array $data = []){
+    public function __construct(array $data = [], array $vars=[]){
         if(!$this->canView())
             return;
+
+        $this->vars = $vars;
 
         $isSubmitted = $this->isSubmitted();
         if($isSubmitted){
             $data = $_POST;
-            $isValid = $this->validate($data);            
-            if($isValid){
-                $this->submit($data);
-                unset($_POST);
+            unset($_POST);
+            if($this->validateFileds($data) && $this->validate($data) && $this->submit($data)){
                 $this->done();
             }else{
                 $this->inValid();
+                die();
             }
         }else if($this->renderedOutput === NULL){
             $renderArray = $this->getRenderer($data);
@@ -32,8 +35,8 @@ class FormController implements FormInterface
         Http\redirect(Http\url());
     }
 
-    protected function inValid() : void{
-        Http\redirect(Http\url());                
+    protected function inValid() : void {
+        header("Refresh:0");
     }
 
     protected function canView() : bool{
@@ -97,6 +100,7 @@ class FormController implements FormInterface
         $renderedFields = [];
         foreach ($data as $fieldName => $fieldData) {
             $newFieldData = [ 'field' => $fieldData ];
+            $newFieldData['field']['name'] = $fieldName;
             $renderedField = $this->getRenderedField($newFieldData);
             array_push($renderedFields, $renderedField);
         }
@@ -122,6 +126,13 @@ class FormController implements FormInterface
     public function getRenderer(array $data) : array {
         return [];
     }
+
+    private function validateFileds(array $data) : bool {
+        $validationRules = $this->getRenderer([]);
+        $result = Validator::validate($data, $validationRules, TRUE);
+        return $result["is_valid"];
+    }
+
     public function validate(array &$data) : bool {
         // TODO: Write default validation for all field types
         return TRUE;

@@ -27,7 +27,18 @@ class ForumPage extends Page\PageController
                 ]
             ];
         } else {
-            $blocks =  self::getForumContent();
+            $page = $_GET['page'] ?? 0;
+            $type = $_GET['type'] ?? NULL;
+            $filter = $_GET['filter'] ?? NULL;  
+            if($type == 0) 
+                $type = NULL;
+
+            $forumContent = self::getForumContent($page, $type, $filter);
+            $blocks = [
+                'forum' => [
+                    'body' => [$forumContent]
+                ]
+            ];
         }
 
         $data = [
@@ -42,7 +53,8 @@ class ForumPage extends Page\PageController
         if(isset($_POST['post_id'])){
             $post = new Forum\Post();
             $post->postID = $_POST['post_id'];
-            if($user_id = Auth::isAuthorized() !== FALSE ){
+            $user_id = Auth::isAuthorized();
+            if($user_id !== FALSE ){
                 if(isset($_POST['like'])){
                     $post->like($user_id);
                 }else if(isset($_POST['dislike'])){
@@ -57,8 +69,9 @@ class ForumPage extends Page\PageController
         $post = new Post\PostBlock($postID);
         return [ 'content' => $post->getOutput() ];
     }
-    private static function getForumContent() : array {
-        return [];
+    private static function getForumContent(int $page, $type, $filter) : array {
+        $forumBlock = new Post\ForumBlock($page, $type, $filter);
+        return [ 'content' => $forumBlock->getOutput() ];
     }
 
     protected static function setHTMLComponents(array &$data) {

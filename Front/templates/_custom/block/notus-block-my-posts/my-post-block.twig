@@ -1,0 +1,24 @@
+<div class='forums'>
+<div class='header-title'>
+        My Posts [{{block.posts|length}}]
+    </div>
+    {% for post in block.posts %}
+        <a class='forum-post' href="./forum?post={{post.id}}">
+            <div class='icon'>
+                <div class='{{post.type}}-img'></div>
+                <div class='type'>{{post.type}}</div>
+            </div>
+            <div class='content'>
+                <div class='title'>
+                    {{post.title}}
+                </div>
+                <div class='body'>
+                {{ post.content|length > 50 ? post.content|slice(0, 50) ~ '...' : post.content  }}
+                </div>
+                <div class='about'>
+                Created on <span>{{post.created}}
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>

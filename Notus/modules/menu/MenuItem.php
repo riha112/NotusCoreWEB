@@ -34,11 +34,27 @@ class MenuItem
             $condition = ['id' => $id];
 
             global $database;
-            $this->data = $database->select($table, $columns, $condition)[0];
+            $result = $database->select($table, $columns, $condition);
+            if(\sizeof($result) > 0){
+                $result = $result[0];
+                $result["is_active"] = self::isActive($result["url"]);
+                $this->data = $result;
+            }
         }catch(Exception $e){
             MSG::addErrorMessage(['message' => $e->getMessage()]);
             return [];
         }
+    }
+
+    private static function isActive($path) : bool {
+        $uri = $_SERVER['REQUEST_URI'];
+        if(\strlen($path) <= 0 ) return FALSE;
+
+        if($path[0] == '.'){
+            $path = \substr($path, 1, 128);
+        }
+
+        return \strpos($uri, $path) !== FALSE;
     }
 
     private function getPathToTemplate() : string {

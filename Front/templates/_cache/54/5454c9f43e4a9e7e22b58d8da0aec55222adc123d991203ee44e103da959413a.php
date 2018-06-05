@@ -140,24 +140,68 @@ class __TwigTemplate_63c08fa99436d7a589255d11cc8b126447a1d463a0b78d5dfed3eda1c44
         if ( !(null === twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "description", array()))) {
             // line 46
             echo "            <div class='description hover-info-content'> 
-            ";
+                ";
             // line 47
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "description", array()), "html", null, true);
             echo " 
                 ";
             // line 48
-            if ( !(null === twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "limit", array()))) {
+            if ( !(null === twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "validator", array()))) {
                 // line 49
-                echo "                <div>[MAX: ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "limit", array()), "html", null, true);
-                echo "]</div>
-            ";
+                echo "                    ";
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["field"] ?? null), "validator", array()));
+                foreach ($context['_seq'] as $context["key"] => $context["value"]) {
+                    // line 50
+                    echo "                        ";
+                    if (twig_in_filter($context["key"], array(0 => "one_of", 1 => "charset"))) {
+                        // line 51
+                        echo "                        ";
+                    } else {
+                        // line 52
+                        echo "                            ";
+                        if (($context["key"] == "required")) {
+                            // line 53
+                            echo "                                ";
+                            if (($context["value"] == 1)) {
+                                // line 54
+                                echo "                                    ";
+                                $context["value"] = "TRUE";
+                                // line 55
+                                echo "                                ";
+                            } else {
+                                // line 56
+                                echo "                                    ";
+                                $context["value"] = "false";
+                                // line 57
+                                echo "                                ";
+                            }
+                            echo "                                
+                            ";
+                        }
+                        // line 59
+                        echo "                        <div class='validates'><span>";
+                        echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+                        echo "</span>: ";
+                        echo twig_escape_filter($this->env, $context["value"], "html", null, true);
+                        echo "</div>                
+                        ";
+                    }
+                    // line 60
+                    echo "                    
+                    ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['key'], $context['value'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 62
+                echo "                ";
             }
-            // line 51
+            // line 63
             echo "            </div>
         ";
         }
-        // line 53
+        // line 65
         echo "
     </div>
 
@@ -177,7 +221,7 @@ class __TwigTemplate_63c08fa99436d7a589255d11cc8b126447a1d463a0b78d5dfed3eda1c44
 
     public function getDebugInfo()
     {
-        return array (  161 => 53,  157 => 51,  151 => 49,  149 => 48,  145 => 47,  142 => 46,  140 => 45,  136 => 43,  132 => 41,  130 => 40,  127 => 39,  121 => 35,  117 => 34,  115 => 33,  112 => 32,  106 => 31,  104 => 30,  101 => 29,  95 => 28,  93 => 27,  89 => 26,  85 => 25,  81 => 23,  75 => 19,  71 => 18,  69 => 17,  66 => 16,  60 => 15,  58 => 14,  54 => 13,  50 => 11,  48 => 10,  41 => 8,  37 => 6,  31 => 4,  29 => 3,  23 => 1,);
+        return array (  205 => 65,  201 => 63,  198 => 62,  191 => 60,  183 => 59,  177 => 57,  174 => 56,  171 => 55,  168 => 54,  165 => 53,  162 => 52,  159 => 51,  156 => 50,  151 => 49,  149 => 48,  145 => 47,  142 => 46,  140 => 45,  136 => 43,  132 => 41,  130 => 40,  127 => 39,  121 => 35,  117 => 34,  115 => 33,  112 => 32,  106 => 31,  104 => 30,  101 => 29,  95 => 28,  93 => 27,  89 => 26,  85 => 25,  81 => 23,  75 => 19,  71 => 18,  69 => 17,  66 => 16,  60 => 15,  58 => 14,  54 => 13,  50 => 11,  48 => 10,  41 => 8,  37 => 6,  31 => 4,  29 => 3,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -228,10 +272,22 @@ class __TwigTemplate_63c08fa99436d7a589255d11cc8b126447a1d463a0b78d5dfed3eda1c44
 
         {% if field.description is not null %}
             <div class='description hover-info-content'> 
-            {{field.description}} 
-                {% if field.limit is not null %}
-                <div>[MAX: {{field.limit}}]</div>
-            {% endif %}
+                {{field.description}} 
+                {% if field.validator is not null %}
+                    {% for key, value in field.validator %}
+                        {% if key in [\"one_of\", \"charset\"]  %}
+                        {% else  %}
+                            {% if key == \"required\" %}
+                                {% if value == 1 %}
+                                    {% set value = \"TRUE\" %}
+                                {% else %}
+                                    {% set value = \"false\" %}
+                                {% endif %}                                
+                            {% endif %}
+                        <div class='validates'><span>{{key}}</span>: {{value}}</div>                
+                        {% endif %}                    
+                    {% endfor %}
+                {% endif %}
             </div>
         {% endif %}
 

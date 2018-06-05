@@ -9,28 +9,27 @@
 @import "home";
 @import "authentication";
 @import "post";
-
-body{
+body {
     background: $colorBlueMain;
     color: white;
     font-size: 14px;
     overflow: hidden;
 }
 
-#body-content{
+#body-content {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     min-height: 100vh;
 }
 
-main{
+main {
     flex: 1;
     padding: 20px 70px;
     overflow: auto;
     max-height: calc(100vh - 83px)
 }
 
-.side-lines{
+.side-lines {
     font-size: 0.9em;
     color: #5f82ff;
     letter-spacing: 0.1em;
@@ -40,7 +39,7 @@ main{
     text-align: right;
     display: flex;
     flex-direction: column;
-    &:after{
+    &:after {
         content: '';
         width: 1px;
         height: calc(100% - 21px);
@@ -49,28 +48,59 @@ main{
         background: #5f82ff;
         position: absolute;
     }
-    .line{
+    .line {
         margin-bottom: 5px;
-        &:first-child{
-        right: -1.4em;
-position: relative;
-        &::after{
-            content: '</';
-            display: inline-block;
+        &:first-child {
+            right: -1.4em;
+            position: relative;
+            &::after {
+                content: '</';
+                display: inline-block;
+            }
         }
-    }}
+    }
+}
+#notus-page-404{
+    .side-lines{
+        display: none;
+    }
+}
+#page404{
+    max-width: 610px;
+    font-size: 1.1em;
+    letter-spacing: 0.05em;
+    .title{
+        text-align: center;
+        margin-bottom: 5px;
+        span{
+            background: $colorWhite;
+            color: $colorBlueMain;
+            padding: 1px 0;
+        }
+    }
+    .description{
+        text-align: justify;
+        span{
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+    .more{
+        text-align: center;
+        margin-top: 35px;
+    }
 }
 
-.menu{
+.menu {
     padding: 0;
     list-style: none;
-    .menu-link{
+    .menu-link {
         text-decoration: none;
         cursor: pointer;
     }
 }
 
-.center-xy{
+.center-xy {
     display: inline-block;
     position: relative;
     transform: translate(-50%, -50%);
@@ -78,44 +108,65 @@ position: relative;
     top: 50%;
 }
 
-
-.popup{
+.popup, .popup-bg>.form-hld {
     @extend .center-xy;
     background: $colorBlueMain;
     border: 6px double $colorWhite;
     position: fixed;
     max-width: 650px;
     z-index: 15;
-    .popup-title{
+    .popup-title, .form-title {
         text-align: center;
         padding: 15px 50px;
         border-bottom: 1px solid $colorWhite;
         font-weight: bold;
+        font-size: 1em;
+        .blink{
+            display: none;
+        }
     }
-    .popup-info{
+    .form-todo,
+    .code-body::before{
+        display: none;
+    }
+    .popup-info, .form-top-description {
         padding: 10px;
         margin-top: 3px;
         border-top: 1px solid $colorWhite;
+        font-size: 1em;
     }
-    .popup-actions{
+    .popup-actions {
         margin-top: 20px;
         display: flex;
         border-top: 1px solid $colorWhite;
         padding: 10px;
-        .action{
+        .action {
             flex: 1;
             text-align: center;
         }
     }
+    .code-body{
+        padding: 10px;
+    }
+    div.field, .form-field.submit{
+        margin: 5px;
+        display: inline-block;
+        top: 0;
+    }
+    div.field{
+        background: $colorPink;
+        padding: 0 2px;
+        cursor: pointer;
+    }
 }
 
-.form-hld{
+.form-hld {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
 
-#cookie{
+#cookie {
     position: fixed;
     left: 0;
     top: 0;
@@ -124,57 +175,61 @@ position: relative;
     background: rgba(0, 0, 0, 0.6);
     z-index: 999;
     font-size: 15px;
-    .Necessary .hover-list{
+    .Necessary .hover-list {
         cursor: not-allowed;
-        &:hover{
+        &:hover {
             background: $colorBlueMain;
             color: $colorYellow;
         }
     }
-    .action{
-        span{
+    .action {
+        span {
             display: inline-block;
             cursor: pointer;
             padding: 3px 5px;
-            
         }
-
-        &.accept-cookie span{
+        &.accept-cookie span {
             background: $colorGreen;
         }
-        &.decline-cookie span{
+        &.decline-cookie span {
             background: $colorRed;
         }
-
     }
 }
-.cookie-type{
+
+.cookie-type {
     padding: 20px 20px 5px;
 }
 
-.hover-list{
+#notus-page-profile{
+    .profile-popups .popup-bg{
+        display: none;
+    }
+}
+
+.hover-list {
     color: $colorYellow;
-    .hover-list-name{
+    .hover-list-name {
         font-weight: bold;
     }
     display: flex;
     cursor: pointer;
     padding: 5px 20px;
     margin: 5px 0;
-    &>*{
+    &>* {
         flex: 1;
         text-align: left;
-        &:last-child{
+        &:last-child {
             text-align: right;
         }
     }
-    &:hover{
+    &:hover {
         color: $colorBlueMain;
         background: $colorGray;
     }
 }
 
-.hover-info{
+.hover-info {
     position: relative;
     &.hover-info-x2:hover {
         .hover-info-content {
@@ -187,8 +242,7 @@ position: relative;
         .hover-info-content {
             transform: translateY(100%);
             display: block;
-            position: absolute;
-            //max-width: 100%;
+            position: absolute; //max-width: 100%;
             padding: 5px;
             font-size: 0.9em;
             background: $colorBlack;
@@ -203,7 +257,8 @@ position: relative;
     }
 }
 
-.code-top, .code-bottom{
+.code-top,
+.code-bottom {
     background: $colorGreen;
     display: inline-block;
     font-weight: bold;
@@ -211,27 +266,29 @@ position: relative;
     color: white;
 }
 
-.code-body{
+.code-body {
     position: relative;
     padding: 20px;
-    &:before{
+    &:before {
         content: '';
-        width: 3px; height: 100%;
-        left: 0px; bottom: 0;
+        width: 3px;
+        height: 100%;
+        left: 0px;
+        bottom: 0;
         background: $colorGreen;
         position: absolute;
     }
 }
 
-.code-element{
+.code-element {
     display: flex;
     margin: 0 0 10px 0;
-    &:last-child{
+    &:last-child {
         margin-bottom: 0;
     }
 }
 
-.code-title{
+.code-title {
     display: inline-block;
     background: $colorWhite;
     color: $colorBlueMain;
@@ -239,18 +296,478 @@ position: relative;
     margin-right: 10px;
 }
 
-.code-value{
-    &:not(.input), &.input input, &.input textarea{
+.code-value {
+    &:not(.input),
+    &.input input,
+    &.input textarea {
         padding: 2px 5px;
-        background: transparent;       
+        background: transparent;
         color: #5369E4;
     }
 }
 
-.todo{
+.todo {
     text-transform: uppercase;
     font-weight: bold;
     font-style: normal;
     background: $colorOrange;
     color: $colorWhite;
+}
+
+.forums {
+    .forum-post {
+        transition: all $animation 0.1s;
+        width: 100%;
+        display: flex;
+        border: 2px dashed $colorWhite;
+        padding: 15px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        color: $colorWhite;
+        text-decoration: none;
+        box-sizing: border-box;
+        &:hover {
+            background: $colorWhite;
+            color: $colorBlueMain;
+        }
+    }
+    .icon {
+        height: 50px;
+        width: 50px;
+        .bug-img {
+            background: url("../../../images/bug.ico") no-repeat left top;
+            height: 50px;
+            width: 50px;
+        }
+        .feature-img {
+            background: url("../../../images/feature.ico") no-repeat left top / 32px 32px;
+            height: 50px;
+            width: 50px;
+            image-rendering: optimizespeed;
+        }
+        .type {
+            display: none;
+        }
+    }
+    .title {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .body {
+        font-size: 0.8em;
+    }
+    .about {
+        font-size: 0.8em;
+        margin-top: 10px;
+        span {
+            font-weight: bold
+        }
+    }
+}
+
+.pager {
+    margin-top: 10px;
+    padding: 15px;
+    border: 2px dashed $colorWhite;
+    width: 100%;
+    box-sizing: border-box;
+    &:before {
+        content: "Pager";
+        background: $colorWhite;
+        color: $colorBlueMain;
+        text-align: center;
+        padding: 5px;
+        display: block;
+        margin-bottom: 15px;
+        margin-top: -15px;
+        margin-left: -15px;
+        width: calc(100% + 20px);
+    }
+    .pager-item {
+        color: $colorWhite;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+        &.is-active,
+        &:hover {
+            &:before,
+            &:after {
+                display: inline-block;
+            }
+            &:before {
+                content: "[";
+            }
+            &:after {
+                content: "]";
+            }
+        }
+    }
+}
+
+#notus-form-search-hld {
+    margin-bottom: 50px;
+    position: static;
+    transform: none;
+}
+
+.form-field.select {
+    &>div {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .nice-select {
+        min-width: 200px;
+        position: relative;
+        cursor: pointer;
+        background: white;
+        color: $colorBlueMain;
+        padding: 2px;
+        &:after {
+            content: "";
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            border-left: 2px solid $colorBlueMain;
+            width: 6px;
+            height: 6px;
+            border-top: 2px solid $colorBlueMain;
+            transform: rotate(225deg);
+        }
+        ul {
+            display: none;
+            padding-left: 0;
+            list-style: none;
+            margin: 0 0 5px 0;
+            border-top: 1px solid;
+            padding-top: 5px;
+            li {
+                &:hover, &.selected {
+                    background: $colorBlueDark;
+                    color: $colorWhite;
+                }
+                margin: 2px 0;
+            }
+        }
+        &.open {
+            &:after {
+                transform: rotate(45deg);
+                top: 8px;
+            }
+            ul {
+                display: block;
+            }
+        }
+    }
+}
+form{
+    .form-field{
+        .description{
+            .validates{
+                margin: 2px 0;
+                white-space: nowrap;
+                span{
+                    font-weight: bold;
+                    color: lighten($colorGreen, 15);
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+.multi-field-content{
+    .remove{
+        display: inline-block;
+        background: $colorRed;
+        font-weight: bold;
+        padding: 2px 5px;
+        cursor: pointer;
+    }
+    .add-field{
+        margin-top: 5px;
+        span{
+            background: black;
+            padding: 3px 5px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    }    
+}
+
+.profile-side-menu {
+    display: inline-block;
+    border-right: 4px double $colorWhite;
+    width: 200px;
+    margin-right: 20px;
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    .first-level {
+        position: relative;
+        &:before {
+            content: "";
+            width: 2px;
+            background: $colorWhite;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        &>li>ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+            li {
+                padding: 3px 0;
+                position: relative;
+                cursor: pointer;
+                &.is-active,
+                &:hover {
+                    &::before {
+                        content: ">";
+                        display: inline-block;
+                        margin-right: 5px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+    .title {
+        position: relative;
+        margin: 0 0 10px 0;
+        padding-right: 10px;
+        display: inline-block;
+        background: $colorWhite;
+        color: $colorBlueMain;
+        &:before {
+            content: "+";
+            border: 2px solid $colorWhite;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-right: 10px;
+            padding-left: 4px;
+            box-sizing: border-box;
+            background: $colorBlueMain;
+            color: $colorWhite;
+        }
+    }
+}
+#notus-page-authentication-content{
+    .block-3{
+        display: none;
+    }
+}
+.profile-content {
+    margin-right: 20px;
+    border-right: 2px dotted;
+    padding: 20px 20px 20px 0;
+    border-right: 4px double;
+    .profile-picture {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        image-rendering: optimizespeed;
+        border: 6px solid white;
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .points {
+            position: absolute;
+            background: $colorGreen;
+            color: $colorWhite;
+            bottom: 0px;
+            left: 0;
+            padding: 2px 4px;
+        }
+        .username {
+            @extend .points;
+            background: $colorBlueDark;
+            bottom: 20px;
+        }
+    }
+    .title {
+        margin-top: 20px;
+        background: $colorWhite;
+        display: inline-block;
+        color: $colorBlueMain;
+        padding: 2px 5px;
+        margin-bottom: 5px;
+    }
+    .content {
+        max-width: 250px;
+        &.null {
+            span {
+                display: inline-block;
+                padding: 2px 4px;
+                background: $colorRed;
+                color: $colorWhite;
+            }
+        }
+    }
+}
+
+#notus-page-post-content {
+    .block {
+        max-width: 570px;
+    }
+}
+
+#notus-form-search-hld {
+    .form-todo {
+        display: none;
+    }
+}
+
+.page-profile-content {
+    display: flex;
+    min-height: 100%;
+border: 4px double;
+padding: 0 20px;
+box-sizing: border-box;
+    .stuff{
+        flex: 1;
+        padding: 20px 30px 0;
+    }
+}
+
+.game-hld {
+    position: relative;
+    display: flex;
+    margin: 10px 10px 10px 0;
+    input {
+        position: absolute;
+        width: 124px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 10;
+        &:checked {
+            &+.game {
+                background: $colorBlack;
+                color: $colorWhite;
+                border-color: $colorBlack;
+                &+.actions {
+                    max-width: 110px;
+                    padding: 15px;
+                }
+            }
+        }
+    }
+    &:hover {
+        .game {
+            background: $colorWhite;
+            color: $colorBlueMain;
+        }
+    }
+    .hover-info-content {
+        text-align: left;
+        white-space: nowrap;
+        max-width: 500%;
+        span {
+            font-weight: bold;
+        }
+    }
+    .actions {
+        transition: all $animation 0.2s;
+        display: flex;
+        overflow: hidden;
+        max-width: 0;        
+        background: $colorBlack;
+        color: white;
+        padding: 15px 0;
+        justify-content: center;
+        align-items: baseline;
+        flex-direction: column;
+        .delete {
+            background: $colorRed;
+            padding: 3px 5px;
+        }
+        .download {
+            background: $colorBlueMain;
+            padding: 3px 5px;
+            margin-bottom: 10px
+        }
+    }
+}
+
+.game {
+    transition: all $animation 0.2s;
+    width: 100px;
+    text-align: center;
+    padding: 15px 10px;
+    border: 2px solid $colorWhite;
+    .icon {
+        display: inline-block;
+        background: url("../../../images/game.ico") no-repeat center center / 32px 32px;
+        width: 32px;
+        height: 32px;
+        margin-bottom: 10px;
+    }
+}
+.header-title {
+    margin-top: 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.my-games {
+    .header-title {
+        margin-top: 0;
+    }
+    .games{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.popup{
+    .action.close{
+        span{
+            background: darken($colorBlueDark, 10);
+            cursor: pointer;
+            &:hover{
+                background: $colorGreen;
+            }
+        }
+    }
+}
+
+.popup-bg{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    font-size: 15px; 
+}
+.messages{
+    .message{
+        margin-bottom: 5px;
+        span{
+            display: inline-block;
+            margin-right: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 2px 3px;
+        }
+        &.message-error span{
+            background: $colorRed;
+        }
+        &.message-success span{
+            background: #00ff8a;
+            color: $colorBlack;
+        }
+
+    }
+
 }

@@ -51,13 +51,13 @@ header {
   background: #182B99;
 }
 /* line 6, ../../scss/theme/header.scss */
-header .main-menu {
+header .menu {
   margin: 0;
   display: flex;
   list-style: none;
 }
 /* line 10, ../../scss/theme/header.scss */
-header .main-menu .menu-link:hover, header .main-menu li.is-active .menu-link {
+header .menu .menu-link:hover, header .menu li.is-active .menu-link {
   background: #5369E4;
 }
 /* line 14, ../../scss/theme/header.scss */
@@ -303,7 +303,7 @@ header .menu-link {
   top: 41px;
 }
 
-/* line 13, ../../scss/theme/theme.scss */
+/* line 12, ../../scss/theme/theme.scss */
 body {
   background: #1F38C5;
   color: white;
@@ -311,14 +311,14 @@ body {
   overflow: hidden;
 }
 
-/* line 20, ../../scss/theme/theme.scss */
+/* line 19, ../../scss/theme/theme.scss */
 #body-content {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* line 26, ../../scss/theme/theme.scss */
+/* line 25, ../../scss/theme/theme.scss */
 main {
   flex: 1;
   padding: 20px 70px;
@@ -326,7 +326,7 @@ main {
   max-height: calc(100vh - 83px);
 }
 
-/* line 33, ../../scss/theme/theme.scss */
+/* line 32, ../../scss/theme/theme.scss */
 .side-lines {
   font-size: 0.9em;
   color: #5f82ff;
@@ -338,7 +338,7 @@ main {
   display: flex;
   flex-direction: column;
 }
-/* line 43, ../../scss/theme/theme.scss */
+/* line 42, ../../scss/theme/theme.scss */
 .side-lines:after {
   content: '';
   width: 1px;
@@ -348,34 +348,71 @@ main {
   background: #5f82ff;
   position: absolute;
 }
-/* line 52, ../../scss/theme/theme.scss */
+/* line 51, ../../scss/theme/theme.scss */
 .side-lines .line {
   margin-bottom: 5px;
 }
-/* line 54, ../../scss/theme/theme.scss */
+/* line 53, ../../scss/theme/theme.scss */
 .side-lines .line:first-child {
   right: -1.4em;
   position: relative;
 }
-/* line 57, ../../scss/theme/theme.scss */
+/* line 56, ../../scss/theme/theme.scss */
 .side-lines .line:first-child::after {
   content: '</';
   display: inline-block;
 }
 
 /* line 64, ../../scss/theme/theme.scss */
+#notus-page-404 .side-lines {
+  display: none;
+}
+
+/* line 68, ../../scss/theme/theme.scss */
+#page404 {
+  max-width: 610px;
+  font-size: 1.1em;
+  letter-spacing: 0.05em;
+}
+/* line 72, ../../scss/theme/theme.scss */
+#page404 .title {
+  text-align: center;
+  margin-bottom: 5px;
+}
+/* line 75, ../../scss/theme/theme.scss */
+#page404 .title span {
+  background: white;
+  color: #1F38C5;
+  padding: 1px 0;
+}
+/* line 81, ../../scss/theme/theme.scss */
+#page404 .description {
+  text-align: justify;
+}
+/* line 83, ../../scss/theme/theme.scss */
+#page404 .description span {
+  font-weight: bold;
+  text-decoration: underline;
+}
+/* line 88, ../../scss/theme/theme.scss */
+#page404 .more {
+  text-align: center;
+  margin-top: 35px;
+}
+
+/* line 94, ../../scss/theme/theme.scss */
 .menu {
   padding: 0;
   list-style: none;
 }
-/* line 67, ../../scss/theme/theme.scss */
+/* line 97, ../../scss/theme/theme.scss */
 .menu .menu-link {
   text-decoration: none;
   cursor: pointer;
 }
 
-/* line 73, ../../scss/theme/theme.scss */
-.center-xy, .popup {
+/* line 103, ../../scss/theme/theme.scss */
+.center-xy, .popup, .popup-bg > .form-hld {
   display: inline-block;
   position: relative;
   transform: translate(-50%, -50%);
@@ -383,48 +420,76 @@ main {
   top: 50%;
 }
 
-/* line 82, ../../scss/theme/theme.scss */
-.popup {
+/* line 111, ../../scss/theme/theme.scss */
+.popup, .popup-bg > .form-hld {
   background: #1F38C5;
   border: 6px double white;
   position: fixed;
   max-width: 650px;
   z-index: 15;
 }
-/* line 89, ../../scss/theme/theme.scss */
-.popup .popup-title {
+/* line 118, ../../scss/theme/theme.scss */
+.popup .popup-title, .popup .form-title, .popup-bg > .form-hld .popup-title, .popup-bg > .form-hld .form-title {
   text-align: center;
   padding: 15px 50px;
   border-bottom: 1px solid white;
   font-weight: bold;
+  font-size: 1em;
 }
-/* line 95, ../../scss/theme/theme.scss */
-.popup .popup-info {
+/* line 124, ../../scss/theme/theme.scss */
+.popup .popup-title .blink, .popup .form-title .blink, .popup-bg > .form-hld .popup-title .blink, .popup-bg > .form-hld .form-title .blink {
+  display: none;
+}
+/* line 128, ../../scss/theme/theme.scss */
+.popup .form-todo,
+.popup .code-body::before, .popup-bg > .form-hld .form-todo,
+.popup-bg > .form-hld .code-body::before {
+  display: none;
+}
+/* line 132, ../../scss/theme/theme.scss */
+.popup .popup-info, .popup .form-top-description, .popup-bg > .form-hld .popup-info, .popup-bg > .form-hld .form-top-description {
   padding: 10px;
   margin-top: 3px;
   border-top: 1px solid white;
+  font-size: 1em;
 }
-/* line 100, ../../scss/theme/theme.scss */
-.popup .popup-actions {
+/* line 138, ../../scss/theme/theme.scss */
+.popup .popup-actions, .popup-bg > .form-hld .popup-actions {
   margin-top: 20px;
   display: flex;
   border-top: 1px solid white;
   padding: 10px;
 }
-/* line 105, ../../scss/theme/theme.scss */
-.popup .popup-actions .action {
+/* line 143, ../../scss/theme/theme.scss */
+.popup .popup-actions .action, .popup-bg > .form-hld .popup-actions .action {
   flex: 1;
   text-align: center;
 }
+/* line 148, ../../scss/theme/theme.scss */
+.popup .code-body, .popup-bg > .form-hld .code-body {
+  padding: 10px;
+}
+/* line 151, ../../scss/theme/theme.scss */
+.popup div.field, .popup .form-field.submit, .popup-bg > .form-hld div.field, .popup-bg > .form-hld .form-field.submit {
+  margin: 5px;
+  display: inline-block;
+  top: 0;
+}
+/* line 156, ../../scss/theme/theme.scss */
+.popup div.field, .popup-bg > .form-hld div.field {
+  background: #F962B9;
+  padding: 0 2px;
+  cursor: pointer;
+}
 
-/* line 112, ../../scss/theme/theme.scss */
+/* line 163, ../../scss/theme/theme.scss */
 .form-hld {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
-/* line 118, ../../scss/theme/theme.scss */
+/* line 169, ../../scss/theme/theme.scss */
 #cookie {
   position: fixed;
   left: 0;
@@ -435,36 +500,41 @@ main {
   z-index: 999;
   font-size: 15px;
 }
-/* line 127, ../../scss/theme/theme.scss */
+/* line 178, ../../scss/theme/theme.scss */
 #cookie .Necessary .hover-list {
   cursor: not-allowed;
 }
-/* line 129, ../../scss/theme/theme.scss */
+/* line 180, ../../scss/theme/theme.scss */
 #cookie .Necessary .hover-list:hover {
   background: #1F38C5;
   color: #FCFB66;
 }
-/* line 135, ../../scss/theme/theme.scss */
+/* line 186, ../../scss/theme/theme.scss */
 #cookie .action span {
   display: inline-block;
   cursor: pointer;
   padding: 3px 5px;
 }
-/* line 142, ../../scss/theme/theme.scss */
+/* line 191, ../../scss/theme/theme.scss */
 #cookie .action.accept-cookie span {
   background: #04bca6;
 }
-/* line 145, ../../scss/theme/theme.scss */
+/* line 194, ../../scss/theme/theme.scss */
 #cookie .action.decline-cookie span {
   background: #FF0000;
 }
 
-/* line 151, ../../scss/theme/theme.scss */
+/* line 200, ../../scss/theme/theme.scss */
 .cookie-type {
   padding: 20px 20px 5px;
 }
 
-/* line 155, ../../scss/theme/theme.scss */
+/* line 205, ../../scss/theme/theme.scss */
+#notus-page-profile .profile-popups .popup-bg {
+  display: none;
+}
+
+/* line 210, ../../scss/theme/theme.scss */
 .hover-list {
   color: #FCFB66;
   display: flex;
@@ -472,36 +542,36 @@ main {
   padding: 5px 20px;
   margin: 5px 0;
 }
-/* line 157, ../../scss/theme/theme.scss */
+/* line 212, ../../scss/theme/theme.scss */
 .hover-list .hover-list-name {
   font-weight: bold;
 }
-/* line 164, ../../scss/theme/theme.scss */
+/* line 219, ../../scss/theme/theme.scss */
 .hover-list > * {
   flex: 1;
   text-align: left;
 }
-/* line 167, ../../scss/theme/theme.scss */
+/* line 222, ../../scss/theme/theme.scss */
 .hover-list > *:last-child {
   text-align: right;
 }
-/* line 171, ../../scss/theme/theme.scss */
+/* line 226, ../../scss/theme/theme.scss */
 .hover-list:hover {
   color: #1F38C5;
   background: #BABABA;
 }
 
-/* line 177, ../../scss/theme/theme.scss */
+/* line 232, ../../scss/theme/theme.scss */
 .hover-info {
   position: relative;
 }
-/* line 180, ../../scss/theme/theme.scss */
+/* line 235, ../../scss/theme/theme.scss */
 .hover-info.hover-info-x2:hover .hover-info-content {
   transform: translate(-50%, 100%);
   max-width: 200%;
   left: 50%;
 }
-/* line 187, ../../scss/theme/theme.scss */
+/* line 242, ../../scss/theme/theme.scss */
 .hover-info:hover .hover-info-content {
   transform: translateY(100%);
   display: block;
@@ -514,13 +584,14 @@ main {
   bottom: -5px;
   z-index: 99;
 }
-/* line 201, ../../scss/theme/theme.scss */
+/* line 255, ../../scss/theme/theme.scss */
 .hover-info .hover-info-content {
   display: none;
 }
 
-/* line 206, ../../scss/theme/theme.scss */
-.code-top, .code-bottom {
+/* line 260, ../../scss/theme/theme.scss */
+.code-top,
+.code-bottom {
   background: #04bca6;
   display: inline-block;
   font-weight: bold;
@@ -528,12 +599,12 @@ main {
   color: white;
 }
 
-/* line 214, ../../scss/theme/theme.scss */
+/* line 269, ../../scss/theme/theme.scss */
 .code-body {
   position: relative;
   padding: 20px;
 }
-/* line 217, ../../scss/theme/theme.scss */
+/* line 272, ../../scss/theme/theme.scss */
 .code-body:before {
   content: '';
   width: 3px;
@@ -544,17 +615,17 @@ main {
   position: absolute;
 }
 
-/* line 226, ../../scss/theme/theme.scss */
+/* line 283, ../../scss/theme/theme.scss */
 .code-element {
   display: flex;
   margin: 0 0 10px 0;
 }
-/* line 229, ../../scss/theme/theme.scss */
+/* line 286, ../../scss/theme/theme.scss */
 .code-element:last-child {
   margin-bottom: 0;
 }
 
-/* line 234, ../../scss/theme/theme.scss */
+/* line 291, ../../scss/theme/theme.scss */
 .code-title {
   display: inline-block;
   background: white;
@@ -563,18 +634,514 @@ main {
   margin-right: 10px;
 }
 
-/* line 243, ../../scss/theme/theme.scss */
+/* line 300, ../../scss/theme/theme.scss */
 .code-value:not(.input), .code-value.input input, .code-value.input textarea {
   padding: 2px 5px;
   background: transparent;
   color: #5369E4;
 }
 
-/* line 250, ../../scss/theme/theme.scss */
+/* line 309, ../../scss/theme/theme.scss */
 .todo {
   text-transform: uppercase;
   font-weight: bold;
   font-style: normal;
   background: orange;
   color: white;
+}
+
+/* line 318, ../../scss/theme/theme.scss */
+.forums .forum-post {
+  transition: all cubic-bezier(0.07, 0.95, 0, 1) 0.1s;
+  width: 100%;
+  display: flex;
+  border: 2px dashed white;
+  padding: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  color: white;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+/* line 329, ../../scss/theme/theme.scss */
+.forums .forum-post:hover {
+  background: white;
+  color: #1F38C5;
+}
+/* line 334, ../../scss/theme/theme.scss */
+.forums .icon {
+  height: 50px;
+  width: 50px;
+}
+/* line 337, ../../scss/theme/theme.scss */
+.forums .icon .bug-img {
+  background: url("../../../images/bug.ico") no-repeat left top;
+  height: 50px;
+  width: 50px;
+}
+/* line 342, ../../scss/theme/theme.scss */
+.forums .icon .feature-img {
+  background: url("../../../images/feature.ico") no-repeat left top/32px 32px;
+  height: 50px;
+  width: 50px;
+  image-rendering: optimizespeed;
+}
+/* line 348, ../../scss/theme/theme.scss */
+.forums .icon .type {
+  display: none;
+}
+/* line 352, ../../scss/theme/theme.scss */
+.forums .title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+/* line 357, ../../scss/theme/theme.scss */
+.forums .body {
+  font-size: 0.8em;
+}
+/* line 360, ../../scss/theme/theme.scss */
+.forums .about {
+  font-size: 0.8em;
+  margin-top: 10px;
+}
+/* line 363, ../../scss/theme/theme.scss */
+.forums .about span {
+  font-weight: bold;
+}
+
+/* line 369, ../../scss/theme/theme.scss */
+.pager {
+  margin-top: 10px;
+  padding: 15px;
+  border: 2px dashed white;
+  width: 100%;
+  box-sizing: border-box;
+}
+/* line 375, ../../scss/theme/theme.scss */
+.pager:before {
+  content: "Pager";
+  background: white;
+  color: #1F38C5;
+  text-align: center;
+  padding: 5px;
+  display: block;
+  margin-bottom: 15px;
+  margin-top: -15px;
+  margin-left: -15px;
+  width: calc(100% + 20px);
+}
+/* line 387, ../../scss/theme/theme.scss */
+.pager .pager-item {
+  color: white;
+  text-decoration: none;
+}
+/* line 390, ../../scss/theme/theme.scss */
+.pager .pager-item:hover {
+  text-decoration: underline;
+}
+/* line 395, ../../scss/theme/theme.scss */
+.pager .pager-item.is-active:before, .pager .pager-item.is-active:after, .pager .pager-item:hover:before, .pager .pager-item:hover:after {
+  display: inline-block;
+}
+/* line 399, ../../scss/theme/theme.scss */
+.pager .pager-item.is-active:before, .pager .pager-item:hover:before {
+  content: "[";
+}
+/* line 402, ../../scss/theme/theme.scss */
+.pager .pager-item.is-active:after, .pager .pager-item:hover:after {
+  content: "]";
+}
+
+/* line 409, ../../scss/theme/theme.scss */
+#notus-form-search-hld {
+  margin-bottom: 50px;
+  position: static;
+  transform: none;
+}
+
+/* line 416, ../../scss/theme/theme.scss */
+.form-field.select > div {
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 420, ../../scss/theme/theme.scss */
+.form-field.select .nice-select {
+  min-width: 200px;
+  position: relative;
+  cursor: pointer;
+  background: white;
+  color: #1F38C5;
+  padding: 2px;
+}
+/* line 427, ../../scss/theme/theme.scss */
+.form-field.select .nice-select:after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border-left: 2px solid #1F38C5;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #1F38C5;
+  transform: rotate(225deg);
+}
+/* line 438, ../../scss/theme/theme.scss */
+.form-field.select .nice-select ul {
+  display: none;
+  padding-left: 0;
+  list-style: none;
+  margin: 0 0 5px 0;
+  border-top: 1px solid;
+  padding-top: 5px;
+}
+/* line 445, ../../scss/theme/theme.scss */
+.form-field.select .nice-select ul li {
+  margin: 2px 0;
+}
+/* line 446, ../../scss/theme/theme.scss */
+.form-field.select .nice-select ul li:hover, .form-field.select .nice-select ul li.selected {
+  background: #182B99;
+  color: white;
+}
+/* line 454, ../../scss/theme/theme.scss */
+.form-field.select .nice-select.open:after {
+  transform: rotate(45deg);
+  top: 8px;
+}
+/* line 458, ../../scss/theme/theme.scss */
+.form-field.select .nice-select.open ul {
+  display: block;
+}
+
+/* line 467, ../../scss/theme/theme.scss */
+form .form-field .description .validates {
+  margin: 2px 0;
+  white-space: nowrap;
+}
+/* line 470, ../../scss/theme/theme.scss */
+form .form-field .description .validates span {
+  font-weight: bold;
+  color: #13fade;
+  text-transform: uppercase;
+}
+
+/* line 480, ../../scss/theme/theme.scss */
+.multi-field-content .remove {
+  display: inline-block;
+  background: #FF0000;
+  font-weight: bold;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+/* line 487, ../../scss/theme/theme.scss */
+.multi-field-content .add-field {
+  margin-top: 5px;
+}
+/* line 489, ../../scss/theme/theme.scss */
+.multi-field-content .add-field span {
+  background: black;
+  padding: 3px 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* line 498, ../../scss/theme/theme.scss */
+.profile-side-menu {
+  display: inline-block;
+  border-right: 4px double white;
+  width: 200px;
+  margin-right: 20px;
+}
+/* line 503, ../../scss/theme/theme.scss */
+.profile-side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+/* line 507, ../../scss/theme/theme.scss */
+.profile-side-menu .first-level {
+  position: relative;
+}
+/* line 509, ../../scss/theme/theme.scss */
+.profile-side-menu .first-level:before {
+  content: "";
+  width: 2px;
+  background: white;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+/* line 518, ../../scss/theme/theme.scss */
+.profile-side-menu .first-level > li > ul {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+/* line 521, ../../scss/theme/theme.scss */
+.profile-side-menu .first-level > li > ul li {
+  padding: 3px 0;
+  position: relative;
+  cursor: pointer;
+}
+/* line 527, ../../scss/theme/theme.scss */
+.profile-side-menu .first-level > li > ul li.is-active::before, .profile-side-menu .first-level > li > ul li:hover::before {
+  content: ">";
+  display: inline-block;
+  margin-right: 5px;
+  font-weight: bold;
+}
+/* line 537, ../../scss/theme/theme.scss */
+.profile-side-menu .title {
+  position: relative;
+  margin: 0 0 10px 0;
+  padding-right: 10px;
+  display: inline-block;
+  background: white;
+  color: #1F38C5;
+}
+/* line 544, ../../scss/theme/theme.scss */
+.profile-side-menu .title:before {
+  content: "+";
+  border: 2px solid white;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 10px;
+  padding-left: 4px;
+  box-sizing: border-box;
+  background: #1F38C5;
+  color: white;
+}
+
+/* line 559, ../../scss/theme/theme.scss */
+#notus-page-authentication-content .block-3 {
+  display: none;
+}
+
+/* line 563, ../../scss/theme/theme.scss */
+.profile-content {
+  margin-right: 20px;
+  border-right: 2px dotted;
+  padding: 20px 20px 20px 0;
+  border-right: 4px double;
+}
+/* line 568, ../../scss/theme/theme.scss */
+.profile-content .profile-picture {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  image-rendering: optimizespeed;
+  border: 6px solid white;
+}
+/* line 574, ../../scss/theme/theme.scss */
+.profile-content .profile-picture img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+/* line 579, ../../scss/theme/theme.scss */
+.profile-content .profile-picture .points, .profile-content .profile-picture .username {
+  position: absolute;
+  background: #04bca6;
+  color: white;
+  bottom: 0px;
+  left: 0;
+  padding: 2px 4px;
+}
+/* line 587, ../../scss/theme/theme.scss */
+.profile-content .profile-picture .username {
+  background: #182B99;
+  bottom: 20px;
+}
+/* line 593, ../../scss/theme/theme.scss */
+.profile-content .title {
+  margin-top: 20px;
+  background: white;
+  display: inline-block;
+  color: #1F38C5;
+  padding: 2px 5px;
+  margin-bottom: 5px;
+}
+/* line 601, ../../scss/theme/theme.scss */
+.profile-content .content {
+  max-width: 250px;
+}
+/* line 604, ../../scss/theme/theme.scss */
+.profile-content .content.null span {
+  display: inline-block;
+  padding: 2px 4px;
+  background: #FF0000;
+  color: white;
+}
+
+/* line 615, ../../scss/theme/theme.scss */
+#notus-page-post-content .block {
+  max-width: 570px;
+}
+
+/* line 621, ../../scss/theme/theme.scss */
+#notus-form-search-hld .form-todo {
+  display: none;
+}
+
+/* line 626, ../../scss/theme/theme.scss */
+.page-profile-content {
+  display: flex;
+  min-height: 100%;
+  border: 4px double;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+/* line 632, ../../scss/theme/theme.scss */
+.page-profile-content .stuff {
+  flex: 1;
+  padding: 20px 30px 0;
+}
+
+/* line 638, ../../scss/theme/theme.scss */
+.game-hld {
+  position: relative;
+  display: flex;
+  margin: 10px 10px 10px 0;
+}
+/* line 642, ../../scss/theme/theme.scss */
+.game-hld input {
+  position: absolute;
+  width: 124px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+/* line 652, ../../scss/theme/theme.scss */
+.game-hld input:checked + .game {
+  background: black;
+  color: white;
+  border-color: black;
+}
+/* line 656, ../../scss/theme/theme.scss */
+.game-hld input:checked + .game + .actions {
+  max-width: 110px;
+  padding: 15px;
+}
+/* line 664, ../../scss/theme/theme.scss */
+.game-hld:hover .game {
+  background: white;
+  color: #1F38C5;
+}
+/* line 669, ../../scss/theme/theme.scss */
+.game-hld .hover-info-content {
+  text-align: left;
+  white-space: nowrap;
+  max-width: 500%;
+}
+/* line 673, ../../scss/theme/theme.scss */
+.game-hld .hover-info-content span {
+  font-weight: bold;
+}
+/* line 677, ../../scss/theme/theme.scss */
+.game-hld .actions {
+  transition: all cubic-bezier(0.07, 0.95, 0, 1) 0.2s;
+  display: flex;
+  overflow: hidden;
+  max-width: 0;
+  background: black;
+  color: white;
+  padding: 15px 0;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: column;
+}
+/* line 688, ../../scss/theme/theme.scss */
+.game-hld .actions .delete {
+  background: #FF0000;
+  padding: 3px 5px;
+}
+/* line 692, ../../scss/theme/theme.scss */
+.game-hld .actions .download {
+  background: #1F38C5;
+  padding: 3px 5px;
+  margin-bottom: 10px;
+}
+
+/* line 700, ../../scss/theme/theme.scss */
+.game {
+  transition: all cubic-bezier(0.07, 0.95, 0, 1) 0.2s;
+  width: 100px;
+  text-align: center;
+  padding: 15px 10px;
+  border: 2px solid white;
+}
+/* line 706, ../../scss/theme/theme.scss */
+.game .icon {
+  display: inline-block;
+  background: url("../../../images/game.ico") no-repeat center center/32px 32px;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 10px;
+}
+
+/* line 714, ../../scss/theme/theme.scss */
+.header-title {
+  margin-top: 50px;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* line 722, ../../scss/theme/theme.scss */
+.my-games .header-title {
+  margin-top: 0;
+}
+/* line 725, ../../scss/theme/theme.scss */
+.my-games .games {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 733, ../../scss/theme/theme.scss */
+.popup .action.close span {
+  background: #111f6d;
+  cursor: pointer;
+}
+/* line 736, ../../scss/theme/theme.scss */
+.popup .action.close span:hover {
+  background: #04bca6;
+}
+
+/* line 743, ../../scss/theme/theme.scss */
+.popup-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  font-size: 15px;
+}
+
+/* line 754, ../../scss/theme/theme.scss */
+.messages .message {
+  margin-bottom: 5px;
+}
+/* line 756, ../../scss/theme/theme.scss */
+.messages .message span {
+  display: inline-block;
+  margin-right: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 2px 3px;
+}
+/* line 763, ../../scss/theme/theme.scss */
+.messages .message.message-error span {
+  background: #FF0000;
+}
+/* line 766, ../../scss/theme/theme.scss */
+.messages .message.message-success span {
+  background: #00ff8a;
+  color: black;
 }

@@ -1,0 +1,43 @@
+<div class="page-profile-content">
+<div class="profile-side-menu">
+    <ul class="first-level">
+        <li>
+            <span class="title">Profile</span>
+            <ul>
+                <li>about</li>
+                
+            </ul>
+        </li>        
+        <li>
+            <span class="title">Actions</span>
+            <ul>
+                <li>change_data</li>
+                <li>change_password</li>
+                <li data-fade-toggle="#logout">logout</li>
+                <li>delete_profile</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+{{ content.about.content|raw }}
+<div class="stuff">
+{{ content.my_games.content|raw }}
+{{ content.my_posts.content|raw }}
+</div>
+
+<div class="profile-popups">
+    <div class="popup-bg" id="logout">
+        {{ content.logout_form.content|raw }}
+    </div>
+</div>
+
+<div class="side-forms">
+<div class="side-form" id="change-data">
+    {{ content.change_profile.content|raw }}
+    </div>
+</div>
+
+</div>
+

@@ -1,7 +1,7 @@
 <?php
 namespace Notus\App\Forms\Forum;
 
-use Notus\Modules\{Form, User, Message\MessageController as MSG};
+use Notus\Modules\{Form, User, File, Forum, Message\MessageController as MSG};
 
 class NewPostForm extends Form\FormController
 {
@@ -20,21 +20,46 @@ class NewPostForm extends Form\FormController
     public function getRenderer(array $data) : array {
         $data = [
             'title' => [
-                'name' => 'title',
+                'title' => 'title',
                 'type' => 'text',
-                'limit' => '128',
                 'placeholder' => 'How to make post?',                
                 'description' => 'Title of post.',
-                'required' => TRUE,
-                'title' => 'title'
+                'validator' => [
+                    'required' => TRUE,
+                    'max' => '128',
+                ]
             ],
             'content' => [
-                'name' => 'password',
+                'title' => 'content',
                 'type' => 'textarea',
                 'placeholder' => 'Lorem ipsum dolar sit amet...',
                 'description' => 'Content of post.',
-                'required' => TRUE,
-                'title' => 'content'
+                'validator' => [
+                    'required' => TRUE,
+                ],
+            ],
+            'category' => [
+                'title' => 'type',
+                'type' => 'select',
+                'options' => [
+                    '1' => 'bug',
+                    '2' => 'feature',                    
+                ],
+                'validator' => [
+                    'required' => TRUE,
+                ]
+            ],
+            'is_published' => [
+                'title' => 'is_published',
+                'type' => 'checkbox',
+                'description' => 'Publish?'
+            ],
+            'attachments' => [
+                "name" => "attachment",
+                "type" => "multi_file",
+                "description" => "Attachments",
+                "title" => "attachments",
+                "max" => 10,
             ],
             'submit' => [
                 'name' => 'submit',
@@ -44,13 +69,30 @@ class NewPostForm extends Form\FormController
         ];
         return $data;
     }
-
-    public function validate(array &$data) : bool {
-        //TODO: Validate password & username
-        return TRUE;
-    }
     
     public function submit(array $data) : bool {
+        $file_ids = [];
+        $allowedTypes = ["riha", "txt", "png", "zip", "rar", "gif","jpg"];
+        foreach ($_FILES as $file) {
+            try{
+                $name = bin2hex(random_bytes(12));
+                $file_ids[] = File\FileController::upload($file, "attachments/$name",$allowedTypes);
+            }catch(\Exception $e){
+                MSG::addErrorMessage(["message" => $e->getMessage()]);
+                return FALSE;
+            }
+        }
+
+        $newPostData = [
+            "author_id" => User\Auth::isAuthorized(),
+            "title" => $data["title"],
+            "content" => $data["content"],
+            "type" => $data["category"],            
+            "status" => isset($data["is_published"]) ? 1:0                                    
+        ];
+
+        Forum\Post::create($newPostData, $file_ids);
+
         return TRUE;
     }
 }

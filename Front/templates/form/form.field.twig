@@ -44,10 +44,22 @@
 
         {% if field.description is not null %}
             <div class='description hover-info-content'> 
-            {{field.description}} 
-                {% if field.limit is not null %}
-                <div>[MAX: {{field.limit}}]</div>
-            {% endif %}
+                {{field.description}} 
+                {% if field.validator is not null %}
+                    {% for key, value in field.validator %}
+                        {% if key in ["one_of", "charset"]  %}
+                        {% else  %}
+                            {% if key == "required" %}
+                                {% if value == 1 %}
+                                    {% set value = "TRUE" %}
+                                {% else %}
+                                    {% set value = "false" %}
+                                {% endif %}                                
+                            {% endif %}
+                        <div class='validates'><span>{{key}}</span>: {{value}}</div>                
+                        {% endif %}                    
+                    {% endfor %}
+                {% endif %}
             </div>
         {% endif %}
 

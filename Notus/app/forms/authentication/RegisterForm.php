@@ -2,7 +2,7 @@
 namespace Notus\App\Forms\Authentication;
 
 use Notus\Modules\Form\FormController;
-use Notus\Modules\{User, Message\MessageController as MSG};
+use Notus\Modules\{User, Message\MessageController as MSG, Validator\Validator};
 
 class RegisterForm extends FormController
 {
@@ -21,23 +21,29 @@ class RegisterForm extends FormController
     public function getRenderer(array $data) : array {
         $data = [
             'username' => [
-                'name' => 'username',
+                'title' => 'username',                
                 'type' => 'text',
-                'limit' => '64',
                 'placeholder' => 'Username',                
                 'description' => 'Your username.',
-                'required' => TRUE,
-                'title' => 'username',
+                'validator' => [
+                    'max' => '64',
+                    'min' => '5', 
+                    'required' => TRUE,
+                    'charset' => 'legal_characters',                    
+                ]
             ],
             'password' => [
-                'name' => 'password',
+                'title' => 'password',                
                 'type' => 'password',
                 'limit' => '512',
                 'placeholder' => 'Password',
                 'description' => 'Your password.',
-                'required' => TRUE,
-                'title' => 'password',
-                
+                'validator' => [
+                    'max' => '512',
+                    'min' => '6', 
+                    'required' => TRUE,
+                    'charset' => 'legal_characters',                    
+                ]
             ],
             'password_re' => [
                 'name' => 'password_re',
@@ -50,33 +56,24 @@ class RegisterForm extends FormController
                 
             ],
             'email' => [
-                'name' => 'email',
+                'title' => 'email',                
                 'type' => 'email',
-                'limit' => '512',
                 'placeholder' => 'Email address',                
                 'description' => 'Your email address.',
-                'required' => TRUE,
-                'title' => 'email',
+                'validator' => [
+                    'required' => TRUE,
+                    'charset' => 'email',                    
+                ]
             ],
-            /*
-            'gender' => [
-                'name' => 'gender',
-                'type' => 'select',
-                'options' => [
-                    '-' => '-',
-                    'male' => 'Male',
-                    'female' => 'Female',
-                ],
-                'selected' => '-'
-            ],*/
             'is_developer' => [
-                'name' => 'is_developer',
+                'title' => 'is_developer', 
                 'type' => 'checkbox',
                 'description' => 'Are you a developer?',
-                'title' => 'is_developer',                             
+                'validator' => [
+                    'one_of' => [0, 1],
+                ]     
             ],
             'submit' => [
-                'name' => 'submit',
                 'type' => 'submit',
                 'value' => '>> run',
             ]
@@ -85,42 +82,34 @@ class RegisterForm extends FormController
     }
 
     public function validate(array &$data) : bool {
-        //TODO: Implement validation
-        $validationArray = [
-            'password' => [
-                'required' => TRUE,
-                'charset' => ['legal_characters'],
-                'min' => 6
-            ],
-            'username' => [
-                'required' => TRUE,
-                'charset' => ['legal_characters'],
-                'min' => 4               
-            ],
-            'email' => [
-                'required' => TRUE,
-                'charset' => ['email'],
-            ],
-            'is_developer' => [
-                'one_of' => [0, 1],
-                'required' => TRUE,                
-            ],
-        ];
-
         if ($data['password'] !== $data['password_re']) {
-            //TODO: Error password isn't matching
+            MSG::addErrorMessage(["message" => "Password ain't matching"]);
+            return FALSE;
         }
-
         return TRUE;
     }
     
     public function submit(array $data) : bool {
         //TODO: Register user.
-        User\Auth::register($data);
+        $registred = User\Auth::register($data);
+        $succMSG = "Your username has been 
+        created and a verification email has 
+        been sent to the email address you used 
+        to register. Please click on the link 
+        in the email to complete your registration. 
+        Without verification your registration and any 
+        other requests made during this process is 
+        not complete.";
 
+        MSG::conditionalMessage(
+            $registred, 
+            ['message' => $succMSG], 
+            ['message' => 'Something went wrong!']
+        );
+        
         //TODO: Send error message
     
-        return TRUE;
+        return $registred;
     }
 
 }

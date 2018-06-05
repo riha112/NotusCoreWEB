@@ -1,0 +1,16 @@
+<div class='form-field {{field.type|e}} code-element'>
+    {% if field.title is not null %}
+        <div class='input-title'><span class='code-title'> {{field.title}} <span></div>
+    {% endif %}
+
+
+    <div class="multi-field-content" data-nameing="{{field.type|e}}"  data-max="{{field.max}}">
+        <div class="field">
+            <input name="{{field.type|e}}-0" type="file">
+            <div class="remove">REMOVE</div>
+        </div>
+        <div class="add-field">
+        <span>++ ADD FIELD</span>
+        </div>
+    </div>
+</div>

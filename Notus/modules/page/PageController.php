@@ -5,6 +5,7 @@ use Siler\{Dotenv, Twig};
 use Notus\Modules\Message\MessageController as MSG;
 use Notus\Modules\Twig\TwigUtil;
 use Notus\App\Blocks\Cookie\CookieBlock;
+use Notus\Modules\Menu;
 
 class PageController implements PageInterface
 {
@@ -12,7 +13,10 @@ class PageController implements PageInterface
     protected static $params;
 
     public static function _init(array $params = []) {
-        if(!static::canView()) return;
+        if(!static::canView()) {
+            $_SESSION["ACCESS_DENIED"] = TRUE;
+            return;
+        }
 
         if(isset($_POST['AJAX'])){
             static::AJAX();
@@ -30,6 +34,8 @@ class PageController implements PageInterface
         $htmlData = static::getHTMLData($fullPageRendered);
         echo static::getRenderedHTML($htmlData);
         echo self::getSideRow();
+
+        $_SESSION["404"] =  FALSE;
     }
 
     protected static function AJAX() {
@@ -68,7 +74,10 @@ class PageController implements PageInterface
 
     private static function getRenderedPageHeader() : string {
         $templatePath = static::getPathToTemplate('page.header');
-        $output = Twig\render($templatePath);
+        $headerMenu = new Menu\Menu();
+        $headerMenu->load(2);
+        $renderedMenu = $headerMenu->getOutput();
+        $output = Twig\render($templatePath,["menu" => $renderedMenu]);
         return $output;
     }
 

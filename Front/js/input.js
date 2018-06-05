@@ -12,10 +12,35 @@
     }
   }
 
+  function MultiFileAdd() {
+    const fields = $(".multi-field-content");
+    fields.each(function(){
+      const $this = $(this);
+      let counter = 0;
+      const nameing = $this.attr("data-nameing");
+      const max = $this.attr("data-max");
+      let f = $this.find(".field");
+      f.find(".remove").click(function(){
+        $(this).parent().remove();
+      });
+      const field = f.clone(true);
+      $this.find(".add-field").click(function(){
+        $fields = $this.find(".field");
+        if(max <= $fields.length) return;
+
+        counter++;
+        let newDOM = field.clone(true);
+        newDOM.find("input").attr("name", nameing + "-" + counter);
+        newDOM
+        newDOM.insertBefore($(this));
+      });
+    });
+  }
+
   function initInput() {
     const $limiters = $('.form-field .limit');
     const inputData = [];
-
+    MultiFileAdd();
     [...$limiters].forEach((limiter) => {
       const $this = $(limiter);
       inputData.push({

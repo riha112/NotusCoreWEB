@@ -40,28 +40,30 @@ class MessageController
     }
 
     private static function addMessage(array $messageData, string $type) {
-        self::$bundle[$type] = $messageData;
+        self::$bundle[$type][] = $messageData;
         self::saveBundle();
     }
 
-    public static function getBundlesOutput() : void {
+    public static function getBundlesOutput() : string {
+        $output = "";
         if (isset($_SESSION['MESSAGES'])) {
-            foreach ($_SESSION['MESSAGES'] as $messageData) {
+            foreach ($_SESSION['MESSAGES'] as $type => $messageData) {
                 if(empty($messageData))
                     continue;
-                    
-                \var_dump($messageData);
-                //TODO: Add div output as
+                $template = "<div class='message message-$type'><span>$type:</span>%s</div>";
+                foreach ($messageData as $message) {
+                    $output .= \sprintf($template, $message["message"]);
+                }
             }
-            echo self::renderMessages($_SESSION['MESSAGES']);
             self::clearBundle();
         }
+        return $output;
     }
 
     private static function renderMessages($messages) : string {
        // $templatePath = self::getPathToTemplate();
       //  $output = Twig\render($templatePath, $messages);
-      $output = "";
+      //$output = "";
         return $output;
     }
 

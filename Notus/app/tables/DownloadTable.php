@@ -22,7 +22,7 @@ class DownloadTable extends DatabaseTableController
                 'title',
                 'description',
                 'type',
-                'path',
+                'file',
                 'created',
                 'size'                
             ]

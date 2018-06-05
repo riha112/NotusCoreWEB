@@ -49,15 +49,15 @@
         <div class='header'>
             <div class='file-name hover-list-name'>file_name:</div>
             <div class='file-type'>file_type:</div>
-            <div class='file-size'>file_size:</div>   
+            <div class='file-size'>file_size:</div> 
         </div>
         {% for attachment in block.attachments %}
-            <div class="hover-list {{attachment.type}}">
+            <a href="{{attachment.location}}" class="hover-list {{attachment.getType}}">
                 <div class='file-name hover-list-name'>{{attachment.name}}</div>
                 <div class='file-type'>{{attachment.type}}</div>
                 <div class='file-size'>{{attachment.size}}b</div>   
                 <div class='file-open'>Open</div>                
-            </div>
+            </a>
         {% endfor %}
     </div>
 </div>
@@ -69,7 +69,7 @@
             <div class="comment">
                 <div class='comment-author'>{{comment.username}}</div>
                 <div class='comment-date'>Posted on {{comment.created}}</div>
-                <div class='comment-content'>{{comment.content}}b</div>   
+                <div class='comment-content'>{{comment.content}}</div>   
             </div>
         {% endfor %}
     

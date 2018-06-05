@@ -49,12 +49,33 @@
     });
   }
 
+  function initFadeToggle(){
+    const elements = $("*[data-fade-toggle]");
+    elements.click(function(){
+      const $target = $($(this).attr("data-fade-toggle"));
+      $target.fadeToggle("fast");
+    });
+  }
+
+  function initPopup(){
+    const $popupsClose = $(".popup .close, .popup-bg .close");
+    $popupsClose.click(function(){
+      let $popupHld = $popupsClose.closest('.popup-bg');
+      if($popupHld.length <= 0){
+        $popupHld = $popupsClose.closest('.popup');   
+      }
+      $popupHld.fadeOut("fast");
+    });
+  }
+
   function initApp() {
     initNiceSelect();
     initMenu();
     initCookieManager();
     initFontSize();
     initToggable();
+    initPopup();
+    initFadeToggle();
   }
 
   

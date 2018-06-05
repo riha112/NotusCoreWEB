@@ -1,0 +1,24 @@
+<div class="my-games">
+    <div class='header-title'>
+        My Games [{{block.game_data|length}}]
+    </div>
+    <div class="games">
+        {% for game in block.game_data %}
+        <div class="game-hld  hover-info">
+            <input type="checkbox">                        
+            <div class='game'>
+                <div class="icon"></div>
+                <div class="title">{{game.title}}</div>
+            </div>
+            <div class="actions">
+                <div class="download">download</div>
+                <div class="delete">delete</div>
+            </div>
+            <div class="hover-info-content">
+                <div class="created"><span>Created on:</span>{{game.created}}</div>
+                <div class="modified"><span>Modified on:</span>{{game.modified}}</div>                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

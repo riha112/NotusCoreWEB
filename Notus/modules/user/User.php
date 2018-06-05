@@ -1,5 +1,7 @@
 <?php
 namespace Notus\Modules\User;
+use Notus\Modules\Database\Database as DB;
+
 class User
 {
     private $data = [];
@@ -13,16 +15,34 @@ class User
     }
 
     public function initData() : void {
-        try{
-            global $database;
-            // TODO: get "all" user data;
-        }catch( Exception $e ){
-            // TODO: msg stuff
+        $database = DB::getDatabase();
+        $userData = $database->select("user", [
+            "[>]user_data" => ["id" => "user_id"]
+        ],[
+            "user_data.name",
+            "user_data.surname",
+            "user_data.about",
+            "user_data.date_of_birth",
+            "user_data.profile_picture",
+            "user.username",
+            "user.email",      
+            "user.is_developer",      
+            "user.status",    
+            "user.id"                                                                                            
+        ],[
+            "user.id" => $this->id
+        ]);
+        if(\sizeof($userData) > 0){
+            $this->data = $userData[0];
         }
     }
 
     private function _setField(string $field, string $value) : void {
 
+    }
+
+    public function getID() : int {
+        return $this->id;
     }
 
     // NOTE: Move to new class UserData
@@ -61,4 +81,22 @@ class User
         return $this->data['email'] ?? NULL;
     }
 
+    public function getData() : array {
+        return $this->data;
+    }
+
+    private static function hasDataAbout($userID) : bool {
+        $database = DB::getDatabase();
+        $count = $database->count("user_data", ["user_id" => $userID]);
+        return $count > 0;
+    }
+
+    public static function insertAboutData(array $data){
+        $database = DB::getDatabase();
+        if(self::hasDataAbout($data["user_id"])){
+            $database->update("user_data", $data, ["user_id" => $data["user_id"]]);
+        }else{
+            $database->insert("user_data", $data);
+        }     
+    }
 }

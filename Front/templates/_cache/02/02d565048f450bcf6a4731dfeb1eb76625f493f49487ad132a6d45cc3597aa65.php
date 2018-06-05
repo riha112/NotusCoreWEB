@@ -91,7 +91,7 @@ class __TwigTemplate_5bbca03d639ab522ee3850b98f008a71aaaafe609b6ddc62815bdf42707
         <div class='header'>
             <div class='file-name hover-list-name'>file_name:</div>
             <div class='file-type'>file_type:</div>
-            <div class='file-size'>file_size:</div>   
+            <div class='file-size'>file_size:</div> 
         </div>
         ";
         // line 54
@@ -99,8 +99,10 @@ class __TwigTemplate_5bbca03d639ab522ee3850b98f008a71aaaafe609b6ddc62815bdf42707
         $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["block"] ?? null), "attachments", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["attachment"]) {
             // line 55
-            echo "            <div class=\"hover-list ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["attachment"], "type", array()), "html", null, true);
+            echo "            <a href=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["attachment"], "location", array()), "html", null, true);
+            echo "\" class=\"hover-list ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["attachment"], "getType", array()), "html", null, true);
             echo "\">
                 <div class='file-name hover-list-name'>";
             // line 56
@@ -115,7 +117,7 @@ class __TwigTemplate_5bbca03d639ab522ee3850b98f008a71aaaafe609b6ddc62815bdf42707
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["attachment"], "size", array()), "html", null, true);
             echo "b</div>   
                 <div class='file-open'>Open</div>                
-            </div>
+            </a>
         ";
         }
         $_parent = $context['_parent'];
@@ -149,7 +151,7 @@ class __TwigTemplate_5bbca03d639ab522ee3850b98f008a71aaaafe609b6ddc62815bdf42707
                 <div class='comment-content'>";
             // line 72
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "content", array()), "html", null, true);
-            echo "b</div>   
+            echo "</div>   
             </div>
         ";
         }
@@ -184,7 +186,7 @@ class __TwigTemplate_5bbca03d639ab522ee3850b98f008a71aaaafe609b6ddc62815bdf42707
 
     public function getDebugInfo()
     {
-        return array (  165 => 78,  160 => 75,  151 => 72,  147 => 71,  143 => 70,  140 => 69,  136 => 68,  131 => 66,  125 => 62,  115 => 58,  111 => 57,  107 => 56,  102 => 55,  98 => 54,  81 => 40,  73 => 35,  68 => 33,  56 => 26,  50 => 23,  34 => 10,  23 => 1,);
+        return array (  167 => 78,  162 => 75,  153 => 72,  149 => 71,  145 => 70,  142 => 69,  138 => 68,  133 => 66,  127 => 62,  117 => 58,  113 => 57,  109 => 56,  102 => 55,  98 => 54,  81 => 40,  73 => 35,  68 => 33,  56 => 26,  50 => 23,  34 => 10,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -240,15 +242,15 @@ class __TwigTemplate_5bbca03d639ab522ee3850b98f008a71aaaafe609b6ddc62815bdf42707
         <div class='header'>
             <div class='file-name hover-list-name'>file_name:</div>
             <div class='file-type'>file_type:</div>
-            <div class='file-size'>file_size:</div>   
+            <div class='file-size'>file_size:</div> 
         </div>
         {% for attachment in block.attachments %}
-            <div class=\"hover-list {{attachment.type}}\">
+            <a href=\"{{attachment.location}}\" class=\"hover-list {{attachment.getType}}\">
                 <div class='file-name hover-list-name'>{{attachment.name}}</div>
                 <div class='file-type'>{{attachment.type}}</div>
                 <div class='file-size'>{{attachment.size}}b</div>   
                 <div class='file-open'>Open</div>                
-            </div>
+            </a>
         {% endfor %}
     </div>
 </div>
@@ -260,7 +262,7 @@ class __TwigTemplate_5bbca03d639ab522ee3850b98f008a71aaaafe609b6ddc62815bdf42707
             <div class=\"comment\">
                 <div class='comment-author'>{{comment.username}}</div>
                 <div class='comment-date'>Posted on {{comment.created}}</div>
-                <div class='comment-content'>{{comment.content}}b</div>   
+                <div class='comment-content'>{{comment.content}}</div>   
             </div>
         {% endfor %}
     

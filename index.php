@@ -6,12 +6,15 @@ use Notus\Modules\Message\MessageController as MSG;
 use Notus\App\Pages;
 require_once __DIR__.'/vendor/autoload.php';
 
+ini_set('SMTP', 'mysmtphost'); 
+ini_set('smtp_port', 25); 
+
 if(!isset($_SESSION)) {
     session_start();
 }
 
 // Clear MSG log
-MSG::getBundlesOutput();
+//MSG::getBundlesOutput();
 //MSG::clearBundle();
 
 // Config variable init
@@ -37,6 +40,9 @@ $database = new Medoo([
 ]);
 
 // TODO: MOVE TO ROUTES.PHP
+Route\get('/api', 'Notus\App\Pages\ApiPage::_init');
+Route\post('/api', 'Notus\App\Pages\ApiPage::_init');
+
 Route\get('/', 'Notus\App\Pages\LandingPage::_init');
 Route\get('/login', 'Notus\App\Pages\AuthenticationPage::_init');
 Route\post('/login', 'Notus\App\Pages\AuthenticationPage::_init');
@@ -46,6 +52,18 @@ Route\post('/forum/new', 'Notus\App\Pages\NewPostPage::_init');
 
 Route\get('/forum', 'Notus\App\Pages\ForumPage::_init');
 Route\post('/forum', 'Notus\App\Pages\ForumPage::_init');
+
+Route\get('/profile', 'Notus\App\Pages\ProfilePage::_init');
+Route\post('/profile', 'Notus\App\Pages\ProfilePage::_init');
+
+if(isset($_SESSION["ACCESS_DENIED"]) && $_SESSION["ACCESS_DENIED"] == TRUE){
+    echo "ACCESS DENIED";
+    unset($_SESSION["ACCESS_DENIED"]);
+}elseif($_SESSION["404"] ?? TRUE == TRUE){
+    Notus\App\Pages\Page404::_init();
+    unset($_SESSION["404"]);    
+}
+
 
 // Saves msgs
 MSG::saveBundle();

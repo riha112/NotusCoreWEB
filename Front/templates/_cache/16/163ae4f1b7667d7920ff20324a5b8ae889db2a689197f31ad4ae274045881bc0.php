@@ -33,35 +33,37 @@ class __TwigTemplate_26fb017bd2a0846f7bbc7dba443b989b8216da7b2e84de3fab0a99548a3
         // line 2
         if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "url", array())) {
             // line 3
-            echo "        <a class='menu-link' href=\"";
+            echo "   
+        <a class='menu-link' href=\"";
+            // line 4
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "url", array()), "html", null, true);
             echo "\">
             ";
-            // line 4
+            // line 5
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "title", array()), "html", null, true);
             echo "
         </a>
     ";
         } else {
-            // line 7
+            // line 8
             echo "        <div class='menu-link'>
             ";
-            // line 8
+            // line 9
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "title", array()), "html", null, true);
             echo "
         </div>
     ";
         }
-        // line 11
+        // line 12
         echo "    ";
         if ( !(null === twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "description", array()))) {
-            // line 12
+            // line 13
             echo "    <span class='hover-info-content'>";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "description", array()), "html", null, true);
             echo "</span>
     ";
         }
-        // line 14
+        // line 15
         echo "</li>
 ";
     }
@@ -78,13 +80,14 @@ class __TwigTemplate_26fb017bd2a0846f7bbc7dba443b989b8216da7b2e84de3fab0a99548a3
 
     public function getDebugInfo()
     {
-        return array (  65 => 14,  59 => 12,  56 => 11,  50 => 8,  47 => 7,  41 => 4,  36 => 3,  34 => 2,  23 => 1,);
+        return array (  67 => 15,  61 => 13,  58 => 12,  52 => 9,  49 => 8,  43 => 5,  39 => 4,  36 => 3,  34 => 2,  23 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("<li class='menu-item {% if item.is_active %} is-active {% endif %} {% if item.description is not null %} hover-info {% endif %}'>
     {% if item.url %}
+   
         <a class='menu-link' href=\"{{ item.url }}\">
             {{item.title}}
         </a>

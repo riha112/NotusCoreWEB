@@ -1,7 +1,7 @@
 <?php
 namespace Notus\App\Forms\Forum;
 
-use Notus\Modules\{Form, User, Message\MessageController as MSG};
+use Notus\Modules\{Form, User, Message\MessageController as MSG, Validator\Validator};
 use Notus\Modules\Database\Database as DB;
 use Notus\Modules\User\Auth;
 
@@ -44,15 +44,25 @@ class NewCommentForm extends Form\FormController
 
     public function validate(array &$data) : bool {
         $post_ok = isset($_GET['post']) && is_numeric($_GET['post']);
-        $content_ok = isset($data['content']) && !empty($data['content']);
-        return $post_ok && $content_ok;
+        
+        $validationArray = [
+            'content' => [
+                'required' => TRUE,
+                'charset' => 'legal_characters_text',
+                'min' => 1,
+                'max' => 512,
+            ],
+        ];
+        $result = Validator::validate($data, $validationArray, TRUE);
+        return $post_ok && $result["is_valid"];
 
     }
     
     public function submit(array $data) : bool {
 
         $database = DB::getDatabase();
-        if($userID = Auth::isAuthorized() !== FALSE){
+        $userID = Auth::isAuthorized();
+        if($userID !== FALSE){
             $database->insert("comment", [
                 'post_id' => $_GET['post'],
                 'author_id' => $userID,

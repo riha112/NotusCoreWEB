@@ -1,4 +1,9 @@
-<div class='form-field {{field.type|e}}'>
+<div class='form-field {{field.type|e}} code-element'>
+    {% if field.title is not null %}
+        <div class='input-title'><span class='code-title'> {{field.title}} <span></div>
+    {% endif %}
+
+
     <select name='{{ field.name|e }}' >
         {% for value, option in field.options %}
             <option value='{{value|e}}'

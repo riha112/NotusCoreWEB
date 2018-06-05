@@ -27,6 +27,22 @@
 
         {{html.page.cookie_block|raw}}
 
+        {% if html.page.messages is not empty %}
+        <div class="popup-bg">
+            <div class="messages popup">
+                <div class="popup-title">
+                    Compiler output
+                </div>
+                <div class="popup-info">
+                    {{html.page.messages|raw}}
+                </div>
+                <div class='popup-actions'>
+                    <div class='action close'><span>close</span></div>
+                </div>  
+            </div>
+            </div>
+        {% endif %}
+
         <!--[if !IE]><!-->
         <div id='body-content'>
             {{ html.page.content|raw }}

@@ -18,7 +18,7 @@
             <div class='form-top-description code-top'>{{form.top_description|raw}}</div>
         {% endif %}
 
-        <form id='{{form.id}}' method='{{form.method}}' class='form code-body' action='#'>
+        <form id='{{form.id}}' method='{{form.method}}' enctype="multipart/form-data" class='form code-body' action='#'>
             {% for field in fields %}
                 {{ field|raw }}
             {% endfor %}

@@ -73,7 +73,7 @@ class __TwigTemplate_188c2b7dc32276ac91fa05e0ae7ce03a7a586d481198798b27f6656d77d
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "id", array()), "html", null, true);
             echo "' method='";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "method", array()), "html", null, true);
-            echo "' class='form code-body' action='#'>
+            echo "' enctype=\"multipart/form-data\" class='form code-body' action='#'>
             ";
             // line 22
             $context['_parent'] = $context;
@@ -153,7 +153,7 @@ class __TwigTemplate_188c2b7dc32276ac91fa05e0ae7ce03a7a586d481198798b27f6656d77d
             <div class='form-top-description code-top'>{{form.top_description|raw}}</div>
         {% endif %}
 
-        <form id='{{form.id}}' method='{{form.method}}' class='form code-body' action='#'>
+        <form id='{{form.id}}' method='{{form.method}}' enctype=\"multipart/form-data\" class='form code-body' action='#'>
             {% for field in fields %}
                 {{ field|raw }}
             {% endfor %}

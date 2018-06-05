@@ -1,18 +1,22 @@
 <?php
-namespace Notus\App\Forms\Authentication;
-
+namespace Notus\Modules\Validator;
+use Notus\Modules\Message\MessageController as MSG;
 class Validator
 {
+    private static $addToMessanger = false;
     /**
      * @return array['is_valid' => bool, 'msg' => string]
      */
-    public static function validate(array $data, array $rules) : array {
+    public static function validate(array $data, array $rules, bool $addToMessanger = false) : array {
         $overview = ['is_valid' => TRUE, 'msg' => []];
+        self::$addToMessanger = $addToMessanger;
         foreach ($rules as $field => $rule) {
 
-            $isRequired =  $rule['required'] ?? FALSE;
+            if(!isset($rule["validator"])) continue;
+            else $rule = $rule["validator"];
 
-            if ($dataField = $data[$field]) {
+            $isRequired =  $rule['required'] ?? FALSE;
+            if ($dataField = $data[$field] ?? FALSE) {
 
                 // Required
                 if (empty($dataField)){
@@ -44,7 +48,7 @@ class Validator
                     if (self::validateCharset($dataField, $rule['charset'])) {
                         
                     } else {
-                        self::addMessage($overview, $field, "Illegal characters detected");
+                        self::addMessage($overview, $field, "Contains unknown query");
                         // TODO: Character error
                     }
                 }
@@ -62,10 +66,10 @@ class Validator
                 } 
 
                 // Validates Min Max
-                if (!self::validateMinMax($dataField, $rule)) {
+                $minmax = self::validateMinMax($dataField, $rule);
+                if ($minmax !== TRUE) {
                     $overview['is_valid'] = FALSE;    
-                    self::addMessage($overview, $field, "Length");                
-                    // TODO: Min Max error
+                    self::addMessage($overview, $field, "Length " . $minmax);                
                 }
 
                 // Validate Regex
@@ -105,17 +109,16 @@ class Validator
 
         $charset = $rules['charset'] ?? FALSE;
         if($charset){
-            if(in_array(\strtolower($charset), 'integer', 'decimal')){
+            if(in_array(\strtolower($charset), ['integer', 'decimal'])){
                 $num = (float) $text;
             }
         }
-
         $result = TRUE;
-        if($isMin){
-            $result = ($num >= $isMin);
+        if($isMin && $num < $isMin){
+            $result = "too short. Min " . $isMin;
         }
-        if($isMax && $result){
-            $result = ($num <= $isMax);
+        if($isMax && $result && $num > $isMax){
+            $result = "too long. Max " . $isMax;
         }
         return $result;
 
@@ -124,10 +127,13 @@ class Validator
     private static function validateCharset(string $text, string $charset) {
         switch (\strtolower($charset)) {
             case 'decimal':
+                return self::isDecimal($text);
                 break;
             case 'integer':
+                return self::isInteger($text); 
                 break;
             case 'email':
+                return self::isEmail($text);
                 break;
             default:
                 return TRUE;
@@ -154,5 +160,8 @@ class Validator
     private static function addMessage(array &$output, string $field = '', string $msg = '') : void {
         $output['is_valid'] = FALSE;
         $output['msg'][$field][] = $msg;
+        if(self::$addToMessanger == TRUE){
+            MSG::addErrorMessage(['message' => 'Field "'. $field . '": ' . $msg]);
+        }
     }
 }

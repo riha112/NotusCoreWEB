@@ -4,6 +4,7 @@ namespace Notus\Modules\Forum;
 use Notus\Modules\Render\Renderable;
 use Notus\Modules\Message\MessageController as MSG;
 use Notus\Modules\Database\Database as DB;
+use Notus\Modules\File\FileController;
 
 class Post implements Renderable
 {
@@ -74,16 +75,19 @@ class Post implements Renderable
 
     private function getPostAttachments() : array {
         $database = DB::getDatabase();
-        $attachments = $database->select("post_attachment",[
-            "[>]file" => ["fid" => "id"]
-        ],[
-            "file.name",
-            "file.type",
-            "file.size",
-        ],[
-            "post_attachment.pid" => $this->postID
-        ]);        
-        return $attachments;
+        $attachments = $database->select("post_attachment",["fid"],["pid" => $this->postID]);        
+        
+        $attachment_ids = [];
+        foreach ($attachments as $attachment) {
+            $attachment_ids[] = $attachment['fid'];
+        }
+
+        $files = FileController::getFiles($attachment_ids);
+        $attachment_data = [];
+        foreach ($files as $file) {
+            $attachment_data[] = $file->rawData;    
+        }
+        return $attachment_data;
     }
 
     public function getPostComments() : array{
@@ -101,8 +105,16 @@ class Post implements Renderable
         ]);       
     }
 
-    public static function create(array $data) : void {
+    public static function create(array $data, array $attachments) : void {
         $database = DB::getDatabase();
+        $database->insert("post", $data);
+        $postID = $database->id();
+        foreach($attachments as $attachment){
+            $database->insert("post_attachment", [
+                "pid" => $postID,
+                "fid" => $attachment,
+            ]);
+        }
     }
 
     public function changeStatus(bool $status) : void {

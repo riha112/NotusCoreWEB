@@ -95,24 +95,48 @@ class __TwigTemplate_c4b8bde6a6385e34b9ef66c453cd8e1696479fd067d06debf32f568670b
         echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["html"] ?? null), "page", array()), "cookie_block", array());
         echo "
 
+        ";
+        // line 30
+        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["html"] ?? null), "page", array()), "messages", array()))) {
+            // line 31
+            echo "        <div class=\"popup-bg\">
+            <div class=\"messages popup\">
+                <div class=\"popup-title\">
+                    Compiler output
+                </div>
+                <div class=\"popup-info\">
+                    ";
+            // line 37
+            echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["html"] ?? null), "page", array()), "messages", array());
+            echo "
+                </div>
+                <div class='popup-actions'>
+                    <div class='action close'><span>close</span></div>
+                </div>  
+            </div>
+            </div>
+        ";
+        }
+        // line 45
+        echo "
         <!--[if !IE]><!-->
         <div id='body-content'>
             ";
-        // line 32
+        // line 48
         echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["html"] ?? null), "page", array()), "content", array());
         echo "
         </div>
     </body>
 
     ";
-        // line 36
+        // line 52
         if ( !(null === twig_get_attribute($this->env, $this->source, ($context["html"] ?? null), "end_scripts", array()))) {
-            // line 37
+            // line 53
             echo "        ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["html"] ?? null), "end_scripts", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["script"]) {
-                // line 38
+                // line 54
                 echo "            <script src='";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["script"], "src", array()));
                 echo ".js' type='text/javascript'></script>      
@@ -121,10 +145,10 @@ class __TwigTemplate_c4b8bde6a6385e34b9ef66c453cd8e1696479fd067d06debf32f568670b
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['script'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 40
+            // line 56
             echo "    ";
         }
-        // line 41
+        // line 57
         echo "    <!--<![endif]-->    
 </html>
 ";
@@ -142,7 +166,7 @@ class __TwigTemplate_c4b8bde6a6385e34b9ef66c453cd8e1696479fd067d06debf32f568670b
 
     public function getDebugInfo()
     {
-        return array (  128 => 41,  125 => 40,  116 => 38,  111 => 37,  109 => 36,  102 => 32,  95 => 28,  90 => 26,  81 => 21,  72 => 19,  67 => 18,  65 => 17,  59 => 15,  50 => 13,  45 => 12,  43 => 11,  38 => 8,  32 => 7,  30 => 6,  23 => 1,);
+        return array (  152 => 57,  149 => 56,  140 => 54,  135 => 53,  133 => 52,  126 => 48,  121 => 45,  110 => 37,  102 => 31,  100 => 30,  95 => 28,  90 => 26,  81 => 21,  72 => 19,  67 => 18,  65 => 17,  59 => 15,  50 => 13,  45 => 12,  43 => 11,  38 => 8,  32 => 7,  30 => 6,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -175,6 +199,22 @@ class __TwigTemplate_c4b8bde6a6385e34b9ef66c453cd8e1696479fd067d06debf32f568670b
     <body id='{{html.page.id}}'>
 
         {{html.page.cookie_block|raw}}
+
+        {% if html.page.messages is not empty %}
+        <div class=\"popup-bg\">
+            <div class=\"messages popup\">
+                <div class=\"popup-title\">
+                    Compiler output
+                </div>
+                <div class=\"popup-info\">
+                    {{html.page.messages|raw}}
+                </div>
+                <div class='popup-actions'>
+                    <div class='action close'><span>close</span></div>
+                </div>  
+            </div>
+            </div>
+        {% endif %}
 
         <!--[if !IE]><!-->
         <div id='body-content'>
