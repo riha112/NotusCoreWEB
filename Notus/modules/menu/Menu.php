@@ -89,4 +89,7 @@ class Menu
         return $render;
     }
 
+    public static function MakeMenu(array $data){
+
+    }
 }

@@ -14,6 +14,18 @@ class User
         }
     }
 
+    public function passwordCorrect($password) {
+        if(isset($this->id)){
+            $database = DB::getDatabase();
+            $result = $database->select("user", ["password"], ["id" => $this->id]);
+            if(\sizeof($result) > 0) {
+                $passwordHash = $result[0]["password"];
+                return password_verify($password, $passwordHash);
+            }
+        }
+        return FALSE;
+    }
+
     public function initData() : void {
         $database = DB::getDatabase();
         $userData = $database->select("user", [
@@ -83,20 +95,5 @@ class User
 
     public function getData() : array {
         return $this->data;
-    }
-
-    private static function hasDataAbout($userID) : bool {
-        $database = DB::getDatabase();
-        $count = $database->count("user_data", ["user_id" => $userID]);
-        return $count > 0;
-    }
-
-    public static function insertAboutData(array $data){
-        $database = DB::getDatabase();
-        if(self::hasDataAbout($data["user_id"])){
-            $database->update("user_data", $data, ["user_id" => $data["user_id"]]);
-        }else{
-            $database->insert("user_data", $data);
-        }     
     }
 }

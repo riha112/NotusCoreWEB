@@ -6,7 +6,7 @@ use Notus\Modules\Message\MessageController as MSG;
 use Notus\Modules\Database\Database as DB;
 use Notus\Modules\File\FileController;
 
-class Post implements Renderable
+class Post
 {
     public $postID; 
     private $data = [];
@@ -117,6 +117,18 @@ class Post implements Renderable
         }
     }
 
+    public static function changeContent(int $postID, array $data) : void {
+        $insertDataFilter = ["title", "content", "type", "status"];
+        $insertData = [];
+        foreach ($insertDataFilter as $filter) {
+            if(isset($data[$filter]) && !empty($data[$filter])){
+                $insertData[$filter] = $data[$filter];
+            }
+        }
+        $database = DB::getDatabase();
+        $database->update("post", $insertData, ["id" => $postID]);        
+    }
+
     public function changeStatus(bool $status) : void {
         $database = DB::getDatabase();
         $database->update("post", [
@@ -192,19 +204,6 @@ class Post implements Renderable
                 "is_like" => $state
             ]
         ]);   
-    }
-
-    // -- From Renderable --
-    public function getID() : string {
-        return "notus-post-" . $this->postID;
-    }
-
-    public function getRenderArray() : array {
-        return $this->data;
-    }
-
-    public function getRenderTemplate() : string {
-        return Notus\Modules\Twig\TwigUtil::getRenderTemplate('post', $this->getID(), 'post.html');
     }
 
 

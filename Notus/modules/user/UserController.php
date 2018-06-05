@@ -28,7 +28,7 @@ class UserController
 
     public static function emailExists(string $email) : bool {
         $database = DB::getDatabase();
-        $result = $database->count("user", ["email" => $email]);
+        $result = $database->count("user", ["email" => $email, "status[!]" => 3]);
         return $result > 0;
     }
 
@@ -55,8 +55,19 @@ class UserController
         }
     }
 
-    public static function changeUserData(User $user, array $data) : void {
-        
+    private static function hasDataAbout($userID) : bool {
+        $database = DB::getDatabase();
+        $count = $database->count("user_data", ["user_id" => $userID]);
+        return $count > 0;
+    }
+
+    public static function insertAboutData(array $data){
+        $database = DB::getDatabase();
+        if(self::hasDataAbout($data["user_id"])){
+            $database->update("user_data", $data, ["user_id" => $data["user_id"]]);
+        }else{
+            $database->insert("user_data", $data);
+        }     
     }
 
     public static function banUser(User $user) : void {

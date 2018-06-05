@@ -91,7 +91,7 @@ class ChangeProfileForm extends Form\FormController
             }
         }
 
-        User\User::insertAboutData($newUserData);
+        User\UserController::insertAboutData($newUserData);
 
         return TRUE;
     }

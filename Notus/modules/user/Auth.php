@@ -97,19 +97,32 @@ class Auth
     }
 
     public static function setUserAsRegistered($user) : void {
-        $database = DB::getDatabase();
-        $database->update("user", ["status" => 1], ["id" => $user]);
+        self::changeUserState($user, 1);
     } 
+
+    public static function setUserAsBanned($user) : void {
+        self::changeUserState($user, 2);
+    } 
+
+    public static function setUserAsDeleted($user) : void {
+        self::changeUserState($user, 3);
+    } 
+
+    private static function changeUserState(int $user, int $state) : void {
+        $database = DB::getDatabase();
+        $database->update("user", ["status" => $state], ["id" => $user]);
+    } 
+
 
     private static function sendPasswordChangingMessage($user) : void {
         // TODO: Check if user exists with that email address
         // TODO: Pass message with url+token, and email to Mailer class
     }
     
-    public static function changePassword($user, $newPassword){
+    public static function changePassword($userID, $newPassword){
         $password = password_hash($newPassword, PASSWORD_DEFAULT);
         $database = DB::getDatabase();
-        $database->update("user", ["password" => $password], ["id" => $user]);
+        $database->update("user", ["password" => $password], ["id" => $userID]);
     }
 
     public static function isAuthorized() {
