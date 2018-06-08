@@ -6,6 +6,7 @@ use Notus\Modules\User\Auth;
 use Notus\Modules\Database\Database as DB;
 use Notus\Modules\Token;
 use Notus\Modules\Message\MessageController as MSG;
+use Notus\Modules\Game\GameController;
 class ApiPage
 {
     public static function _init() {
@@ -30,8 +31,12 @@ class ApiPage
                 die();
             break;
             case "save_game":
+                echo self::saveUserGame();
+                die();
             break;
             case "load_game":
+                echo self::getUserGame();
+                die();
             break;
             case "load_all_games":
                 echo self::getUserGames();
@@ -68,7 +73,7 @@ class ApiPage
                 "user_id" => $userID,
                 "type" => 3,
             ], 356);
-            return $token["hash_key"];
+            return "TOKEN: ". $token["hash_key"];
         }else{
             return "Wrong username or password";
         }
@@ -79,11 +84,68 @@ class ApiPage
         if($token){
             $tokenData = Token\Token::getTokenByKey($token);
             if(Token\Token::isTokenValid($tokenData) && $tokenData["type_id"] == 3){
-                return "Mygames";
+                $games = GameController::loadUserGames($tokenData["user_id"]);
+                $output = "GAMES: \n";
+                if(\sizeof($games) > 0){
+                    foreach ($games as $game) {
+                        $output .= $game["id"] . "|" . $game["title"] . "\n";
+                    }
+                }
+                return $output;
             }
             throw new \Exception("Wrong token");
         }
         throw new \Exception("No token detected");        
+    }
+
+
+    private static function getUserGame(){
+        $token = $_POST["key"] ?? FALSE;
+        $gameID = $_POST["game_id"] ?? FALSE;
+        if($token && $gameID){
+            $tokenData = Token\Token::getTokenByKey($token);
+            if(Token\Token::isTokenValid($tokenData) && $tokenData["type_id"] == 3){
+                $game = GameController::loadGame($gameID);
+                if($game != null){
+                    if($game["user_id"] == $tokenData["user_id"]){
+                        return "GAME_SAVE_DATA: " . $game["save_data"];
+                    }
+                }
+            }
+        }
+        return "ERROR";
+    }
+
+    private static function saveUserGame(){
+        $token = $_POST["key"] ?? FALSE;
+        $gameID = $_POST["game_id"] ?? FALSE;
+        $gameContent = $_POST["save_data"] ?? FALSE;
+        $gameTitle = $_POST["title"] ?? FALSE;
+        
+        if($token && $gameContent && $gameTitle){
+            $tokenData = Token\Token::getTokenByKey($token);
+            if(Token\Token::isTokenValid($tokenData) && $tokenData["type_id"] == 3){
+                if($gameID){
+                    $game = GameController::loadGame($gameID);
+                    if($game != null){
+                        if($game["user_id"] == $tokenData["user_id"]){
+                            GameController::updateGame($gameID, $gameContent);
+                            return "GAME_ID: " + $gameID;
+                        }
+                    }
+                }else{
+                    $data = [
+                        "title" => $gameTitle,
+                        "save_data" => $gameContent,
+                        "status" => 1,
+                        "user_id" => $tokenData["user_id"]
+                    ];
+                    $gameID = GameController::saveGame($data);
+                    return "GAME_ID: " . $gameID;
+                }
+            }
+        }
+        return "ERROR";
     }
 
 }

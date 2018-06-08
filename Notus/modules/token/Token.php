@@ -14,6 +14,7 @@ class Token
             "token.hash_key",
             "user.username",
             "user.status",
+            "user.id(user_id)",
             "token.user_id",
             "token.created",
             "token.expiration_date",
