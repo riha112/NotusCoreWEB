@@ -4,7 +4,7 @@ namespace Notus\App\Pages;
 use Notus\App\Blocks\Post;
 use Notus\Modules\Page;
 use Siler\{Dotenv};
-use Notus\Modules\Forum;
+use Notus\Modules\{Forum};
 use Notus\Modules\User\Auth;
 
 class ForumPage extends Page\PageController

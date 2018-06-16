@@ -24,7 +24,6 @@ class LoginForm extends Form\FormController
         }else{
             $_SESSION["LOGIN-FAIL"] = 1;
         }
-        \var_dump($_SESSION["LOGIN-FAIL"]);
         parent::inValid();
     }
 

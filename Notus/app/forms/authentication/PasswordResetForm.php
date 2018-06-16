@@ -70,6 +70,8 @@ class PasswordResetForm extends FormController
 
         if($token = Token\Token::createTokken($token_data)){
             // Send message
+           // User\Auth::sendPasswordChangingMessage($token["user_id"], $token["hash_key"]);
+
             return TRUE;
         }
         return FALSE;

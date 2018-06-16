@@ -1,0 +1,166 @@
+<?php
+
+/* page/notus-page-profile/page.content.twig */
+class __TwigTemplate_38b66b0bf49a41c108cba5e53350c1428eb61a8b962ad8fe959f837f382ac465 extends Twig_Template
+{
+    private $source;
+
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->parent = false;
+
+        $this->blocks = array(
+        );
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        // line 1
+        echo "<div class=\"page-profile-content\">
+<div class=\"profile-side-menu\">
+    <ul class=\"first-level\">
+        <li>
+            <span class=\"title\">Profile</span>
+            <ul>
+                <li>about</li>
+                
+            </ul>
+        </li>        
+        <li>
+            <span class=\"title\">Actions</span>
+            <ul>
+                <li data-fade-toggle=\"#change-data\">change_data</li>
+                <li data-fade-toggle=\"#change-password\">change_password</li>
+                <li data-fade-toggle=\"#logout\">logout</li>
+                <li data-fade-toggle=\"#delete-profile\">delete_profile</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+";
+        // line 24
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "about", array()), "content", array());
+        echo "
+<div class=\"stuff\">
+";
+        // line 26
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "my_games", array()), "content", array());
+        echo "
+";
+        // line 27
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "my_posts", array()), "content", array());
+        echo "
+</div>
+
+<div class=\"profile-popups\">
+    <div class=\"popup-bg\" id=\"logout\">
+        ";
+        // line 32
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "logout_form", array()), "content", array());
+        echo "
+    </div>
+    <div class=\"popup-bg\" id=\"delete-profile\">
+        ";
+        // line 35
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "delete_profile", array()), "content", array());
+        echo "
+    </div>
+        <div class=\"popup-bg\" id=\"change-data\">
+        ";
+        // line 38
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "change_profile", array()), "content", array());
+        echo "
+    </div>
+    <div class=\"popup-bg\" id=\"change-password\">
+        ";
+        // line 41
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "change_password", array()), "content", array());
+        echo "
+    </div>
+</div>
+
+<div class=\"side-forms\">
+
+</div>
+
+</div>
+
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "page/notus-page-profile/page.content.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  83 => 41,  77 => 38,  71 => 35,  65 => 32,  57 => 27,  53 => 26,  48 => 24,  23 => 1,);
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("<div class=\"page-profile-content\">
+<div class=\"profile-side-menu\">
+    <ul class=\"first-level\">
+        <li>
+            <span class=\"title\">Profile</span>
+            <ul>
+                <li>about</li>
+                
+            </ul>
+        </li>        
+        <li>
+            <span class=\"title\">Actions</span>
+            <ul>
+                <li data-fade-toggle=\"#change-data\">change_data</li>
+                <li data-fade-toggle=\"#change-password\">change_password</li>
+                <li data-fade-toggle=\"#logout\">logout</li>
+                <li data-fade-toggle=\"#delete-profile\">delete_profile</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+{{ content.about.content|raw }}
+<div class=\"stuff\">
+{{ content.my_games.content|raw }}
+{{ content.my_posts.content|raw }}
+</div>
+
+<div class=\"profile-popups\">
+    <div class=\"popup-bg\" id=\"logout\">
+        {{ content.logout_form.content|raw }}
+    </div>
+    <div class=\"popup-bg\" id=\"delete-profile\">
+        {{ content.delete_profile.content|raw }}
+    </div>
+        <div class=\"popup-bg\" id=\"change-data\">
+        {{ content.change_profile.content|raw }}
+    </div>
+    <div class=\"popup-bg\" id=\"change-password\">
+        {{ content.change_password.content|raw }}
+    </div>
+</div>
+
+<div class=\"side-forms\">
+
+</div>
+
+</div>
+
+", "page/notus-page-profile/page.content.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCoreWEB\\Front\\templates\\page\\notus-page-profile\\page.content.twig");
+    }
+}

@@ -21,38 +21,10 @@ class __TwigTemplate_abde6d39810b76ce5b9b9887dd55b90b3b1a6d5a619348eaf6d4a08a21e
     {
         // line 1
         echo "<nav>
-    <ul class='main-menu menu'>
-        <li>
-            <a class='menu-link' href=\"./\">
-                &lt;home.rih/&gt;
-            </a>
-        </li>
-        <li class='is-active'>
-            <a class='menu-link' href=\"./login\">
-            &lt;login.rih/&gt;
-            </a>
-        </li>
-        <li>
-            <a class='menu-link' href=\"./profile\">
-                &lt;profile.rih/&gt;
-            </a>
-        </li>
-        <li>
-            <a class='menu-link' href=\"./forum\">
-                &lt;forum.rih/&gt;
-            </a>
-        </li>
-        <li>
-            <a class='menu-link' href=\"./home\">
-            &lt;about.rih/&gt;
-            </a>
-        </li>
-        <li>
-            <a class='menu-link' href=\"./docs\">
-                &lt;docs.rih/&gt;
-            </a>
-        </li>
-    </ul>
+    ";
+        // line 2
+        echo ($context["menu"] ?? null);
+        echo "
 </nav>
 ";
     }
@@ -62,46 +34,20 @@ class __TwigTemplate_abde6d39810b76ce5b9b9887dd55b90b3b1a6d5a619348eaf6d4a08a21e
         return "page/page.header.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  23 => 1,);
+        return array (  26 => 2,  23 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("<nav>
-    <ul class='main-menu menu'>
-        <li>
-            <a class='menu-link' href=\"./\">
-                &lt;home.rih/&gt;
-            </a>
-        </li>
-        <li class='is-active'>
-            <a class='menu-link' href=\"./login\">
-            &lt;login.rih/&gt;
-            </a>
-        </li>
-        <li>
-            <a class='menu-link' href=\"./profile\">
-                &lt;profile.rih/&gt;
-            </a>
-        </li>
-        <li>
-            <a class='menu-link' href=\"./forum\">
-                &lt;forum.rih/&gt;
-            </a>
-        </li>
-        <li>
-            <a class='menu-link' href=\"./home\">
-            &lt;about.rih/&gt;
-            </a>
-        </li>
-        <li>
-            <a class='menu-link' href=\"./docs\">
-                &lt;docs.rih/&gt;
-            </a>
-        </li>
-    </ul>
+    {{ menu|raw }}
 </nav>
 ", "page/page.header.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCoreWEB\\Front\\templates\\page\\page.header.twig");
     }

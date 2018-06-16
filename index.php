@@ -6,8 +6,10 @@ use Notus\Modules\Message\MessageController as MSG;
 use Notus\App\Pages;
 require_once __DIR__.'/vendor/autoload.php';
 
-ini_set('SMTP', 'mysmtphost'); 
-ini_set('smtp_port', 25); 
+//ini_set('SMTP', 'mysmtphost'); 
+ini_set('smtp_port', 1025); 
+@ini_set('display_errors', 0);
+
 
 if(!isset($_SESSION)) {
     session_start();
@@ -47,14 +49,20 @@ Route\get('/', 'Notus\App\Pages\LandingPage::_init');
 Route\get('/login', 'Notus\App\Pages\AuthenticationPage::_init');
 Route\post('/login', 'Notus\App\Pages\AuthenticationPage::_init');
 
-Route\get('/forum/new', 'Notus\App\Pages\NewPostPage::_init');
-Route\post('/forum/new', 'Notus\App\Pages\NewPostPage::_init');
+Route\get('/post/new', 'Notus\App\Pages\NewPostPage::_init');
+Route\post('/post/new', 'Notus\App\Pages\NewPostPage::_init');
+
+Route\get('/post/edit', 'Notus\App\Pages\PostEditPage::_init');
+Route\post('/post/edit', 'Notus\App\Pages\PostEditPage::_init');
 
 Route\get('/forum', 'Notus\App\Pages\ForumPage::_init');
 Route\post('/forum', 'Notus\App\Pages\ForumPage::_init');
 
 Route\get('/profile', 'Notus\App\Pages\ProfilePage::_init');
 Route\post('/profile', 'Notus\App\Pages\ProfilePage::_init');
+
+Route\get('/docs', 'Notus\App\Pages\DocsPage::_init');
+
 
 if(isset($_SESSION["ACCESS_DENIED"]) && $_SESSION["ACCESS_DENIED"] == TRUE){
     echo "ACCESS DENIED";

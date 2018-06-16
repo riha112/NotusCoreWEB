@@ -121,11 +121,10 @@ class ApiPage
         $gameID = $_POST["game_id"] ?? FALSE;
         $gameContent = $_POST["save_data"] ?? FALSE;
         $gameTitle = $_POST["title"] ?? FALSE;
-        
         if($token && $gameContent && $gameTitle){
             $tokenData = Token\Token::getTokenByKey($token);
             if(Token\Token::isTokenValid($tokenData) && $tokenData["type_id"] == 3){
-                if($gameID){
+                if($gameID && $gameID != "0" && $gameID != 0){
                     $game = GameController::loadGame($gameID);
                     if($game != null){
                         if($game["user_id"] == $tokenData["user_id"]){

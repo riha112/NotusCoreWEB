@@ -73,7 +73,7 @@ class __TwigTemplate_50d929d10ced68a58fd320212c0d803cc9c60e9650b2a295d8f6c4ce391
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "id", array()), "html", null, true);
             echo "' method='";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "method", array()), "html", null, true);
-            echo "' class='form code-body' action='#'>
+            echo "' enctype=\"multipart/form-data\" class='form code-body' action='#'>
             ";
             // line 22
             $context['_parent'] = $context;
@@ -153,7 +153,7 @@ class __TwigTemplate_50d929d10ced68a58fd320212c0d803cc9c60e9650b2a295d8f6c4ce391
             <div class='form-top-description code-top'>{{form.top_description|raw}}</div>
         {% endif %}
 
-        <form id='{{form.id}}' method='{{form.method}}' class='form code-body' action='#'>
+        <form id='{{form.id}}' method='{{form.method}}' enctype=\"multipart/form-data\" class='form code-body' action='#'>
             {% for field in fields %}
                 {{ field|raw }}
             {% endfor %}
@@ -170,6 +170,6 @@ class __TwigTemplate_50d929d10ced68a58fd320212c0d803cc9c60e9650b2a295d8f6c4ce391
 
 
 
-", "form/form.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCore\\Front\\templates\\form\\form.twig");
+", "form/form.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCoreWEB\\Front\\templates\\form\\form.twig");
     }
 }

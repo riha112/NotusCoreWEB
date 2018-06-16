@@ -1,0 +1,36 @@
+<div id="docs">
+    <h1>Wellcome to .riha DOCS</h1>
+    <pre>
+        Learn use repeat.
+
+        #Data types
+        To define a new variable use following pattern: set [name] as [data_type]: value
+        Allowed data types: array, text, GLOBAL, number, boolean
+
+        Numbers: Can contain float or integer values:
+            set float as number: 10.4
+            set integer as number: 10
+        
+        Text: set string as text: "my text"
+        
+        Arrays can contain any type of data type
+        set my_array as array: ["test", 10, true]
+
+        GLOBAL: currently supports:
+            "PLAYER" - contains action for:
+                * object placing: place: [building_name, location]
+            "WORLD" - contains action for:
+                * retrieving free tile: freeTile
+        
+        Debug: to output value use command: print: [data_type]
+
+        Scopes: contains two types of scope:
+            condition: requires boolean
+            loop: requires number
+
+            to start scope type: scope [type]: [number]
+            to end scope type: end scope
+
+
+    </pre>
+</div>

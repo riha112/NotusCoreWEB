@@ -3,6 +3,7 @@ namespace Notus\Modules\User;
 use Notus\Modules\Message\MessageController as MSG;
 use Notus\Modules\Database\Database as DB;
 use Notus\Modules\Token\Token;
+use Notus\Modules\Mail\Mail;
 use \Exception as Exception;
 class Auth
 {
@@ -77,6 +78,7 @@ class Auth
             $token = Token::createTokken($tokrnData, 999);
 
             //Send mail;
+            self::sendAuthorizationMessage($data["email"], $token["hash_key"]);
         }
 
         return $success;
@@ -91,7 +93,8 @@ class Auth
         session_destroy();
     }
 
-    private static function sendAuthorizationMessage($who) : void {
+    private static function sendAuthorizationMessage($email, $token) : void {
+        Mail::mail($email, "Change Password", "To authorize: localhost/NotusCoreWEB/api?action=activate_profile&key=" . $token);
         // TODO: Make Mail class
         // TODO: Pass message with url+token, and email to Mailer class
     }
@@ -114,7 +117,8 @@ class Auth
     } 
 
 
-    private static function sendPasswordChangingMessage($user) : void {
+    private static function sendPasswordChangingMessage($email, $token) : void {
+        Mail::mail($email, "Change Password", "To change password visit: localhost/NotusCoreWEB/login?password_reset=" . $token);
         // TODO: Check if user exists with that email address
         // TODO: Pass message with url+token, and email to Mailer class
     }

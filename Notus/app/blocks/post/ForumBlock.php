@@ -17,7 +17,6 @@ class ForumBlock extends Block\BlockController
         $this->type = $type;
         $this->filter = $filter;      
         parent::__construct();
-        Mail\Mail::mail("denkfrt@inbo.lv", "register", "hi");
     }
 
     public function getID() : string {
