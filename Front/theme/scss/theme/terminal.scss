@@ -1,0 +1,44 @@
+.terminal{
+    padding: 10px 15px;
+    background: black;
+    color: #ccc;
+    .ddd--s-t-r-i-n-g--ddd{
+        &, .action, .data_type, .global, .number{
+            color: greenyellow;
+            font-weight: normal;
+            font-style: italic;
+        }
+    }
+    .variable{
+        &, .action, .data_type, .global, .ddd--s-t-r-i-n-g--ddd, .number{
+            color: #ccc;
+        }
+    }
+    .comment{
+        &, .action, .data_type, .global, .ddd--s-t-r-i-n-g--ddd, .number{
+            color: #555 !important;
+            font-weight: normal !important;
+            font-style: italic !important;
+        }
+    }
+    .number, .global{
+        color: greenyellow;
+        font-weight: normal;
+        font-style: italic;
+    }
+    .row{
+        min-height: 22px;
+    }
+    .action{
+        font-weight: bold;
+        color: white;
+    }
+    .data_type{
+        color: #F7F002;
+        font-style: italic;
+    }
+    .tab{
+        display: inline-block;
+        width: 22px;
+    }
+}

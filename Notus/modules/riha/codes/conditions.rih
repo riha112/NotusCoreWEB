@@ -1,0 +1,15 @@
+
+set par_one as number: 5
+set par_two as text: "5"
+
+print: par_one.equal: par_two 
+// Output: FALSE, value is the same, but data types don't match
+print: par_one.like: par_two 
+// Output: TRUE, only checks value
+print: par_one.equal_type: par_two
+// Output: FALSE, data types doesn't match
+print: par_one.less_than: par_two 
+// Output: FALSE, par2 is 1 character long
+print: par_one.bigger_than: par_two 
+// Output: TRUE
+

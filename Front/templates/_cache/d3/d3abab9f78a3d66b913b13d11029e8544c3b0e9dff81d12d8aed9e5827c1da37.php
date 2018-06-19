@@ -229,6 +229,6 @@ class __TwigTemplate_c0b44ba9ee29f601d008020ebe446d948b8e4094ab566145ff82ddff482
     {% endif %}
     <!--<![endif]-->    
 </html>
-", "page/page.html.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCoreWEB\\Front\\templates\\page\\page.html.twig");
+", "page/page.html.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCore\\Front\\templates\\page\\page.html.twig");
     }
 }

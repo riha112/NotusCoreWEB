@@ -59,6 +59,6 @@ class __TwigTemplate_b139ce4b8f3023b51be84a7d96331a3a3fc61dd9d8b9ec65e8cbe3105e0
     <div class=\"description\">{{content.description|raw}}</div>
     <div class=\"more\">{{content.todo}}</div>    
 </div>
-", "page/notus-page-404/page.content.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCoreWEB\\Front\\templates\\page\\notus-page-404\\page.content.twig");
+", "page/notus-page-404/page.content.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCore\\Front\\templates\\page\\notus-page-404\\page.content.twig");
     }
 }

@@ -1,0 +1,9 @@
+
+set num as number: 5
+print: num
+// Output: 5
+
+set arr as array: ["first", 1, TRUE]
+print: arr
+// Output: first, 1, TRUE
+

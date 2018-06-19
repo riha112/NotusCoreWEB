@@ -1,0 +1,8 @@
+
+scope loop: 5
+    print: loop.iteration
+    print: loop.index
+end scope
+// Output:
+// loop.iteration: 1 2 3 4 5
+// loop.index: 0 1 2 3 4 

@@ -1,0 +1,47 @@
+/* line 1, ../../scss/theme/terminal.scss */
+.terminal {
+  padding: 10px 15px;
+  background: black;
+  color: #ccc;
+}
+/* line 6, ../../scss/theme/terminal.scss */
+.terminal .ddd--s-t-r-i-n-g--ddd, .terminal .ddd--s-t-r-i-n-g--ddd .action, .terminal .ddd--s-t-r-i-n-g--ddd .data_type, .terminal .ddd--s-t-r-i-n-g--ddd .global, .terminal .ddd--s-t-r-i-n-g--ddd .number {
+  color: greenyellow;
+  font-weight: normal;
+  font-style: italic;
+}
+/* line 13, ../../scss/theme/terminal.scss */
+.terminal .variable, .terminal .variable .action, .terminal .variable .data_type, .terminal .variable .global, .terminal .variable .ddd--s-t-r-i-n-g--ddd, .terminal .variable .number {
+  color: #ccc;
+}
+/* line 18, ../../scss/theme/terminal.scss */
+.terminal .comment, .terminal .comment .action, .terminal .comment .data_type, .terminal .comment .global, .terminal .comment .ddd--s-t-r-i-n-g--ddd, .terminal .comment .number {
+  color: #555 !important;
+  font-weight: normal !important;
+  font-style: italic !important;
+}
+/* line 24, ../../scss/theme/terminal.scss */
+.terminal .number, .terminal .global {
+  color: greenyellow;
+  font-weight: normal;
+  font-style: italic;
+}
+/* line 29, ../../scss/theme/terminal.scss */
+.terminal .row {
+  min-height: 22px;
+}
+/* line 32, ../../scss/theme/terminal.scss */
+.terminal .action {
+  font-weight: bold;
+  color: white;
+}
+/* line 36, ../../scss/theme/terminal.scss */
+.terminal .data_type {
+  color: #F7F002;
+  font-style: italic;
+}
+/* line 40, ../../scss/theme/terminal.scss */
+.terminal .tab {
+  display: inline-block;
+  width: 22px;
+}

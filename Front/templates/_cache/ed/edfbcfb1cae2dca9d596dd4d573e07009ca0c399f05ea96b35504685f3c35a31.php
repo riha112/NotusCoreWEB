@@ -49,6 +49,6 @@ class __TwigTemplate_abde6d39810b76ce5b9b9887dd55b90b3b1a6d5a619348eaf6d4a08a21e
         return new Twig_Source("<nav>
     {{ menu|raw }}
 </nav>
-", "page/page.header.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCoreWEB\\Front\\templates\\page\\page.header.twig");
+", "page/page.header.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCore\\Front\\templates\\page\\page.header.twig");
     }
 }

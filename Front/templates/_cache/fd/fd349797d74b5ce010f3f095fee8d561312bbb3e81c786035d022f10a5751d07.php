@@ -22,6 +22,37 @@ class __TwigTemplate_43d6e6d94ecaea082ac844f96b976a60992aed789f1a1bd3558074b5ae1
         // line 1
         echo "<div id=\"docs\">
     <h1>Wellcome to .riha DOCS</h1>
+
+    <h2>Data types</h2>    
+    ";
+        // line 5
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "files", array()), "data_type", array());
+        echo "
+
+    <h2>Debuging</h2>    
+    ";
+        // line 8
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "files", array()), "debug", array());
+        echo "
+    
+    <h2>Conditions</h2>    
+    ";
+        // line 11
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "files", array()), "conditions", array());
+        echo "
+
+    <h2>Scopes</h2>    
+    <h3>Scope: check</h3>    
+    ";
+        // line 15
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "files", array()), "scope_check", array());
+        echo "
+    <h3>Scope: loop</h3>    
+    ";
+        // line 17
+        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["content"] ?? null), "files", array()), "scope_loop", array());
+        echo "
+
     <pre>
         Learn use repeat.
 
@@ -64,15 +95,36 @@ class __TwigTemplate_43d6e6d94ecaea082ac844f96b976a60992aed789f1a1bd3558074b5ae1
         return "page/notus-page-docs/page.content.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  23 => 1,);
+        return array (  53 => 17,  48 => 15,  41 => 11,  35 => 8,  29 => 5,  23 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("<div id=\"docs\">
     <h1>Wellcome to .riha DOCS</h1>
+
+    <h2>Data types</h2>    
+    {{content.files.data_type|raw}}
+
+    <h2>Debuging</h2>    
+    {{content.files.debug|raw}}
+    
+    <h2>Conditions</h2>    
+    {{content.files.conditions|raw}}
+
+    <h2>Scopes</h2>    
+    <h3>Scope: check</h3>    
+    {{content.files.scope_check|raw}}
+    <h3>Scope: loop</h3>    
+    {{content.files.scope_loop|raw}}
+
     <pre>
         Learn use repeat.
 
@@ -107,6 +159,6 @@ class __TwigTemplate_43d6e6d94ecaea082ac844f96b976a60992aed789f1a1bd3558074b5ae1
 
     </pre>
 </div>
-", "page/notus-page-docs/page.content.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCoreWEB\\Front\\templates\\page\\notus-page-docs\\page.content.twig");
+", "page/notus-page-docs/page.content.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCore\\Front\\templates\\page\\notus-page-docs\\page.content.twig");
     }
 }

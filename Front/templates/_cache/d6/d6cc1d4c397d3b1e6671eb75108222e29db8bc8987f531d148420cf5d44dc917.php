@@ -87,6 +87,6 @@ class __TwigTemplate_f359b575b3e0470ccd47e21c0c8215ad03c64ca108dc54491f7da31ac9b
     <div class='description'>
         DEVELOPED BY R!H/A
     </div>
-</div>", "page/page.footer.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\hello-siler\\Front\\templates\\page\\page.footer.twig");
+</div>", "page/page.footer.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCore\\Front\\templates\\page\\page.footer.twig");
     }
 }

@@ -1,0 +1,7 @@
+
+set num as number: 5
+scope check: num.lees_than: 6
+    print: "Num is under 6"
+end scope
+// Output: Num is under 6
+

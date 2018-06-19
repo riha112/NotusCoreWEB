@@ -100,6 +100,6 @@ class __TwigTemplate_09464a9a16b67f668d4b85750129d2edc2e71cce7f6df82912396ec6a82
     <span class='hover-info-content'>{{item.description}}</span>
     {% endif %}
 </li>
-", "menu/menu.item.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCoreWEB\\Front\\templates\\menu\\menu.item.twig");
+", "menu/menu.item.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\NotusCore\\Front\\templates\\menu\\menu.item.twig");
     }
 }

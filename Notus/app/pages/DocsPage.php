@@ -2,6 +2,7 @@
 namespace Notus\App\Pages;
 
 use Notus\Modules\Page;
+use Notus\Modules\Riha\RihaCompiler;
 use Siler\{Dotenv};
 
 class DocsPage extends Page\PageController
@@ -19,7 +20,9 @@ class DocsPage extends Page\PageController
     }
 
     protected static function getPagesContentData(array $data = []) : array {
-        $data = [];
+        $data = [
+            'files' => self::getDocsArray()
+        ];
         return ['content' => $data];
     }
     
@@ -38,6 +41,21 @@ class DocsPage extends Page\PageController
         $data['end_scripts']['landing_page'] = [
             'src' => $js_dir_url . 'landing-page/landing-page',
         ];
+    }
+
+    private static function getDocsArray() : array {
+        $files = [
+            'data_type',
+            'debug',
+            'scope_loop',
+            'scope_check',
+            'conditions'
+        ];
+        $output = [];
+        foreach ($files as $file) {
+            $output[$file] = RihaCompiler::render($file);
+        }
+        return $output;
     }
 
 }

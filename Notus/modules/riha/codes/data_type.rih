@@ -1,0 +1,14 @@
+
+// Numberics:
+set integer as number: 5
+set float as number: -1.25
+
+// Text
+set string as text: "Line of text"
+
+// Switch (true/false)
+set bool as boolean: TRUE
+
+// Array
+set list as array: ["text", 55, FALSE, "abc"]
+
